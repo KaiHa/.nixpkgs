@@ -1,153 +1,55 @@
 {
   allowUnfree = true;
 
-  firefox = {
-    enableGoogleTalkPlugin = true;
-    enableAdobeFlash = true;
-  };
+  diffoscope = { enableBloat = true; };
 
-  chromium = {
-    enablePepperFlash = true;
-    enablePepperPDF = true;
-  };
+  packageOverrides = super: with super; {
 
-
-  packageOverrides = pkgs_: with pkgs_;
-    let jdk = openjdk10; in {
-
-    gtk-config = import ./gtk-config {
-      inherit (pkgs) stdenv albatross;
-    };
-    termite-config = import ./termite-config {
+    _cfg-tmux = import ./cfg.tmux {
       inherit (pkgs) stdenv;
-      vte = gnome3.vte;
+      inherit (tmuxPlugins) open urlview;
     };
-    qtile-config = import ./qtile-config {
-      inherit (pkgs) stdenv;
-    };
-    bash-config = import ./bash-config {
-      inherit (pkgs) stdenv fzf; inherit jdk;
-    };
-    my_vim = import ./vim-config { inherit pkgs ; };
-    elixir-config = import ./elixir-config {
+
+    _cfg-urlview = import ./cfg.urlview {
       inherit (pkgs) stdenv;
     };
 
-    all = with pkgs; buildEnv {
-      name = "all";
+    _cfg-zsh = import ./cfg.zsh {
+      inherit (pkgs) stdenv;
+    };
+
+    myDefaultEnv = with pkgs; buildEnv {
+      name = "myDefaultEnv";
 
       paths = [
-        gtk-config
-        termite-config
-        qtile-config
-        bash-config
-        elixir-config
+        _cfg-tmux
+        _cfg-urlview
+        _cfg-zsh
+        alacritty
+        gitAndTools.git-annex
+        gitRepo
+        hack-font
+        mc
+        mosh
+        notmuch
+        shellcheck
+        tmux
+        urlview
+        zsh
+      ];
+    };
 
-        nix-repl
-        nix-prefetch-scripts
-        nixpkgs-lint
-        nixops
-        nox
-        patchelf
-        patchutils
-        appimage-run
+    myHeavyEnv = with pkgs; buildEnv {
+      name = "myHeavyEnv";
 
-        telnet
-        wireshark-gtk
-        bind
-        netcat-openbsd
-
-        termite
-        cv
-        powerline-fonts
-        clipit
-        xsel
-        ntfy
-
-        pasystray
-        pavucontrol
-        alsaUtils
-
-        blueman
-
-        arandr
-
-        gnumake
-
-        tree
-        inotify-tools
-        fzf
-        ripgrep
-        fd
-        ranger
-        my_vim
-        atom
-        typora
-
-        git
-        git-radar
-        gitg
-        meld
-        tig
-
-        bazaar
-        mercurial
-
-        zip
-        unzip
-        p7zip
-
-        bc
-
-        firefoxWrapper
-        chromium
-        httpie
-        mitmproxy
-
-        tokei
-        jq
-
-        go
-
-        erlangR21
-        beam.packages.erlangR21.elixir
-
-        nodejs-10_x
-        flow
-
-        jdk
-        maven
-        #idea.idea-ultimate
-        #heroku
-
-        python36
-        gcc
-
-        nim
-        ponyc
-
-        python36Packages.glances
-
-        python36Packages.docker_compose
-        gparted
-        proot
-        vagrant
-        ansible2
-
-        evince
-        libreoffice
-        vlc
-        ffmpeg
-        geeqie
-        pinta
-        inkscape
-        graphicsmagick
-        yed
-        zoom-us
-
-        deluge
-
-        hexchat
+      paths = [
+        myDefaultEnv
+        diffoscope
+        #_emacs
+        #_ghc
+        aspell
+        aspellDicts.de
+        aspellDicts.en
       ];
     };
   };

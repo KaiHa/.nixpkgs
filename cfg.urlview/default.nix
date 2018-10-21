@@ -1,14 +1,15 @@
 {stdenv}:
 
 stdenv.mkDerivation rec {
-  name = "elixir-config";
+  name = "config-urlview";
+
+  buildInputs = [ ];
 
   phases = [ "installPhase" ];
 
   src = ./.;
 
   installPhase = ''
-    install -dm 755 $out/userHome
-    cp $src/.iex.exs $out/userHome/
+    install -D $src/urlview $out/target-home/.urlview
   '';
 }
