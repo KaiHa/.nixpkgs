@@ -9,6 +9,10 @@
       inherit (pkgs) stdenv;
     };
 
+    _cfg-mc = import ./cfg.mc {
+      inherit (pkgs) stdenv;
+    };
+
     _cfg-tmux = import ./cfg.tmux {
       inherit (pkgs) stdenv;
       inherit (tmuxPlugins) open urlview;
@@ -27,6 +31,7 @@
 
       paths = [
         _cfg-alacritty
+        _cfg-mc
         _cfg-tmux
         _cfg-urlview
         _cfg-zsh
