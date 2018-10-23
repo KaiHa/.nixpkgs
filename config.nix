@@ -5,26 +5,11 @@
 
   packageOverrides = super: with super; {
 
-    _cfg-alacritty = import ./cfg.alacritty {
-      inherit (pkgs) stdenv;
-    };
-
-    _cfg-mc = import ./cfg.mc {
-      inherit (pkgs) stdenv;
-    };
-
-    _cfg-tmux = import ./cfg.tmux {
-      inherit (pkgs) stdenv;
-      inherit (tmuxPlugins) open urlview;
-    };
-
-    _cfg-urlview = import ./cfg.urlview {
-      inherit (pkgs) stdenv;
-    };
-
-    _cfg-zsh = import ./cfg.zsh {
-      inherit (pkgs) stdenv;
-    };
+    _cfg-alacritty = import ./cfg.alacritty { inherit (pkgs) stdenv; };
+    _cfg-mc        = import ./cfg.mc        { inherit (pkgs) stdenv; };
+    _cfg-tmux      = import ./cfg.tmux      { inherit (pkgs) stdenv; inherit (tmuxPlugins) open urlview; };
+    _cfg-urlview   = import ./cfg.urlview   { inherit (pkgs) stdenv; };
+    _cfg-zsh       = import ./cfg.zsh       { inherit (pkgs) stdenv; };
 
     myDefaultEnv = with pkgs; buildEnv {
       name = "myDefaultEnv";
