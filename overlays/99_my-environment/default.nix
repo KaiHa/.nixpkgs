@@ -5,6 +5,7 @@ rec {
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
   _cfg-git       = super.callPackage ./cfg.git       {};
   _cfg-mc        = super.callPackage ./cfg.mc        {};
+  _cfg-ssh       = super.callPackage ./cfg.ssh       {};
   _cfg-tmux      = super.callPackage ./cfg.tmux      { inherit (self.tmuxPlugins) open urlview; };
   _cfg-urlview   = super.callPackage ./cfg.urlview   {};
   _cfg-vim       = super.callPackage ./cfg.vim       {};
@@ -12,7 +13,6 @@ rec {
 
   myDefaultEnv = with self; buildEnv {
     name = "myDefaultEnv";
-
     paths = [
       _cfg-alacritty
       _cfg-git
@@ -35,9 +35,16 @@ rec {
     ];
   };
 
+  myPrivateEnv = with self; buildEnv {
+    name = "myPrivateEnv";
+    paths = [
+      _cfg-ssh
+    ];
+  };
+
+
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
-
     paths = [
       myDefaultEnv
       diffoscope

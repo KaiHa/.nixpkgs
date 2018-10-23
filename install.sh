@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 set -e
 
+selfdir=$(dirname $(readlink -f $0))
+env=${1:-myDefaultEnv}
+
 echo "Installing nix profile"
-nix-env -i myDefaultEnv
+if [[ "$env" != "myDefaultEnv" ]]; then
+  gpg --decrypt --output $selfdir/secret $selfdir/secret.gpg
+  trap "rm $selfdir/secret" EXIT
+  NIX_PATH=$NIX_PATH${NIX_PATH:+:}secret=$selfdir/secret
+fi
+
+nix-env -i $env
 
 echo "Creating dotfiles links in $HOME"
 ( cd "$HOME"
