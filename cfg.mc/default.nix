@@ -1,7 +1,7 @@
 {stdenv}:
 
 stdenv.mkDerivation rec {
-  name = "config-ini";
+  name = "config-mc";
 
   buildInputs = [ ];
 
