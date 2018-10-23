@@ -6,6 +6,7 @@
   packageOverrides = super: with super; {
 
     _cfg-alacritty = import ./cfg.alacritty { inherit (pkgs) stdenv; };
+    _cfg-git       = import ./cfg.git       { inherit (pkgs) stdenv; };
     _cfg-mc        = import ./cfg.mc        { inherit (pkgs) stdenv; };
     _cfg-tmux      = import ./cfg.tmux      { inherit (pkgs) stdenv; inherit (tmuxPlugins) open urlview; };
     _cfg-urlview   = import ./cfg.urlview   { inherit (pkgs) stdenv; };
@@ -17,6 +18,7 @@
 
       paths = [
         _cfg-alacritty
+        _cfg-git
         _cfg-mc
         _cfg-tmux
         _cfg-urlview

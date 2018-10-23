@@ -1,0 +1,45 @@
+# Settings in this file are overriden by the settings in ~/.gitconfig
+# (see section FILES in git-config(1))
+
+[user]
+  email = kai.harries@gmail.com
+  name = Kai Harries
+  signingkey = 9BF317AAADF833085154BEB55B9AFA98996CC931
+
+[color]
+  branch = auto
+  status = auto
+  diff = auto
+
+[alias]
+  d = difftool -t vimdiff
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+  lg = log --oneline --graph --decorate --pretty='format:%h %Cblue%G?%Creset  %s%Cgreen%d%Creset'
+  st = status --short
+
+[color "diff"]
+  frag = cyan
+  new = green
+  commit = yellow
+
+[color "branch"]
+  current = green
+
+[color "status"]
+  updated = green
+
+[color "decorate"]
+  branch = green
+  remoteBranch = red
+  tag = cyan
+  HEAD = blue
+
+[push]
+  default = nothing
+
+[core]
+  editor = vim
+  excludesfile = ~/.config/git/gitignore
+
+[pull]
+  rebase = true
