@@ -9,6 +9,7 @@
     _cfg-mc        = import ./cfg.mc        { inherit (pkgs) stdenv; };
     _cfg-tmux      = import ./cfg.tmux      { inherit (pkgs) stdenv; inherit (tmuxPlugins) open urlview; };
     _cfg-urlview   = import ./cfg.urlview   { inherit (pkgs) stdenv; };
+    _cfg-vim       = import ./cfg.vim       { inherit (pkgs) stdenv; };
     _cfg-zsh       = import ./cfg.zsh       { inherit (pkgs) stdenv; };
 
     myDefaultEnv = with pkgs; buildEnv {
@@ -19,6 +20,7 @@
         _cfg-mc
         _cfg-tmux
         _cfg-urlview
+        _cfg-vim
         _cfg-zsh
         alacritty
         gitAndTools.git-annex

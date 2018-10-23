@@ -1,0 +1,35 @@
+set directory=~/.cache/vim,~/,/tmp
+set backupdir=~/.cache/vim,~/,/tmp
+set viminfo+=n~/.cache/vim/viminfo
+
+set hlsearch
+set incsearch
+set nowrap
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set mouse=a
+set colorcolumn=81
+set modeline
+set history=4000
+hi ColorColumn ctermbg=7
+hi Pmenu ctermfg=0 ctermbg=7 guibg=Grey
+hi PmenuSel ctermfg=0 ctermbg=6 guibg=LightMagenta
+
+let python_highlight_indent_errors=1
+let g:xml_syntax_folding=1
+
+filetype on
+
+set background=light
+
+if &diff
+    set diffopt+=iwhite
+    syntax off
+    vnoremap ,p :diffput<cr>
+    vnoremap ,g :diffget<cr>
+    nnoremap ,u :diffupdate<cr>
+else
+    syntax on
+    set number
+endif
