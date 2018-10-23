@@ -7,7 +7,7 @@ heavily adapted to my needs.
 
 1. Use [nix](https://nixos.org/nix/) to manage all your user space
    programs
-   [declaratively](https://fix.me).
+   [declaratively](https://github.com/KaiHa/dotconfig-nixpkgs/blob/436a673d320fad9dabad22f2386a6d38c77705d4/overlays/99_my-environment/default.nix#L17).
 2. Prepare **dotfiles** with [injected](https://github.com/KaiHa/dotconfig-nixpkgs/blob/58cd4b4ce93645f494bfd24b3b27e9c97a8b2b7d/overlays/99_my-environment/cfg.tmux/default.nix#L15)
    dependencies from https://github.com/NixOS/nixpkgs and install it
    into **$out/target-home**.
