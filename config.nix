@@ -5,6 +5,10 @@
 
   packageOverrides = super: with super; {
 
+    _cfg-alacritty = import ./cfg.alacritty {
+      inherit (pkgs) stdenv;
+    };
+
     _cfg-tmux = import ./cfg.tmux {
       inherit (pkgs) stdenv;
       inherit (tmuxPlugins) open urlview;
@@ -22,6 +26,7 @@
       name = "myDefaultEnv";
 
       paths = [
+        _cfg-alacritty
         _cfg-tmux
         _cfg-urlview
         _cfg-zsh
