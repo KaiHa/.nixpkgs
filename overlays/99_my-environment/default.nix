@@ -22,6 +22,7 @@ rec {
       _cfg-urlview
       _cfg-vim
       _cfg-zsh
+      aescrypt
       alacritty
       gitAndTools.git-annex
       gitRepo
