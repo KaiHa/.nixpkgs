@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd ~/.mail/account.gmail/
+gmi sync

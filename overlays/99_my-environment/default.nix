@@ -4,6 +4,7 @@ rec {
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
   _cfg-git       = super.callPackage ./cfg.git       {};
+  _cfg-notmuch   = super.callPackage ./cfg.notmuch   {};
   _cfg-mc        = super.callPackage ./cfg.mc        {};
   _cfg-ssh       = super.callPackage ./cfg.ssh       {};
   _cfg-tmux      = super.callPackage ./cfg.tmux      { inherit (self.tmuxPlugins) open urlview; };
@@ -38,6 +39,7 @@ rec {
   myPrivateEnv = with self; buildEnv {
     name = "myPrivateEnv";
     paths = [
+      _cfg-notmuch
       _cfg-ssh
     ];
   };
