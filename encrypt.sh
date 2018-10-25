@@ -2,4 +2,4 @@
 
 selfdir=$(dirname $(readlink -f $0))
 
-aescrypt -e -p "$(sed 's/"//g' $selfdir/secret)" -o $1.aes $1
+aescrypt -e -p "$(gpg --decrypt "$selfdir/secret.gpg" | sed 's/"//g' )" -o $1.aes $1
