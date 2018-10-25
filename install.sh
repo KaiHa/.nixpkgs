@@ -8,6 +8,9 @@ echo "Creating dotfiles links in $HOME"
 ( cd "$HOME"
   while read -r src; do
       target=${src#.nix-profile/target-home/}
+      # hidden files are ignored by nix when linking into the profile,
+      # therefore we are replacing 'DOT.' here by '.'
+      target=${target//DOT\./.}
       if [[ $(readlink -f "$src") = $(readlink -f "$target") ]]; then
           echo "info: link $target already OK"
       elif [[ -e "$target" ]]; then

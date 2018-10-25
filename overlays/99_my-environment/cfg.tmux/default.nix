@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     install -dm 755 $out/target-home
-    substitute $src/tmux.conf $out/target-home/.tmux.conf \
+    substitute $src/tmux.conf $out/target-home/DOT.tmux.conf \
                --subst-var-by open    ${open}/share/tmux-plugins/open/open.tmux \
                --subst-var-by urlview ${urlview}/share/tmux-plugins/urlview/urlview.tmux
   '';

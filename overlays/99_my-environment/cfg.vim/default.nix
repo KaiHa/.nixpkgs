@@ -10,6 +10,6 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -D $src/vimrc $out/target-home/.vimrc
+    install -D $src/vimrc $out/target-home/DOT.vimrc
   '';
 }

@@ -10,6 +10,6 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -D $src/urlview $out/target-home/.urlview
+    install -D $src/urlview $out/target-home/DOT.urlview
   '';
 }

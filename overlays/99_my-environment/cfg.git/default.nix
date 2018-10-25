@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -D $src/config    $out/target-home/.config/git/config
-    install -D $src/gitignore $out/target-home/.config/git/gitignore
+    install -D $src/config    $out/target-home/DOT.config/git/config
+    install -D $src/gitignore $out/target-home/DOT.config/git/gitignore
   '';
 }
