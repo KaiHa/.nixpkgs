@@ -4,6 +4,7 @@ rec {
   emacs_custom = super.emacsWithPackages (p: [ self.ghostscript p.org ]);
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
+  _cfg-emacs     = super.callPackage ./cfg.emacs     { inherit (self.emacsPackages) org; };
   _cfg-git       = super.callPackage ./cfg.git       {};
   _cfg-notmuch   = super.callPackage ./cfg.notmuch   {};
   _cfg-mc        = super.callPackage ./cfg.mc        {};
@@ -17,6 +18,7 @@ rec {
     name = "myDefaultEnv";
     paths = [
       _cfg-alacritty
+      _cfg-emacs
       _cfg-git
       _cfg-mc
       _cfg-tmux
