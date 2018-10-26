@@ -49,7 +49,6 @@ rec {
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
     paths = [
-      myDefaultEnv
       diffoscope
       #_emacs
       #_ghc
