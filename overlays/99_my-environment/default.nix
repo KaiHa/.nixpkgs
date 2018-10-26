@@ -1,6 +1,7 @@
 self: super:
 rec {
-  diffoscope = super.diffoscope.override { enableBloat = true; };
+  diffoscope_custom = super.diffoscope.override { enableBloat = true; };
+  emacs_custom = super.emacsWithPackages (p: [ self.ghostscript p.org ]);
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
   _cfg-git       = super.callPackage ./cfg.git       {};
@@ -49,7 +50,7 @@ rec {
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
     paths = [
-      diffoscope
+      diffoscope_custom
       #_emacs
       #_ghc
       aspell
