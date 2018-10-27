@@ -56,7 +56,6 @@
                           gnus-summary-mode
                           google-maps-static-mode
                           ibuffer-mode
-                          interactive-haskell-mode
                           jde-javadoc-checker-report-mode
                           magit-branch-manager-mode
                           magit-cherry-mode
