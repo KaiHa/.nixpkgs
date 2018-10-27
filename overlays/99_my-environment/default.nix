@@ -18,7 +18,13 @@ rec {
   _cfg-vim       = super.callPackage ./cfg.vim       {};
   _cfg-zsh       = super.callPackage ./cfg.zsh       {};
 
-  myDefaultEnv = with self; buildEnv {
+  haskellPackages = super.haskellPackages.override {
+    overrides = hs_self: hs_super: {
+      _cfg-xmonad = hs_self.callPackage ./cfg.xmonad {};
+    };
+  };
+
+  myDefaultEnv = with self; let _cfg-xmonad = haskellPackages._cfg-xmonad; in buildEnv {
     name = "myDefaultEnv";
     paths = [
       _cfg-alacritty
@@ -28,6 +34,7 @@ rec {
       _cfg-tmux
       _cfg-urlview
       _cfg-vim
+      _cfg-xmonad
       _cfg-zsh
       aescrypt
       alacritty

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if setxkbmap -query | grep -q "layout:.*us"
+then
+    setxkbmap de
+else
+    setxkbmap us
+fi

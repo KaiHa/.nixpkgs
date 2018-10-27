@@ -1,0 +1,97 @@
+-- -*- mode: haskell -*-
+
+Config
+   { font =           "xft:Hack:size=10:antialias=true"
+   , additionalFonts = [ "xft:Nimbus Sans:size=10:bold:antialias=true"
+                       , "xft:Nimbus Sans:size=10:bold:antialias=true:slant=italic"
+                       , "xft:Nimbus Sans:size=10:antialias=true:slant=italic"
+                       , "xft:Nimbus Sans:size=10:antialias=true"
+                       , "xft:Symbola:size=14:bold:antialias=true"
+                       ]
+   , bgColor =      "#E4E4E4"
+   , fgColor =      "#090909"
+   , position =     BottomP 0 40
+   , border =       NoBorder
+
+   -- layout
+   , sepChar =  "%"   -- delineator between plugin names and straight text
+   , alignSep = "}{"  -- separator between left-right alignment
+   , template = "%StdinReader% }{ %XMonadLog% \
+                \<fn=0>%battery%</fn>\
+                \%memory% \
+                \%disku% \
+                \<action=`urxvt -hold -e vnstat` button=1>%dynnetwork%</action> \
+                \%wlp3s0wi%  \
+                \<action=`urxvt -fg white -bg black -geometry 130x43+150+15 -title wttr.in -name wttr.in -e bash -c 'curl wttr.in/hildesheim; read'` button=1>%date%</action>  \
+                \<action=`~/.config/xmonad/togglekb` button=1><fc=#005555>%kbd%</fc>(<fc=black>%locks%</fc>)</action> \
+                \<fc=dimgray>%default:Master%</fc>"
+
+
+   , lowerOnStart =     True    -- send to bottom of window stack on start
+   , hideOnStart =      False   -- start with window unmapped (hidden)
+   , allDesktops =      True    -- show on all desktops
+   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+   , pickBroadest =     False   -- choose widest display (multi-monitor)
+   , persistent =       True    -- enable/disable hiding (True = disabled)
+
+   , commands =
+        [ Run StdinReader
+        , Run XMonadLog
+        -- network activity monitor (dynamic interface resolution)
+        , Run DynNetwork     [ "--template" , "<fn=2><dev> </fn><fc=black>↑</fc><tx> <fc=black>↓</fc><rx><fn=1>kB/s</fn>"
+                             , "--Low"      ,  "100000"
+                             , "--High"     , "1400000"
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkgoldenrod"
+                             , "--high"     , "orangered"
+                             , "--minwidth" , "4"
+                             ] 50
+
+        , Run Wireless "wlp3s0" [ "--template", "<qualityvbar>"
+                                , "--low"      , "orangered"
+                                , "--normal"   , "darkgoldenrod"
+                                , "--high"     , "dimgray"
+                                ] 50
+
+        -- memory usage monitor
+        , Run Memory         [ "--template" ,"<icon=@datapath@/mem.xbm/><usedratio>%"
+                             , "--low"      , "black"
+                             , "--normal"   , "darkgoldenrod"
+                             , "--high"     , "orangered"
+                             ] 50
+
+        -- battery monitor
+        , Run Battery        [ "--template" , "<acstatus>"
+                             , "--low"      , "orangered"
+                             , "--normal"   , "darkgoldenrod"
+                             , "--high"     , "black"
+
+                             , "--" -- battery specific options
+                                       -- discharging status
+                                       , "-o"	, "<fn=5>🔋</fn><left>% <timeleft>h "
+                                       -- AC "on" status
+                                       , "-O"	, "<fn=5>🔌</fn><left>% "
+                                       -- charged status
+                                       , "-i"	, "<fc=forestgreen><fn=5>🔌 </fn></fc>"
+                             ] 150
+
+        , Run DiskU [("/", "<icon=@datapath@/disk.xbm/><usedp>%")] [ "--high"     , "orangered"
+                                                                   , "--normal"   , "darkgoldenrod"
+                                                                   , "--low"      , "black"
+                                                                   ] 50
+
+        -- time and date indicator
+        , Run Date           "<fn=4><fc=#454545>%a, %-d. %b</fc></fn> <fn=1><fc=black>%H:%M</fc></fn>" "date" 50
+
+        -- keyboard layout indicator
+        , Run Kbd            [("us", "<fc=#454545>us</fc>")]
+
+        , Run Locks
+        , Run Volume "default" "Master" ["-t", "<status><volumevbar>"
+                                        , "--", "--on",   "<icon=@datapath@/sound_on.xbm/>"
+                                              , "--off",  "<icon=@datapath@/sound_off.xbm/>"
+                                              , "--onc",  "#454545"
+                                              , "--offc", "#BB1111"
+                                        ] 50
+        ]
+   }

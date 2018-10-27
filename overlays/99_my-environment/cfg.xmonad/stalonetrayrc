@@ -1,0 +1,8 @@
+background "#E4E4E4"
+geometry 2x1-1-0
+icon_size 18
+kludges force_icons_size
+max_geometry 3x1
+skip_taskbar true
+sticky true
+window_type dock
