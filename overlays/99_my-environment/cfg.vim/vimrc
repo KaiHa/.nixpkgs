@@ -1,3 +1,5 @@
+silent ! mkdir -p ~/.cache/vim
+
 set directory=~/.cache/vim,~/,/tmp
 set backupdir=~/.cache/vim,~/,/tmp
 set viminfo+=n~/.cache/vim/viminfo
