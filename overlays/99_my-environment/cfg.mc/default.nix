@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -D $src/ini $out/target-home/DOT.config/mc/ini
-    install -D $src/mc.keymap $out/target-home/DOT.config/mc/mc.keymap
+    install -Dm 444 $src/ini $out/target-home/DOT.config/mc/ini
+    install -Dm 444 $src/mc.keymap $out/target-home/DOT.config/mc/mc.keymap
   '';
 }

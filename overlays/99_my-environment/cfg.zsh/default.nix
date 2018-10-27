@@ -10,6 +10,6 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -D $src/zshrc $out/target-home/DOT.config/zsh/zshrc
+    install -Dm 444 $src/zshrc $out/target-home/DOT.config/zsh/zshrc
   '';
 }
