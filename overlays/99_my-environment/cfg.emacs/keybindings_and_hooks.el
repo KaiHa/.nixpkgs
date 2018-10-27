@@ -1,3 +1,4 @@
+;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'c++-mode-hook     'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook       'rtags-start-process-unless-running)
 ;;(add-hook 'haskell-mode-hook (lambda ()
@@ -8,8 +9,10 @@
 (add-hook 'text-mode-hook    'flyspell-mode)
 (add-hook 'view-mode-hook    'evil-motion-state)
 
+;;;; File extension <-> modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 
-;; custom key-bindings
+;;;; Custom key-bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c a")   'org-agenda)
 (global-set-key (kbd "C-c b")   'org-iswitchb)
 (global-set-key (kbd "C-c c")   'org-capture)
