@@ -38,16 +38,30 @@ rec {
       _cfg-zsh
       aescrypt
       alacritty
+      dmenu
       gitAndTools.git-annex
       gitRepo
+      gmailieer
+      gmrun
       hack-font
+      lbdb
       mc
       mosh
+      ncdu
       notmuch
       shellcheck
+      stalonetray
       tmux
+      unclutter-xfixes
       urlview
+      weechat
+      xclip
       xmobar_custom
+      xorg.xbacklight
+      xorg.xev
+      xorg.xmessage
+      xrandr-invert-colors
+      zathura
       zsh
     ];
   };
@@ -64,12 +78,12 @@ rec {
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
     paths = [
-      diffoscope_custom
-      #_emacs
       #_ghc
       aspell
       aspellDicts.de
       aspellDicts.en
+      diffoscope_custom
+      emacs_custom
     ];
   };
 }
