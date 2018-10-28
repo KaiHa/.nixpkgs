@@ -4,8 +4,11 @@ rec {
 
   diffoscope_custom = super.diffoscope.override { enableBloat = true; };
   emacs_custom      = super.emacsWithPackages (p: [ self.ghostscript p.org ]);
+  gnupg             = super.gnupg.override { pinentry = self.pinentry; };
+  lbdb              = super.lbdb.override { inherit gnupg; goobook = self.python27Packages.goobook; };
   # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
   xmobar_custom     = pkgs1803.haskellPackages.xmobar;
+  zathura           = super.zathura.override { synctexSupport = false; };
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
   _cfg-emacs     = super.callPackage ./cfg.emacs     { inherit (self.emacsPackages) org; };
