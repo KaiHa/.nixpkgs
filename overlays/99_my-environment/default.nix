@@ -1,7 +1,11 @@
 self: super:
 rec {
+  pkgs1803 = import (fetchTarball https://nixos.org/channels/nixos-18.03/nixexprs.tar.xz) {};
+
   diffoscope_custom = super.diffoscope.override { enableBloat = true; };
-  emacs_custom = super.emacsWithPackages (p: [ self.ghostscript p.org ]);
+  emacs_custom      = super.emacsWithPackages (p: [ self.ghostscript p.org ]);
+  # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
+  xmobar_custom     = pkgs1803.haskellPackages.xmobar;
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
   _cfg-emacs     = super.callPackage ./cfg.emacs     { inherit (self.emacsPackages) org; };
@@ -36,6 +40,7 @@ rec {
       shellcheck
       tmux
       urlview
+      xmobar_custom
       zsh
     ];
   };
