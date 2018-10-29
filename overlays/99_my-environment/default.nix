@@ -27,7 +27,7 @@ rec {
     };
   };
 
-  myDefaultEnv = with self; let _cfg-xmonad = haskellPackages._cfg-xmonad; in buildEnv {
+  myDefaultEnv = with self; buildEnv {
     name = "myDefaultEnv";
     paths = [
       _cfg-alacritty
@@ -37,15 +37,12 @@ rec {
       _cfg-tmux
       _cfg-urlview
       _cfg-vim
-      _cfg-xmonad
       _cfg-zsh
       aescrypt
       alacritty
-      dmenu
       gitAndTools.git-annex
       gitRepo
       gmailieer
-      gmrun
       hack-font
       lbdb
       mc
@@ -53,19 +50,28 @@ rec {
       ncdu
       notmuch
       shellcheck
-      stalonetray
       tmux
-      unclutter-xfixes
       urlview
       weechat
       xclip
+      zathura
+      zsh
+    ];
+  };
+
+  myDesktopEnv = with self; buildEnv {
+    name = "myDesktopEnv";
+    paths = [
+      haskellPackages._cfg-xmonad
+      dmenu
+      gmrun
+      stalonetray
+      unclutter-xfixes
       xmobar_custom
       xorg.xbacklight
       xorg.xev
       xorg.xmessage
       xrandr-invert-colors
-      zathura
-      zsh
     ];
   };
 
