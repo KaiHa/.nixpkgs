@@ -410,7 +410,14 @@ export EDITOR=vim
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]
-then
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+if [ -f /etc/profile.d/nix.sh ]; then
+    . /etc/profile.d/nix.sh
+fi
+
+if [ -f /etc/profile.d/nix-daemon.sh ]; then
+    . /etc/profile.d/nix-daemon.sh
 fi
