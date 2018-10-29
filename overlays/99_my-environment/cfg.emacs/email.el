@@ -1,6 +1,5 @@
 (require 'evil)
 (require 'notmuch)
-(require 'org-notmuch "@org_notmuch@")
 
 (global-set-key (kbd "C-x n")   'notmuch)
 

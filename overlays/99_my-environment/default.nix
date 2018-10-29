@@ -3,7 +3,7 @@ rec {
   pkgs1803 = import (fetchTarball https://nixos.org/channels/nixos-18.03/nixexprs.tar.xz) {};
 
   diffoscope_custom = super.diffoscope.override { enableBloat = true; };
-  emacs_custom      = super.emacsWithPackages (p: [ self.ghostscript p.org ]);
+  emacs_custom      = super.emacsWithPackages (p: [ self.ghostscript ]);
   gnupg             = super.gnupg.override { pinentry = self.pinentry; };
   lbdb              = super.lbdb.override { inherit gnupg; goobook = self.python27Packages.goobook; };
   # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
@@ -11,7 +11,7 @@ rec {
   zathura           = super.zathura.override { synctexSupport = false; };
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
-  _cfg-emacs     = super.callPackage ./cfg.emacs     { inherit (self.emacsPackages) org; };
+  _cfg-emacs     = super.callPackage ./cfg.emacs     {};
   _cfg-git       = super.callPackage ./cfg.git       {};
   _cfg-notmuch   = super.callPackage ./cfg.notmuch   {};
   _cfg-mc        = super.callPackage ./cfg.mc        {};

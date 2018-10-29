@@ -1,9 +1,9 @@
-{stdenv, org}:
+{stdenv}:
 
 stdenv.mkDerivation rec {
   name = "config-emacs";
 
-  buildInputs = [ org ];
+  buildInputs = [ ];
 
   phases = [ "installPhase" ];
 
@@ -18,8 +18,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/ivy_et_al.el             $out/target-home/DOT.config/emacs/ivy_et_al.el
     install -Dm 444 $src/keybindings_and_hooks.el $out/target-home/DOT.config/emacs/keybindings_and_hooks.el
     install -Dm 444 $src/misc.el                  $out/target-home/DOT.config/emacs/misc.el
-
-    substitute $src/email.el                 $out/target-home/DOT.config/emacs/email.el \
-               --subst-var-by org_notmuch ${org}/share/org/contrib/lisp/org-notmuch.el
+    install -Dm 444 $src/email.el                 $out/target-home/DOT.config/emacs/email.el
   '';
 }
