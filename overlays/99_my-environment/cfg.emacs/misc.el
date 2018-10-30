@@ -52,32 +52,8 @@
 
  safe-local-variable-values '((bug-reference-bug-regexp . "\\(\\(?:[Ii]ssue \\|[Ff]ixe[ds] \\|[Rr]esolve[ds]? \\|[Cc]lose[ds]? \\|[Pp]\\(?:ull [Rr]equest\\|[Rr]\\) \\|(\\)#\\([0-9]+\\))?\\)"))
  shr-blocked-images ".*"
- tramp-default-proxies-alist '(("\\.fritz\\.box" "\\`root\\'" "/ssh:%h:"))
+ tramp-default-proxies-alist '(("\\.fritz\\.box" "\\`root\\'" "/ssh:%h:")))
 
- package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
-                    ("melpa"        . "https://melpa.org/packages/")
-                    ("gnu"          . "https://elpa.gnu.org/packages/"))
-
- ;; Package list; to reinstall call `package-install-selected-packages` ;;;;;;;;
- package-selected-packages '(bitbake
-                             counsel
-                             dante
-                             editorconfig
-                             evil
-                             flycheck-rust
-                             haskell-mode
-                             ivy
-                             ivy-historian
-                             ivy-hydra
-                             ivy-rich
-                             ivy-rtags
-                             magit
-                             markdown-mode
-                             nix-mode
-                             rtags
-                             rust-mode
-                             ;;scion
-                             yaml-mode))
 
 ;; reloading of frames (must happen after setting frame-background-mode)
 (mapc 'frame-set-background-mode (frame-list))

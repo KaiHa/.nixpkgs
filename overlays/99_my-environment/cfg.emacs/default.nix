@@ -19,5 +19,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/keybindings_and_hooks.el $out/target-home/DOT.config/emacs/keybindings_and_hooks.el
     install -Dm 444 $src/misc.el                  $out/target-home/DOT.config/emacs/misc.el
     install -Dm 444 $src/email.el                 $out/target-home/DOT.config/emacs/email.el
+    install -Dm 444 $src/packages.el              $out/target-home/DOT.config/emacs/packages.el
   '';
 }
