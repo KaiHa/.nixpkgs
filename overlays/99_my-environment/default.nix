@@ -38,6 +38,7 @@ rec {
       _cfg-urlview
       _cfg-vim
       _cfg-zsh
+      (aspellWithDicts (p: [ p.de p.en ] ))
       aescrypt
       alacritty
       emacs_custom
@@ -90,9 +91,6 @@ rec {
     name = "myHeavyEnv";
     paths = [
       #_ghc
-      aspell
-      aspellDicts.de
-      aspellDicts.en
       diffoscope_custom
     ];
   };
