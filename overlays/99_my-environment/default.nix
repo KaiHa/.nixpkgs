@@ -2,13 +2,16 @@ self: super:
 rec {
   pkgs1803 = import (fetchTarball https://nixos.org/channels/nixos-18.03/nixexprs.tar.xz) {};
 
-  diffoscope_custom = super.diffoscope.override { enableBloat = true; };
-  emacs_custom      = super.emacsWithPackages (p: [ self.ghostscript ]);
-  gnupg             = super.gnupg.override { pinentry = self.pinentry; };
-  lbdb              = super.lbdb.override { inherit gnupg; goobook = self.python27Packages.goobook; };
-  # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
-  xmobar_custom     = pkgs1803.haskellPackages.xmobar;
-  zathura           = super.zathura.override { synctexSupport = false; };
+  diffoscope = super.diffoscope.override { enableBloat = true; };
+  gnupg      = super.gnupg.override { pinentry = self.pinentry; };
+  lbdb       = super.lbdb.override { inherit gnupg; goobook = self.python27Packages.goobook; };
+  zathura    = super.zathura.override { synctexSupport = false; };
+
+  haskellPackages = super.haskellPackages.override {
+    overrides = hs_self: hs_super: {
+      _cfg-xmonad = hs_self.callPackage ./cfg.xmonad {};
+    };
+  };
 
   _cfg-alacritty = super.callPackage ./cfg.alacritty {};
   _cfg-emacs     = super.callPackage ./cfg.emacs     {};
@@ -20,12 +23,6 @@ rec {
   _cfg-urlview   = super.callPackage ./cfg.urlview   {};
   _cfg-vim       = super.callPackage ./cfg.vim       {};
   _cfg-zsh       = super.callPackage ./cfg.zsh       {};
-
-  haskellPackages = super.haskellPackages.override {
-    overrides = hs_self: hs_super: {
-      _cfg-xmonad = hs_self.callPackage ./cfg.xmonad {};
-    };
-  };
 
   myDefaultEnv = with self; buildEnv {
     name = "myDefaultEnv";
@@ -39,9 +36,9 @@ rec {
       _cfg-vim
       _cfg-zsh
       (aspellWithDicts (p: [ p.de p.en ] ))
+      (emacsWithPackages (p: [ ghostscript ]))
       aescrypt
       alacritty
-      emacs_custom
       gitAndTools.git-annex
       gitRepo
       gmailieer
@@ -66,11 +63,12 @@ rec {
     name = "myDesktopEnv";
     paths = [
       haskellPackages._cfg-xmonad
+      # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
+      pkgs1803.haskellPackages.xmobar
       dmenu
       gmrun
       stalonetray
       unclutter-xfixes
-      xmobar_custom
       xorg.xbacklight
       xorg.xev
       xorg.xmessage
@@ -91,7 +89,7 @@ rec {
     name = "myHeavyEnv";
     paths = [
       #_ghc
-      diffoscope_custom
+      diffoscope
     ];
   };
 }
