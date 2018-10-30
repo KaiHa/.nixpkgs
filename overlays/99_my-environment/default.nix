@@ -40,6 +40,7 @@ rec {
       _cfg-zsh
       aescrypt
       alacritty
+      emacs_custom
       gitAndTools.git-annex
       gitRepo
       gmailieer
@@ -48,6 +49,7 @@ rec {
       mc
       mosh
       ncdu
+      nix-zsh-completions
       notmuch
       shellcheck
       tmux
@@ -92,7 +94,6 @@ rec {
       aspellDicts.de
       aspellDicts.en
       diffoscope_custom
-      emacs_custom
     ];
   };
 }
