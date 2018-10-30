@@ -1,5 +1,4 @@
 (column-number-mode t)
-(hideshowvis-symbols)
 (menu-bar-mode t)
 (savehist-mode)
 (set-scroll-bar-mode nil)
@@ -67,7 +66,6 @@
                              evil
                              flycheck-rust
                              haskell-mode
-                             hideshowvis
                              ivy
                              ivy-historian
                              ivy-hydra
