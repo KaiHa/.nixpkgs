@@ -96,6 +96,7 @@ leftPP = def { L.ppCurrent = L.xmobarColor "black" "yellow" . L.wrap "[<fn=1>" "
              , L.ppSort    = getSortByXineramaPhysicalRule
 #endif
              , L.ppTitle   = L.wrap "<fn=3>" "</fn>" . L.xmobarColor "black"  "" . L.shorten 100
+             , L.ppTitleSanitize = \xs -> [if x `elem` "\n\r\\^<>" then ' ' else x | x <- xs]
              , L.ppVisible = L.xmobarColor "#cccccc" "#666600". L.wrap ".<fn=1>" "</fn>."
              , L.ppHidden  = \a -> case a of
                                      "hidden" -> ""
