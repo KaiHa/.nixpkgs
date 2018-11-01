@@ -6,7 +6,7 @@ env=${1:-myDefaultEnv}
 if [[ $# -ge 1 ]]; then shift; fi
 
 echo "Installing nix profile: $env $@"
-if [[ "$env" != "myDefaultEnv" ]]; then
+if [[ "$env" == "myPrivateEnv" ]]; then
   gpg --decrypt --output $selfdir/secret $selfdir/secret.gpg
   trap "rm $selfdir/secret" EXIT
   NIX_PATH=$NIX_PATH${NIX_PATH:+:}secret=$selfdir/secret
