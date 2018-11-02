@@ -4,10 +4,12 @@
                     ("gnu"          . "https://elpa.gnu.org/packages/"))
 
  package-selected-packages '(bitbake
+			     company-ghci
                              counsel
                              dante
                              editorconfig
                              evil
+			     flycheck-haskell
                              flycheck-rust
                              haskell-mode
                              ivy

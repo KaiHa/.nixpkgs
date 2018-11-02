@@ -21,13 +21,6 @@
  frame-title-format '(:eval (if (buffer-file-name) "Emacs %f" "Emacs %b"))
  gnutls-verify-error t
 
- haskell-compile-cabal-build-alt-command "cd %s && cabal clean -s && cabal new-build --ghc-option=-ferror-spans"
- haskell-compile-cabal-build-command     "cd %s &&                   cabal new-build --ghc-option=-ferror-spans"
- haskell-mode-hook '(haskell-decl-scan-mode
-		     haskell-indent-mode
-		     highlight-uses-mode
-		     interactive-haskell-mode)
-
  help-window-select t
  hs-hide-comments-when-hiding-all nil
  indent-tabs-mode nil

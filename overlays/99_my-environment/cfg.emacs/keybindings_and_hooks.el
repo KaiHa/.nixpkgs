@@ -1,9 +1,6 @@
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'c++-mode-hook     'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook       'rtags-start-process-unless-running)
-;;(add-hook 'haskell-mode-hook (lambda ()
-;;                               (local-set-key (kbd "C-c C-c") 'haskell-compile)
-;;                               (dante-mode)))
 (add-hook 'prog-mode-hook    'hs-minor-mode)
 (add-hook 'text-mode-hook    'auto-fill-mode)
 (add-hook 'text-mode-hook    'flyspell-mode)

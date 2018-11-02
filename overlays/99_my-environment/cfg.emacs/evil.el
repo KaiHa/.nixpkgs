@@ -55,6 +55,8 @@
                           gnus-server-mode
                           gnus-summary-mode
                           google-maps-static-mode
+			  haskell-error-mode
+			  haskell-interactive-mode
                           ibuffer-mode
                           jde-javadoc-checker-report-mode
                           magit-branch-manager-mode
