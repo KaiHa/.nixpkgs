@@ -43,6 +43,7 @@ rec {
       gitRepo
       gmailieer
       hack-font
+      haskellPackages.hlint
       lbdb
       mc
       mosh
