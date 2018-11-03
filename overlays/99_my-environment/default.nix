@@ -77,6 +77,28 @@ rec {
     ];
   };
 
+  myHaskellEnv = with self; buildEnv {
+    name = "myHaskellEnv";
+    paths = [
+      (haskellPackages.ghcWithPackages (p: with p; [
+        alex
+        bhoogle
+        cabal-install
+        doctest
+        happy
+        hoogle
+        X11
+      ]))
+      cabal2nix
+      fontconfig.dev
+      freetype.dev
+      pkgconfig
+      xorg.libX11.dev
+      xorg.libXft.dev
+      xorg.xproto
+    ];
+  };
+
   myPrivateEnv = with self; buildEnv {
     name = "myPrivateEnv";
     paths = [
