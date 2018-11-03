@@ -1,5 +1,6 @@
-{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE LambdaCase #-}
 
 module Main (main) where
 
@@ -13,8 +14,7 @@ import           XMonad.Actions.UpdatePointer
 import           XMonad.Actions.WindowBringer (gotoMenuArgs)
 import           XMonad.Actions.WindowGo
 import           XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
-import           XMonad.Hooks.ManageDocks (AvoidStruts)
-import           XMonad.Hooks.ManageDocks (docksEventHook)
+import           XMonad.Hooks.ManageDocks (AvoidStruts, docksEventHook)
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.UrgencyHook
 import           XMonad.Layout.Grid
@@ -98,9 +98,9 @@ leftPP = def { L.ppCurrent = L.xmobarColor "black" "yellow" . L.wrap "[<fn=1>" "
              , L.ppTitle   = L.wrap "<fn=3>" "</fn>" . L.xmobarColor "black"  "" . L.shorten 100
              , L.ppTitleSanitize = \xs -> [if x `elem` "\n\r\\^<>" then ' ' else x | x <- xs]
              , L.ppVisible = L.xmobarColor "#cccccc" "#666600". L.wrap ".<fn=1>" "</fn>."
-             , L.ppHidden  = \a -> case a of
-                                     "hidden" -> ""
-                                     a'       -> L.wrap "<fn=1>" "</fn>" a'
+             , L.ppHidden  = \case
+                                "hidden" -> ""
+                                a'       -> L.wrap "<fn=1>" "</fn>" a'
              , L.ppUrgent  = L.xmobarColor "yellow" "red" . L.wrap "<fn=1>" "*</fn>"
              , L.ppOrder   =  \(w:_:t:_) -> [w, t]
              }
@@ -127,7 +127,7 @@ load = do
   l <- logCmd "awk '{print $1, $2, $3}' /proc/loadavg"
   icon <- liftIO $ getDataFileName "cpu.xbm" >>= pure . \a -> "<icon=" ++ a ++ "/>"
   return $ case l of
-    Just load' -> Just $ icon ++ (unwords $ map colorize $ map read $ words load')
+    Just load' -> Just $ icon ++ unwords (map (colorize . read) $ words load')
     Nothing    -> Nothing
   where
     limit = 0.8 :: Double
@@ -165,7 +165,7 @@ shortcuts =
                                                            (\dsp ->
                                                               withWindowAttributes dsp win
                                                               (\attr ->
-                                                                 if (wa_map_state attr) == waIsViewable
+                                                                 if wa_map_state attr == waIsViewable
                                                                  then windows $ W.shiftWin "hidden" win
                                                                  else windows $ W.shiftHere win
                                                               )))
