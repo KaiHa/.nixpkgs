@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.nix-profile/share/emacs/site-lisp/")
+
 (setq
  package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
                     ("melpa"        . "https://melpa.org/packages/")
