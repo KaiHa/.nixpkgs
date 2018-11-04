@@ -1,5 +1,5 @@
 (require 'evil)
-(require 'notmuch)
+(require 'notmuch "@notmuch@")
 
 (global-set-key (kbd "C-x n")   'notmuch)
 
