@@ -3,6 +3,7 @@ rec {
   pkgs1803 = import (fetchTarball https://nixos.org/channels/nixos-18.03/nixexprs.tar.xz) {};
 
   diffoscope = super.diffoscope.override { enableBloat = true; };
+  emacs      = super.emacsWithPackages (p: [ self.ghostscript ]);
   gnupg      = super.gnupg.override { pinentry = self.pinentry; };
   lbdb       = super.lbdb.override { inherit gnupg; goobook = self.python27Packages.goobook; };
   zathura    = super.zathura.override { synctexSupport = false; };
@@ -36,9 +37,9 @@ rec {
       _cfg-vim
       _cfg-zsh
       (aspellWithDicts (p: [ p.de p.en ] ))
-      (emacsWithPackages (p: [ ghostscript ]))
       aescrypt
       alacritty
+      emacs
       gitAndTools.git-annex
       gitRepo
       gmailieer
