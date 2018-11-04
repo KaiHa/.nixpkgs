@@ -66,7 +66,6 @@ rec {
       haskellPackages._cfg-xmonad
       # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
       pkgs1803.haskellPackages.xmobar
-      acpitool
       dmenu
       gmrun
       stalonetray
