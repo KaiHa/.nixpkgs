@@ -58,6 +58,7 @@ rec {
       xclip
       zathura
       zsh
+      zsh-completions
     ];
   };
 
