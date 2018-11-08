@@ -49,8 +49,10 @@ rec {
       mc
       mosh
       ncdu
+      nitrokey-app
       nix-zsh-completions
       notmuch
+      pass
       shellcheck
       tmux
       urlview
