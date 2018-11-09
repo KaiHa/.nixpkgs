@@ -55,6 +55,7 @@ rec {
       pass
       shellcheck
       tmux
+      tmux.man
       urlview
       weechat
       xclip
