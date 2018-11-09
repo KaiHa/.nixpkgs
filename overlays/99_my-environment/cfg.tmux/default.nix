@@ -1,9 +1,9 @@
-{stdenv, acpitool, notmuch, open, urlview}:
+{stdenv, acpitool, notmuch, open, urlview, zsh}:
 
 stdenv.mkDerivation rec {
   name = "config-tmux";
 
-  buildInputs = [ acpitool notmuch open urlview ];
+  buildInputs = [ acpitool notmuch open urlview zsh ];
 
   phases = [ "installPhase" ];
 
@@ -15,6 +15,7 @@ stdenv.mkDerivation rec {
                --subst-var-by acpitool ${acpitool}/bin/acpitool \
                --subst-var-by notmuch  ${notmuch}/bin/notmuch \
                --subst-var-by open     ${open}/share/tmux-plugins/open/open.tmux \
-               --subst-var-by urlview  ${urlview}/share/tmux-plugins/urlview/urlview.tmux
+               --subst-var-by urlview  ${urlview}/share/tmux-plugins/urlview/urlview.tmux \
+               --subst-var-by zsh      ${zsh}/bin/zsh
   '';
 }
