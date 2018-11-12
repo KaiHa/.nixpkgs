@@ -19,6 +19,7 @@ rec {
   _cfg-git       = super.callPackage ./cfg.git       {};
   _cfg-notmuch   = super.callPackage ./cfg.notmuch   {};
   _cfg-mc        = super.callPackage ./cfg.mc        {};
+  _cfg-redshift  = super.callPackage ./cfg.redshift  {};
   _cfg-ssh       = super.callPackage ./cfg.ssh       {};
   _cfg-tmux      = super.callPackage ./cfg.tmux      { inherit (self.tmuxPlugins) open urlview; };
   _cfg-urlview   = super.callPackage ./cfg.urlview   {};
@@ -74,6 +75,7 @@ rec {
   myDesktopEnv = with self; buildEnv {
     name = "myDesktopEnv";
     paths = [
+      _cfg-redshift
       haskellPackages._cfg-xmonad
       # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
       pkgs1803.haskellPackages.xmobar
