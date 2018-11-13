@@ -39,6 +39,7 @@ rec {
       (aspellWithDicts (p: [ p.de p.en ] ))
       aescrypt
       alacritty
+      dejavu_fonts
       emacs
       gitAndTools.git-annex
       gitRepo
@@ -52,8 +53,13 @@ rec {
       nitrokey-app
       nix-zsh-completions
       notmuch
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
       pass
       shellcheck
+      symbola
       tmux
       tmux.man
       urlview
