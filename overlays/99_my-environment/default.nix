@@ -46,7 +46,6 @@ rec {
       gitRepo
       gmailieer
       hack-font
-      haskellPackages.hlint
       lbdb
       mc
       mosh
@@ -99,6 +98,7 @@ rec {
         cabal-install
         doctest
         happy
+        hlint
         hoogle
         X11
       ]))
