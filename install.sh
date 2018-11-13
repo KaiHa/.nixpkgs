@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 set -e
 
+lnk ()
+{
+  src=${1:?}
+  dest=${2:?}
+
+  if [[ $(readlink -f "$src") = $(readlink -f "$dest") ]]; then
+      echo "info: link $dest already OK"
+  elif [[ -e "$dest" ]]; then
+      echo "error: '$dest' already exists but links NOT to '$src', will NOT overwrite" >&2
+      exit 1
+  else
+      echo "info: creating link $src -> $dest"
+      mkdir -p "$(dirname "$dest")"
+      ln -s "$src" "$dest"
+  fi
+}
+
+
 selfdir=$(dirname $(readlink -f $0))
 env=${1:-myDefaultEnv}
 if [[ $# -ge 1 ]]; then shift; fi
@@ -21,15 +39,8 @@ echo "Creating dotfiles links in $HOME"
       # hidden files are ignored by nix when linking into the profile,
       # therefore we are replacing 'DOT.' here by '.'
       target=${target//DOT\./.}
-      if [[ $(readlink -f "$src") = $(readlink -f "$target") ]]; then
-          echo "info: link $target already OK"
-      elif [[ -e "$target" ]]; then
-          echo "error: '$target' already exists but links NOT to '$src', will NOT overwrite" >&2
-          exit 1
-      else
-          echo "info: creating link $src -> $target"
-          mkdir -p "$(dirname "$target")"
-          ln -s "$HOME/$src" "$target"
-      fi
+      lnk "$HOME/$src" "$target"
   done < <(find -L .nix-profile/target-home/ -type f)
 )
+
+lnk ~/.nix-profile/share/fonts/ ~/.fonts
