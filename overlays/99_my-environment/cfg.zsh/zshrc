@@ -10,6 +10,8 @@
 # Exit immediately when sourced by emacs/tramp
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
+fpath=(/usr/share/zsh/vendor-completions/ $fpath)
+
 ### Select emacs like key bindings:
 bindkey -e
 
