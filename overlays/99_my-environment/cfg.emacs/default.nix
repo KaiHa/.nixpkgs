@@ -39,6 +39,7 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/calendar.el              $out/target-home/DOT.config/emacs/calendar.el
     install -Dm 444 $src/emacs.el.ex              $out/target-home/DOT.config/emacs/emacs.el.ex
     install -Dm 444 $src/evil.el                  $out/target-home/DOT.config/emacs/evil.el
+    install -Dm 444 $src/functions.el             $out/target-home/DOT.config/emacs/functions.el
     install -Dm 444 $src/haskell.el               $out/target-home/DOT.config/emacs/haskell.el
     install -Dm 444 $src/ivy_et_al.el             $out/target-home/DOT.config/emacs/ivy_et_al.el
     install -Dm 444 $src/keybindings_and_hooks.el $out/target-home/DOT.config/emacs/keybindings_and_hooks.el
