@@ -124,7 +124,6 @@ rec {
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
     paths = [
-      #_ghc
       diffoscope
     ];
   };
