@@ -4,6 +4,7 @@ let
   emacsService = writeText "emacs.service" ''
     [Unit]
     Description=Emacs: the extensible, self-documenting text editor
+    Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
     [Service]
     Environment="LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive"
@@ -12,10 +13,8 @@ let
     Environment=PKG_CONFIG_PATH=$HOME/.nix-profile/lib/pkgconfig/
     Environment=C_INCLUDE_PATH=$HOME/.nix-profile/include/
 
-    ExecStart=${bash}/bin/bash -c 'source /etc/profile; exec ${emacs}/bin/emacs --daemon'
-    ExecStop=${emacs}/bin/emacsclient --eval (kill-emacs)
-    Restart=always
-    Type=forking
+    ExecStart=${bash}/bin/bash -c 'source /etc/profile; exec ${emacs}/bin/emacs --fg-daemon'
+    Restart=on-failure
 
     [Install]
     WantedBy=default.target
