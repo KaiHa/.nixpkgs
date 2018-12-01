@@ -38,6 +38,7 @@
                           emms-playlist-mode
                           ess-help-mode
                           etags-select-mode
+			  eww-mode
                           fj-mode
                           gc-issues-mode
                           gdb-breakpoints-mode

@@ -9,8 +9,8 @@
 (set-display-table-slot standard-display-table 'wrap       (make-glyph-code ?\\ 'error))
 
 (setq
- browse-url-browser-function 'browse-url-generic
- browse-url-generic-program "/run/current-system/sw/bin/firefox"
+ browse-url-browser-function 'eww-browse-url
+ browse-url-generic-program "firefox"
 
  ediff-merge-split-window-function 'split-window-vertically
  ediff-split-window-function       'split-window-horizontally
