@@ -3,7 +3,7 @@
 let
   redshiftService = writeText "redshift.service" ''
     [Unit]
-    Description=Emacs: redshift - set color temperature of display according to time of day
+    Description=Redshift: set color temperature of display according to time of day
 
     [Service]
     Environment="LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive"
