@@ -71,3 +71,4 @@
 (face-spec-set 'mode-line-inactive     '((t (:inherit mode-line :foreground "grey70" :box (:line-width -1 :color "grey90") :weight light))))
 (face-spec-set 'hs-face                '((t (:background "#ff8" :slant italic :height 0.8))))
 (face-spec-set 'hs-fringe-face         '((t (:background "#ff8" :foreground "#888"))))
+(face-spec-set 'whitespace-space       '((t (:foreground "lightgray"))))
