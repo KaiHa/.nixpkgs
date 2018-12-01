@@ -16,6 +16,17 @@
  ediff-split-window-function       'split-window-horizontally
  ediff-window-setup-function       'ediff-setup-windows-plain
 
+ elfeed-feeds '("https://www.heise.de/newsticker/heise-atom.xml"
+		"https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/"
+                "https://www.lightbluetouchpaper.org/feed/"
+                "https://mindhacks.com/feed/"
+                "http://nullprogram.com/feed/"
+                "http://planet.emacsen.org/atom.xml"
+                "https://possiblywrong.wordpress.com/feed/"
+		"https://www.schneier.com/blog/atom.xml"
+                "http://we-make-money-not-art.com/feed/")
+ elfeed-search-title-max-width 100
+
  explicit-shell-file-name "/run/current-system/sw/bin/bash"
  frame-background-mode 'light
  frame-title-format '(:eval (if (buffer-file-name) "Emacs %f" "Emacs %b"))

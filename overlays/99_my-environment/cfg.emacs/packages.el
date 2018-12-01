@@ -10,6 +10,7 @@
 			     counsel
 			     dante
 			     editorconfig
+			     elfeed
 			     evil
 			     flycheck-haskell
 			     flycheck-rust
