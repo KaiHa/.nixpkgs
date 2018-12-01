@@ -8,6 +8,8 @@
 (set-display-table-slot standard-display-table 'truncation (make-glyph-code ?$  'error))
 (set-display-table-slot standard-display-table 'wrap       (make-glyph-code ?\\ 'error))
 
+(setq-default indent-tabs-mode nil)
+
 (setq
  browse-url-browser-function 'eww-browse-url
  browse-url-generic-program "firefox"
@@ -34,7 +36,6 @@
 
  help-window-select t
  hs-hide-comments-when-hiding-all nil
- indent-tabs-mode nil
  ispell-dictionary "en_US"
  ;;inhibit-startup-screen t
 
