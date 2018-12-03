@@ -6,6 +6,16 @@
 (add-hook 'text-mode-hook    'flyspell-mode)
 (add-hook 'view-mode-hook    'evil-motion-state)
 
+(setq eww-after-render-hook
+      (lambda ()
+        (if (string-prefix-p "https://www.heise.de/" (eww-current-url))
+            (progn
+              (read-only-mode -1)
+              (delete-region (point-min) (progn (forward-line 121)
+                                                (forward-char -1)
+                                                (point)))
+              (read-only-mode t)))))
+
 ;;;; File extension <-> modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 
