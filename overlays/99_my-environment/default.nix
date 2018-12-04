@@ -1,7 +1,5 @@
 self: super:
 rec {
-  pkgs1803 = import (fetchTarball https://nixos.org/channels/nixos-18.03/nixexprs.tar.xz) {};
-
   diffoscope = super.diffoscope.override { enableBloat = true; };
   emacs      = super.emacsWithPackages (p: [ self.ghostscript ]);
   gnupg      = super.gnupg.override { pinentry = self.pinentry; };
@@ -76,8 +74,7 @@ rec {
     paths = [
       _cfg-redshift
       haskellPackages._cfg-xmonad
-      # XXX Install xmobar from 18.03 because the 18.09 version is broken for me
-      pkgs1803.haskellPackages.xmobar
+      haskellPackages.xmobar
       dmenu
       gmrun
       stalonetray
