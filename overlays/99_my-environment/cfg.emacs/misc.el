@@ -18,7 +18,8 @@
  ediff-split-window-function       'split-window-horizontally
  ediff-window-setup-function       'ediff-setup-windows-plain
 
- elfeed-feeds '("https://www.heise.de/newsticker/heise-atom.xml"
+ elfeed-feeds '("http://www.brendangregg.com/blog/rss.xml"
+                "https://www.heise.de/newsticker/heise-atom.xml"
 		"https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/"
                 "https://www.lightbluetouchpaper.org/feed/"
                 "https://mindhacks.com/feed/"
