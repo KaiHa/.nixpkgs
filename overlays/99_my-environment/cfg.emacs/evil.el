@@ -4,7 +4,8 @@
 
 (setq
  evil-emacs-state-modes (append evil-emacs-state-modes
-                                '(elfeed-search-mode
+                                '(diary-mode
+                                  elfeed-search-mode
                                   elfeed-show-mode
                                   eww-mode))
 

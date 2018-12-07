@@ -14,6 +14,7 @@
 			     evil
 			     flycheck-haskell
 			     flycheck-rust
+                             german-holidays
 			     haskell-mode
 			     ivy
 			     ivy-historian
