@@ -5,7 +5,11 @@
 (add-hook 'diary-list-entries-hook 'diary-sort-entries t)
 (add-hook 'diary-mark-entries-hook 'diary-mark-included-diary-files)
 
+(appt-activate t)
+
 (setq
+ appt-audible t
+ appt-display-mode-line t
  calendar-date-style 'iso
  calendar-holidays holiday-german-NI-holidays
 
