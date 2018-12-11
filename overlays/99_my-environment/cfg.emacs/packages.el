@@ -6,6 +6,8 @@
 		    ("gnu"          . "https://elpa.gnu.org/packages/"))
 
  package-selected-packages '(bitbake
+                             calfw
+                             calfw-cal
 			     company-ghci
 			     counsel
 			     dante
