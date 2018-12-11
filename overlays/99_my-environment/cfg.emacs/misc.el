@@ -23,6 +23,7 @@
 		"https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/"
                 "https://www.lightbluetouchpaper.org/feed/"
                 "https://mindhacks.com/feed/"
+                "https://blog.mozilla.org/feed/"
                 "http://nullprogram.com/feed/"
                 "http://planet.emacsen.org/atom.xml"
                 "https://possiblywrong.wordpress.com/feed/"
