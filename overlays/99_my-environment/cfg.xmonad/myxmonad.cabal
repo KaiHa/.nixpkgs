@@ -14,10 +14,6 @@ maintainer:          kai.harries@gmail.com
 build-type:          Simple
 data-files:          background
                    , cpu.xbm
-                   , disk.xbm
-                   , mem.xbm
-                   , sound_off.xbm
-                   , sound_on.xbm
                    , stalonetrayrc
                    , togglekb
                    , xmobarrc

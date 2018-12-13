@@ -6,7 +6,7 @@ Config
                        , "xft:Nimbus Sans:size=10:bold:antialias=true:slant=italic"
                        , "xft:Nimbus Sans:size=10:antialias=true:slant=italic"
                        , "xft:Nimbus Sans:size=10:antialias=true"
-                       , "xft:Symbola:size=14:bold:antialias=true"
+                       , "xft:Symbola:size=12:bold:antialias=true"
                        ]
    , bgColor =      "#E4E4E4"
    , fgColor =      "#090909"
@@ -54,7 +54,7 @@ Config
                                 ] 50
 
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"<icon=@datapath@/mem.xbm/><usedratio>%"
+        , Run Memory         [ "--template" ,"<fn=5>⚒</fn><usedratio>%"
                              , "--low"      , "black"
                              , "--normal"   , "darkgoldenrod"
                              , "--high"     , "orangered"
@@ -75,7 +75,7 @@ Config
                                        , "-i"	, "<fc=forestgreen><fn=5>🔌 </fn></fc>"
                              ] 150
 
-        , Run DiskU [("/", "<icon=@datapath@/disk.xbm/><usedp>%")] [ "--high"     , "orangered"
+        , Run DiskU [("/", "<fn=5>💾</fn><usedp>%")] [ "--high"     , "orangered"
                                                                    , "--normal"   , "darkgoldenrod"
                                                                    , "--low"      , "black"
                                                                    ] 50
@@ -87,11 +87,11 @@ Config
         , Run Kbd            [("us", "<fc=#454545>us</fc>")]
 
         , Run Locks
-        , Run Volume "default" "Master" ["-t", "<status><volumevbar>"
-                                        , "--", "--on",   "<icon=@datapath@/sound_on.xbm/>"
-                                              , "--off",  "<icon=@datapath@/sound_off.xbm/>"
-                                              , "--onc",  "#454545"
-                                              , "--offc", "#BB1111"
+        , Run Volume "default" "Master" ["-t", "<status>"
+                                        , "--", "--on",   "<fn=5>🔊</fn><volume>%"
+                                              , "--off",  "<fn=5>🔇</fn>"
+                                              , "--onc",  "#000000"
+                                              , "--offc", "#676767"
                                         ] 50
         ]
    }

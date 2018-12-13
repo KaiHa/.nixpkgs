@@ -158,7 +158,7 @@ shortcuts =
   , ((noModMask,                xK_Launch1),    raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
   , ((noModMask,                xK_Mail),       runOrRaiseAndDo "emacsclient -c" (className =? "Emacs")
       (\a -> sendKeyWindow controlMask xK_x a >> sendKeyWindow noModMask xK_n a))
-  , ((mod4Mask,                 xK_space),      liftIO (getDataFileName "togglekb") >>= spawn)
+  , ((mod4Mask .|. mod1Mask,    xK_space),      liftIO (getDataFileName "togglekb") >>= spawn)
   , ((noModMask,                xK_Display),    adapt2environment)
   , ((noModMask,                xK_F12),        ifWindows (title =? "kuake")
                                                   (mapM_ (\win -> withDisplay
