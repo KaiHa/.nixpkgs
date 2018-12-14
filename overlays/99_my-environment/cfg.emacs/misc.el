@@ -19,6 +19,7 @@
  ediff-window-setup-function       'ediff-setup-windows-plain
 
  elfeed-feeds '("http://www.brendangregg.com/blog/rss.xml"
+                "https://fivethirtyeight.com/tag/the-riddler/feed/"
                 "https://www.heise.de/newsticker/heise-atom.xml"
 		"https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/"
                 "https://www.lightbluetouchpaper.org/feed/"
