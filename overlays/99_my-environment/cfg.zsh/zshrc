@@ -24,7 +24,7 @@ alias la='ls -F -A'
 ### Keep history within the shell:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.config/zsh/zsh_history
+HISTFILE=~/.config/zsh_history
 
 # ### Teach less, e.g., reading compressed files and listing archive content:
 # which lesspipe >/dev/null && eval "$(lesspipe)"
