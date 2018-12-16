@@ -421,7 +421,3 @@ fi
 if [ -f /etc/profile.d/nix.sh ]; then
     . /etc/profile.d/nix.sh
 fi
-
-if [ -f /etc/profile.d/nix-daemon.sh ]; then
-    . /etc/profile.d/nix-daemon.sh
-fi
