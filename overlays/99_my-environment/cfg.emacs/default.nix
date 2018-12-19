@@ -44,6 +44,7 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/ivy_et_al.el             $out/target-home/DOT.config/emacs/ivy_et_al.el
     install -Dm 444 $src/keybindings_and_hooks.el $out/target-home/DOT.config/emacs/keybindings_and_hooks.el
     install -Dm 444 $src/misc.el                  $out/target-home/DOT.config/emacs/misc.el
+    install -Dm 444 $src/nix-list-generations.el  $out/target-home/DOT.config/emacs/nix-list-generations.el
     install -Dm 444 $src/packages.el              $out/target-home/DOT.config/emacs/packages.el
     substitute $src/email.el                      $out/target-home/DOT.config/emacs/email.el \
                --subst-var-by notmuch ${notmuch}/share/emacs/site-lisp/notmuch.el

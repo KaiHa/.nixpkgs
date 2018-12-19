@@ -1,0 +1,83 @@
+(defvar nix-ls-gen-mode-hook nil)
+(defvar nix-ls-gen--gen-regex "\\([0-9]+\\) +20..-..-.. +..:..:..")
+
+(defun nix-list-generations ()
+  "List all nix generations"
+  (interactive)
+  (with-current-buffer-window
+   "*nix-list-generations*" nil nil
+   (let ((profiles (append
+                    '("/nix/var/nix/profiles/system")
+                    (if (file-directory-p "/nix/var/nix/profiles/system-profiles/")
+                        (directory-files "/nix/var/nix/profiles/system-profiles/" t "^[^.]"))
+                    (mapcar (lambda (x) (concat x "/profile"))
+                            (directory-files "/nix/var/nix/profiles/per-user/" t "^[^.]"))
+                    (mapcar (lambda (x) (concat x "/channels"))
+                            (directory-files "/nix/var/nix/profiles/per-user/" t "^[^.]")))))
+     (pop-to-buffer-same-window "*nix-list-generations*")
+     (cd "/sudo::/")
+     (mapcar (lambda (x)
+               (let ((gens (shell-command-to-string (format "sudo nix-env -p %s --list-generations | cat" x))))
+                 (insert (format "%s:\n%s\n" x gens))))
+             profiles))
+   (nix-ls-gen-mode)))
+
+
+(defun nix-ls-gen--rm-gen-at-point ()
+  "Delete the Nix generation at point."
+  (interactive)
+  (let ((gen (if (string-match-p nix-ls-gen--gen-regex (thing-at-point 'line t))
+                 (car (split-string (thing-at-point 'line t)))))
+        (profile (save-excursion
+                   (re-search-backward "^\\(/.*\\):")
+                   (match-string 1))))
+    (if (and gen profile)
+        (if (yes-or-no-p (format "Delete generation %s of profile '%s'? " gen profile))
+            (progn
+              (shell-command (format "sudo nix-env --delete-generations %s -p %s" gen profile))
+              (nix-list-generations)))
+      (message "no generation that can be deleted at point"))))
+
+
+(defvar nix-ls-gen-mode-map
+  (let ((map (make-keymap)))
+    (define-key map "\C-k" 'nix-ls-gen--rm-gen-at-point)
+    (define-key map "k"    'nix-ls-gen--prev-gen)
+    (define-key map "p"    'nix-ls-gen--prev-gen)
+    (define-key map "j"    'nix-ls-gen--next-gen)
+    (define-key map "n"    'nix-ls-gen--next-gen)
+    (define-key map "G"    'nix-list-generations)
+    map)
+  "Keymap for nix-ls-gen major mode")
+
+
+(defun nix-ls-gen--next-gen ()
+  "Move point to the next generation."
+  (interactive)
+  (end-of-line)
+  (re-search-forward nix-ls-gen--gen-regex)
+  (beginning-of-line))
+
+
+(defun nix-ls-gen--prev-gen ()
+  "Move point to the previous generation."
+  (interactive)
+  (beginning-of-line)
+  (re-search-backward nix-ls-gen--gen-regex)
+  (beginning-of-line))
+
+
+(define-derived-mode nix-ls-gen-mode special-mode "nix-ls-gen"
+  "Major mode for listing Nix generations."
+  (interactive)
+  (kill-all-local-variables)
+  ;;(set-syntax-table nix-ls-gen-mode-syntax-table)
+  (use-local-map nix-ls-gen-mode-map)
+  ;;(set (make-local-variable 'font-lock-defaults) '(nix-ls-gen-font-lock-keywords))
+  ;;(set (make-local-variable 'indent-line-function) 'nix-ls-gen-indent-line)
+  (setq major-mode 'nix-ls-gen-mode)
+  (setq mode-name "nix-ls-gen")
+  (hl-line-mode)
+  (run-hooks 'nix-ls-gen-mode-hook))
+
+(provide 'nix-ls-gen-mode)
