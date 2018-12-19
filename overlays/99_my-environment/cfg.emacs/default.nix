@@ -36,6 +36,7 @@ stdenv.mkDerivation rec {
     install -Dm 444 ${emacsService}              "$out/target-home/DOT.config/systemd/user/emacs.service"
     install -Dm 444 ${emacsService}              "$out/target-home/DOT.config/systemd/user/default.target.wants/emacs.service"
     install -Dm 444 $src/calendar.el              $out/target-home/DOT.config/emacs/calendar.el
+    install -Dm 444 $src/elfeed.el                $out/target-home/DOT.config/emacs/elfeed.el
     install -Dm 444 $src/emacs.el.ex              $out/target-home/DOT.config/emacs/emacs.el.ex
     install -Dm 444 $src/evil.el                  $out/target-home/DOT.config/emacs/evil.el
     install -Dm 444 $src/functions.el             $out/target-home/DOT.config/emacs/functions.el

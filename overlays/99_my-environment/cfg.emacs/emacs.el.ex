@@ -10,6 +10,7 @@
 (load-file "~/.config/emacs/packages.el")
 (load-file "~/.config/emacs/calendar.el")
 (load-file "~/.config/emacs/email.el")
+(load-file "~/.config/emacs/elfeed.el")
 (load-file "~/.config/emacs/evil.el")
 (load-file "~/.config/emacs/functions.el")
 (load-file "~/.config/emacs/haskell.el")
