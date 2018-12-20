@@ -23,6 +23,7 @@
 			     ivy-hydra
 			     ivy-rich
 			     ivy-rtags
+                             json-mode
 			     magit
 			     markdown-mode
 			     nix-mode
