@@ -19,6 +19,7 @@
 (global-set-key (kbd "C-c b")   'org-iswitchb)
 (global-set-key (kbd "C-c c")   'org-capture)
 (global-set-key (kbd "C-c l")   'org-store-link)
+(global-set-key (kbd "C-c <S-return>") 'browse-url-xdg-open)
 
 (global-set-key (kbd "C-s")     'swiper)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
