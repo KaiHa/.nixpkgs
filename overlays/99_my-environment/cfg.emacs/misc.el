@@ -29,7 +29,10 @@
  ;;inhibit-startup-screen t
 
  magit-diff-refine-hunk t
- ;;magit-git-executable "/run/current-system/sw/bin/git"
+ mailcap-user-mime-data '(((viewer . doc-view-mode)
+                           (type   . "application/pdf"))
+                          ((viewer . image-mode)
+                           (type   . "image/jpeg")))
  mouse-yank-at-point t
 
  org-agenda-files '("~/Documents")
