@@ -20,7 +20,31 @@
                (let ((gens (shell-command-to-string (format "sudo nix-env -p %s --list-generations | cat" x))))
                  (insert (format "%s:\n%s\n" x gens))))
              profiles))
+   (deactivate-mark)
    (nix-ls-gen-mode)))
+
+
+(defun nix-ls-gen--rm-marked-gens ()
+  "Delete the Nix generation marked by the region."
+  (interactive)
+  (if (use-region-p)
+      (letrec
+          ((region (string-trim-right (buffer-substring (region-beginning) (region-end))))
+           (gens (if (string-match-p nix-ls-gen--gen-regex region)
+                     (mapconcat 'identity
+                                (mapcar
+                                 (lambda (x) (car (split-string x)))
+                                 (split-string region "\n+"))
+                                " ")))
+           (profile (save-excursion
+                      (re-search-backward "^\\(/.*\\):")
+                      (match-string 1))))
+        (if (and gens profile)
+            (if (yes-or-no-p (format "Delete generations %s of profile '%s'? " gens profile))
+                (progn
+                  (shell-command (format "sudo nix-env --delete-generations %s -p %s" gens profile))
+                  (nix-list-generations)))
+          (message "no generation that can be deleted in region")))))
 
 
 (defun nix-ls-gen--rm-gen-at-point ()
@@ -39,14 +63,23 @@
       (message "no generation that can be deleted at point"))))
 
 
+(defun nix-ls-gen--rm-gens ()
+  "Delete the selected Nix generations (either selected by point or region)."
+  (interactive)
+  (if (use-region-p)
+      (nix-ls-gen--rm-marked-gens)
+    (nix-ls-gen--rm-gen-at-point)))
+
+
 (defvar nix-ls-gen-mode-map
   (let ((map (make-keymap)))
-    (define-key map "\C-k" 'nix-ls-gen--rm-gen-at-point)
+    (define-key map "\C-k" 'nix-ls-gen--rm-gens)
     (define-key map "k"    'nix-ls-gen--prev-gen)
     (define-key map "p"    'nix-ls-gen--prev-gen)
     (define-key map "j"    'nix-ls-gen--next-gen)
     (define-key map "n"    'nix-ls-gen--next-gen)
     (define-key map "G"    'nix-list-generations)
+    (define-key map "c"    'nix-ls-gen--collect-garbage)
     map)
   "Keymap for nix-ls-gen major mode")
 
@@ -55,16 +88,38 @@
   "Move point to the next generation."
   (interactive)
   (end-of-line)
-  (re-search-forward nix-ls-gen--gen-regex)
-  (beginning-of-line))
+  (if (use-region-p)
+      (progn
+        (forward-line)
+        (if (not (string-match-p nix-ls-gen--gen-regex (thing-at-point 'line t)))
+            (forward-line -1))
+        (if (> (point) (region-beginning))
+            (end-of-line)
+          (beginning-of-line)))
+    (re-search-forward nix-ls-gen--gen-regex)
+    (beginning-of-line)))
 
 
 (defun nix-ls-gen--prev-gen ()
   "Move point to the previous generation."
   (interactive)
   (beginning-of-line)
-  (re-search-backward nix-ls-gen--gen-regex)
-  (beginning-of-line))
+  (if (use-region-p)
+      (progn
+        (forward-line -1)
+        (if (not (string-match-p nix-ls-gen--gen-regex (thing-at-point 'line t)))
+            (forward-line))
+        (if (> (point) (region-beginning))
+            (end-of-line)
+          (beginning-of-line)))
+    (re-search-backward nix-ls-gen--gen-regex)
+    (beginning-of-line)))
+
+
+(defun nix-ls-gen--collect-garbage ()
+  "Run the nix garbage collection."
+  (interactive)
+  (shell-command "nix-collect-garbage"))
 
 
 (define-derived-mode nix-ls-gen-mode special-mode "nix-ls-gen"

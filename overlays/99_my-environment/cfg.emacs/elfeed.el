@@ -47,3 +47,6 @@
 		"https://www.schneier.com/blog/atom.xml"
                 "http://we-make-money-not-art.com/feed/")
  elfeed-search-title-max-width 100)
+
+(define-key elfeed-search-mode-map (kbd "j") 'next-line)
+(define-key elfeed-search-mode-map (kbd "k") 'previous-line)
