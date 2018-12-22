@@ -5,6 +5,11 @@
 (add-hook 'text-mode-hook    'auto-fill-mode)
 (add-hook 'text-mode-hook    'flyspell-mode)
 (add-hook 'view-mode-hook    'evil-motion-state)
+(add-hook 'pdf-view-mode-hook
+	  (lambda ()
+	    (define-key pdf-view-mode-map    "j"         'pdf-view-next-line-or-next-page)
+	    (define-key pdf-view-mode-map    "k"         'pdf-view-previous-line-or-previous-page)
+	    (define-key pdf-view-mode-map    (kbd "C-s") 'isearch-forward-regexp)))
 
 (setq eww-after-render-hook
       (lambda ()

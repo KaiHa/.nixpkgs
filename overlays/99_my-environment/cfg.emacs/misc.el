@@ -1,5 +1,6 @@
 (column-number-mode t)
 (menu-bar-mode t)
+(pdf-tools-install)
 (savehist-mode)
 (set-scroll-bar-mode nil)
 (show-paren-mode)
@@ -30,7 +31,7 @@
  ;;inhibit-startup-screen t
 
  magit-diff-refine-hunk t
- mailcap-user-mime-data '(((viewer . doc-view-mode)
+ mailcap-user-mime-data '(((viewer . pdf-view-mode)
                            (type   . "application/pdf"))
                           ((viewer . image-mode)
                            (type   . "image/jpeg")))

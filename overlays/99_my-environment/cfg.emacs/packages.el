@@ -27,6 +27,7 @@
 			     magit
 			     markdown-mode
 			     nix-mode
+                             pdf-tools
 			     rtags
 			     rust-mode
 			     ;;scion
