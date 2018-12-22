@@ -78,6 +78,13 @@
  notmuch-show-all-tags-list t
  notmuch-show-logo nil)
 
+
+(defadvice notmuch-show-view-part (around my-notmuch-show-view-part activate)
+  "View the MIME part containing point in emacs but dont delete the other frames."
+  (interactive)
+  (cl-letf (((symbol-function 'delete-other-windows) #'ignore))
+    ad-do-it))
+
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (face-spec-set 'notmuch-crypto-decryption        '((t (:background "purple" :foreground "white"))))
 (face-spec-set 'notmuch-crypto-signature-bad     '((t (:background "IndianRed1" :foreground "black"))))
