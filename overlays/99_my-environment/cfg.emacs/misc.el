@@ -63,7 +63,7 @@
 (face-spec-set 'default                '((t (:family "Hack" :foundry "bitstream" :slant normal :weight normal :height 98 :width normal))))
 (face-spec-set 'font-lock-comment-face '((t (:foreground "dim gray" :slant italic))))
 (face-spec-set 'mode-line              '((t (:background "#FF8888" :foreground "black" :box (:line-width -1 :style released-button)))))
-(face-spec-set 'mode-line-inactive     '((t (:inherit mode-line :foreground "grey70" :box (:line-width -1 :color "grey90") :weight light))))
+(face-spec-set 'mode-line-inactive     '((t (:background "color-247" :inherit mode-line :foreground "color-255" :box (:line-width -1 :color "grey90") :weight light))))
 (face-spec-set 'hs-face                '((t (:background "#ff8" :slant italic :height 0.8))))
 (face-spec-set 'hs-fringe-face         '((t (:background "#ff8" :foreground "#888"))))
 (face-spec-set 'whitespace-space       '((t (:foreground "lightgray"))))
