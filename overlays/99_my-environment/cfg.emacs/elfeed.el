@@ -17,6 +17,9 @@
                               :feed-title "The Riddler"
                               :add '(riddle)))
 
+(add-hook 'elfeed-db-update-hook 'elfeed-db-save)
+
+
 (defface itsec-elfeed-entry
   '((t :foreground "#00b"))
   "Marks an Elfeed entry that is tagged as itsec.")
@@ -50,3 +53,8 @@
 
 (define-key elfeed-search-mode-map (kbd "j") 'next-line)
 (define-key elfeed-search-mode-map (kbd "k") 'previous-line)
+
+(defadvice elfeed-search-update--force (after my-elfeed-search-update--force activate)
+  "Force refresh view of the feed listing (and save db)"
+  (interactive)
+  (elfeed-db-save))
