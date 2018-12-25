@@ -18,6 +18,7 @@ rec {
   _cfg-git       = super.callPackage ./cfg.git       {};
   _cfg-notmuch   = super.callPackage ./cfg.notmuch   {};
   _cfg-mc        = super.callPackage ./cfg.mc        {};
+  _cfg-rclone    = super.callPackage ./cfg.rclone    {};
   _cfg-redshift  = super.callPackage ./cfg.redshift  {};
   _cfg-ssh       = super.callPackage ./cfg.ssh       {};
   _cfg-tmux      = super.callPackage ./cfg.tmux      { inherit (self.tmuxPlugins) open urlview; };
@@ -114,7 +115,9 @@ rec {
     name = "myPrivateEnv";
     paths = [
       _cfg-notmuch
+      _cfg-rclone
       _cfg-ssh
+      rclone
     ];
   };
 
