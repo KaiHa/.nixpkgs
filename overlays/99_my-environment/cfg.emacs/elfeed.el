@@ -58,3 +58,20 @@
   "Force refresh view of the feed listing (and save db)"
   (interactive)
   (elfeed-db-save))
+
+
+(defun my-elfeed-upload-db ()
+  "Upload the elfeed db into the cloud."
+  (interactive)
+  (elfeed-db-save)
+  (elfeed-db-unload)
+  (rclone-sync "~/.elfeed" "gcrypt:elfeed-db.tar.xz"))
+
+
+(defun my-elfeed-download-db ()
+  "Download the elfeed db from the cloud."
+  (interactive)
+  (elfeed-db-unload)
+  (shell-command "rm -rf ~/.elfeed.bak")
+  (shell-command "mv ~/.elfeed ~/.elfeed.bak")
+  (rclone-sync "gcrypt:elfeed-db.tar.xz" "~/"))
