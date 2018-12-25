@@ -18,5 +18,6 @@
 (load-file "~/.config/emacs/keybindings_and_hooks.el")
 (load-file "~/.config/emacs/misc.el")
 (load-file "~/.config/emacs/nix-list-generations.el")
+(load-file "~/.config/emacs/rclone.el")
 
 ;;;; Deviations from the defaults ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
