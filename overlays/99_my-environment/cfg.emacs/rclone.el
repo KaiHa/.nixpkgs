@@ -32,3 +32,21 @@
   "Split the path into a pair (DIR . FILENAME)."
   (string-match "^\\(.+[:/]\\)\\(.+\\)$" path)
   `(,(match-string 1 path) . ,(match-string 2 path)))
+
+
+(defun my-password-store-upload ()
+  "Upload the password-store into the cloud."
+  (interactive)
+  (rclone-sync "~/.password-store/.git" "gcrypt:password-store.git.tar.xz"))
+
+
+(defun my-password-store-download ()
+  "Download the password-store from the cloud."
+  (interactive)
+  (shell-command "rm -rf ~/.cloud-sync/.password-store")
+  (rclone-sync "gcrypt:password-store.git.tar.xz" "~/.cloud-sync/password-store")
+  (cl-letf ((default-directory "~/.password-store/"))
+    (magit-fetch-other
+     (concat "file://" (expand-file-name "~/.cloud-sync/password-store/.git"))
+     nil)
+    (magit-merge-plain "FETCH_HEAD" nil t)))
