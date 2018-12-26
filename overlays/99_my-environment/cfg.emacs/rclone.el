@@ -50,3 +50,21 @@
      (concat "file://" (expand-file-name "~/.cloud-sync/password-store/.git"))
      nil)
     (magit-merge-plain "FETCH_HEAD" nil t)))
+
+
+(defun my-emacs.d-upload ()
+  "Upload the emacs.d directory into the cloud."
+  (interactive)
+  (rclone-sync "~/.emacs.d/.git" "gcrypt:emacs.d.git.tar.xz"))
+
+
+(defun my-emacs.d-download ()
+  "Download the emacs.d directory from the cloud."
+  (interactive)
+  (shell-command "rm -rf ~/.cloud-sync/.emacs.d")
+  (rclone-sync "gcrypt:emacs.d.git.tar.xz" "~/.cloud-sync/emacs.d")
+  (cl-letf ((default-directory "~/.emacs.d/"))
+    (magit-fetch-other
+     (concat "file://" (expand-file-name "~/.cloud-sync/emacs.d/.git"))
+     nil)
+    (magit-merge-plain "FETCH_HEAD" nil t)))
