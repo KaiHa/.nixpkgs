@@ -13,6 +13,11 @@
                               :add '(noisy)))
 
 (add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "heise\\.de"
+                              :feed-title "iMonitor"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "fivethirtyeight\\.com"
                               :feed-title "The Riddler"
                               :add '(riddle)))
