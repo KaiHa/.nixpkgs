@@ -1,6 +1,10 @@
 (require 'elfeed)
 
 (add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "we-make-money-not-art\\.com"
+                              :add '(art)))
+
+(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "lightbluetouchpaper\\.org"
                               :add '(itsec)))
 
@@ -25,6 +29,10 @@
 (add-hook 'elfeed-db-update-hook 'elfeed-db-save)
 
 
+(defface art-elfeed-entry
+  '((t :foreground "#f0f"))
+  "Marks an Elfeed entry that is tagged as art.")
+
 (defface itsec-elfeed-entry
   '((t :foreground "#00b"))
   "Marks an Elfeed entry that is tagged as itsec.")
@@ -34,11 +42,12 @@
   "Marks an Elfeed entry that is tagged as noisy.")
 
 (defface riddle-elfeed-entry
-  '((t :foreground "#a0a"))
+  '((t :foreground "#808"))
   "Marks an Elfeed entry that is tagged as riddle.")
 
-(push '(itsec itsec-elfeed-entry)   elfeed-search-face-alist)
-(push '(noisy noisy-elfeed-entry)   elfeed-search-face-alist)
+(push '(art    art-elfeed-entry)    elfeed-search-face-alist)
+(push '(itsec  itsec-elfeed-entry)  elfeed-search-face-alist)
+(push '(noisy  noisy-elfeed-entry)  elfeed-search-face-alist)
 (push '(riddle riddle-elfeed-entry) elfeed-search-face-alist)
 
 (setq
