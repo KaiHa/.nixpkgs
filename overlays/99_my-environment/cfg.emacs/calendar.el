@@ -23,8 +23,6 @@
                                             (calendar-absolute-from-gregorian
                                              (list month day year)))))
                               'face '(italic (:foreground "blue")))
- calendar-longitude 10
- calendar-latitude 52
  calendar-mark-diary-entries-flag t
  calendar-week-start-day 1)
 
