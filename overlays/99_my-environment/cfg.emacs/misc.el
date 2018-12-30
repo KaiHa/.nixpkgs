@@ -37,12 +37,6 @@
                            (type   . "image/jpeg")))
  mouse-yank-at-point t
 
- org-agenda-files '("~/Documents")
- org-babel-load-languages '((emacs-lisp . t) (shell . t))
- org-catch-invisible-edits 'error
- org-default-notes-file "~/Documents/notes.org"
- org-fontify-done-headline t
-
  password-cache-expiry 300
  read-file-name-completion-ignore-case t
  require-final-newline t
