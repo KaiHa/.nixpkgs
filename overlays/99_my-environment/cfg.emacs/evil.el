@@ -11,6 +11,8 @@
                                   image-dired-display-image-mode
                                   image-dired-thumbnail-mode
                                   image-mode
+                                  info-mode
+                                  help-mode
                                   nix-ls-gen-mode))
 
  evil-motion-state-modes (append evil-motion-state-modes
