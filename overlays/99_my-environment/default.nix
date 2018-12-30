@@ -13,18 +13,19 @@ rec {
     };
   };
 
-  _cfg-alacritty = super.callPackage ./cfg.alacritty {};
-  _cfg-emacs     = super.callPackage ./cfg.emacs     {};
-  _cfg-git       = super.callPackage ./cfg.git       {};
-  _cfg-notmuch   = super.callPackage ./cfg.notmuch   {};
-  _cfg-mc        = super.callPackage ./cfg.mc        {};
-  _cfg-rclone    = super.callPackage ./cfg.rclone    {};
-  _cfg-redshift  = super.callPackage ./cfg.redshift  {};
-  _cfg-ssh       = super.callPackage ./cfg.ssh       {};
-  _cfg-tmux      = super.callPackage ./cfg.tmux      { inherit (self.tmuxPlugins) open urlview; };
-  _cfg-urlview   = super.callPackage ./cfg.urlview   {};
-  _cfg-vim       = super.callPackage ./cfg.vim       {};
-  _cfg-zsh       = super.callPackage ./cfg.zsh       {};
+  _cfg-alacritty     = super.callPackage ./cfg.alacritty     {};
+  _cfg-emacs         = super.callPackage ./cfg.emacs         {};
+  _cfg-emacs-private = super.callPackage ./cfg.emacs-private {};
+  _cfg-git           = super.callPackage ./cfg.git           {};
+  _cfg-notmuch       = super.callPackage ./cfg.notmuch       {};
+  _cfg-mc            = super.callPackage ./cfg.mc            {};
+  _cfg-rclone        = super.callPackage ./cfg.rclone        {};
+  _cfg-redshift      = super.callPackage ./cfg.redshift      {};
+  _cfg-ssh           = super.callPackage ./cfg.ssh           {};
+  _cfg-tmux          = super.callPackage ./cfg.tmux          { inherit (self.tmuxPlugins) open urlview; };
+  _cfg-urlview       = super.callPackage ./cfg.urlview       {};
+  _cfg-vim           = super.callPackage ./cfg.vim           {};
+  _cfg-zsh           = super.callPackage ./cfg.zsh           {};
 
   myDefaultEnv = with self; buildEnv {
     name = "myDefaultEnv";
@@ -114,6 +115,7 @@ rec {
   myPrivateEnv = with self; buildEnv {
     name = "myPrivateEnv";
     paths = [
+      _cfg-emacs-private
       _cfg-notmuch
       _cfg-rclone
       _cfg-ssh

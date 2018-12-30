@@ -16,6 +16,7 @@
 			     evil
 			     flycheck-haskell
 			     flycheck-rust
+                             forecast
                              german-holidays
 			     haskell-mode
 			     ivy

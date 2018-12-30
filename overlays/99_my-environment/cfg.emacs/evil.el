@@ -8,6 +8,7 @@
                                   elfeed-search-mode
                                   elfeed-show-mode
                                   eww-mode
+                                  forecast-mode
                                   image-dired-display-image-mode
                                   image-dired-thumbnail-mode
                                   image-mode
