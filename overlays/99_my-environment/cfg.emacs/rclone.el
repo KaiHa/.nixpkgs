@@ -43,7 +43,7 @@
 (defun my-password-store-download ()
   "Download the password-store from the cloud."
   (interactive)
-  (shell-command "rm -rf ~/.cloud-sync/.password-store")
+  (shell-command "rm -rf ~/.cloud-sync/password-store")
   (rclone-sync "gcrypt:password-store.git.tar.xz" "~/.cloud-sync/password-store")
   (cl-letf ((default-directory "~/.password-store/"))
     (magit-fetch-other
@@ -61,7 +61,7 @@
 (defun my-emacs.d-download ()
   "Download the emacs.d directory from the cloud."
   (interactive)
-  (shell-command "rm -rf ~/.cloud-sync/.emacs.d")
+  (shell-command "rm -rf ~/.cloud-sync/emacs.d")
   (rclone-sync "gcrypt:emacs.d.git.tar.xz" "~/.cloud-sync/emacs.d")
   (cl-letf ((default-directory "~/.emacs.d/"))
     (magit-fetch-other
