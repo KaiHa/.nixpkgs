@@ -68,3 +68,21 @@
      (concat "file://" (expand-file-name "~/.cloud-sync/emacs.d/.git"))
      nil)
     (magit-merge-plain "FETCH_HEAD" nil t)))
+
+
+(defun my-documents-upload ()
+  "Upload the Documents directory into the cloud."
+  (interactive)
+  (rclone-sync "~/Documents/.git" "gcrypt:Documents.git.tar.xz"))
+
+
+(defun my-documents-download ()
+  "Download the Documents directory from the cloud."
+  (interactive)
+  (shell-command "rm -rf ~/.cloud-sync/Documents")
+  (rclone-sync "gcrypt:Documents.git.tar.xz" "~/.cloud-sync/Documents")
+  (cl-letf ((default-directory "~/Documents/"))
+    (magit-fetch-other
+     (concat "file://" (expand-file-name "~/.cloud-sync/Documents/.git"))
+     nil)
+    (magit-merge-plain "FETCH_HEAD" nil t)))
