@@ -1,4 +1,5 @@
 (column-number-mode t)
+(global-hl-todo-mode)
 (menu-bar-mode t)
 (pdf-tools-install)
 (savehist-mode)

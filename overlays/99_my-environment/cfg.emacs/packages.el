@@ -19,6 +19,7 @@
                              forecast
                              german-holidays
 			     haskell-mode
+                             hl-todo
 			     ivy
 			     ivy-historian
 			     ivy-hydra
@@ -26,6 +27,7 @@
 			     ivy-rtags
                              json-mode
 			     magit
+			     ;;magit-todos
 			     markdown-mode
 			     nix-mode
                              pdf-tools
