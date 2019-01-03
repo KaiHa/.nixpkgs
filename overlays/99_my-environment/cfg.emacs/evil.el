@@ -1,6 +1,7 @@
 (evil-mode)
 
 (delete 'git-commit-mode evil-emacs-state-modes)
+(delete 'help-mode       evil-motion-state-modes)
 
 (setq
  evil-emacs-state-modes (append evil-emacs-state-modes
