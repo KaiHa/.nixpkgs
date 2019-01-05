@@ -5,6 +5,7 @@
 (setq
  org-agenda-files '("~/.emacs.d/org")
  org-agenda-include-diary t
+ org-agenda-start-on-weekday nil
  org-babel-load-languages '((emacs-lisp . t) (shell . t))
  org-capture-templates
       '(("b" "Bookmark" entry (file+headline "~/.emacs.d/org/notes.org" "Bookmarks")
