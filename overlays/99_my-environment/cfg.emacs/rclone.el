@@ -86,3 +86,19 @@
      (concat "file://" (expand-file-name "~/.cloud-sync/Documents/.git"))
      nil)
     (magit-merge-plain "FETCH_HEAD" nil t)))
+
+(defun my-download-all ()
+  "Download everything from the cloud."
+  (interactive)
+  (my-download-documents)
+  (my-download-elfeed-db)
+  (my-download-emacs.d)
+  (my-download-password-store))
+
+(defun my-upload-all ()
+  "Upload everything from the cloud."
+  (interactive)
+  (my-upload-documents)
+  (my-upload-elfeed-db)
+  (my-upload-emacs.d)
+  (my-upload-password-store))
