@@ -5,28 +5,31 @@
   (interactive)
   (let ((src  (if (string-match-p ":" src ) src  (expand-file-name src)))
         (dest (if (string-match-p ":" dest) dest (expand-file-name dest)))
-        (tmpdir (make-temp-file "rclone" t))
-        (buf (get-buffer-create "*rclone-sync*")))
-    (cl-flet ((mktarname (path) (concat tmpdir "/" (cdr (rclone--split-path path))))
-              (call (program &rest args) (apply 'call-process program nil buf t args))
-              (logt (msg)
-                    (with-current-buffer buf
-                      (goto-char (point-max))
-                      (princ (format "[%s] %s\n" (format-time-string "%T") msg) buf))))
-      (logt (format "(rclone-sync %s %s) started..." src dest))
+        (tmpdir (make-temp-file "rclone" t)))
+    (cl-flet ((mktarname (path) (concat tmpdir "/" (cdr (rclone--split-path path)))))
+      (rclone--log (format "(rclone-sync %s %s) started..." src dest))
       (cond ((and (string-match-p ".tar.xz$" src)
                   (not (string-match-p ".tar.xz$" dest)))
              (make-directory dest t)
-             (call "rclone" "sync" src tmpdir)
-             (call "tar" "-xf" (mktarname src) "-C" dest))
+             (rclone--call "rclone" "sync" src tmpdir)
+             (rclone--call "tar" "-xf" (mktarname src) "-C" dest))
             ((and (not (string-match-p ".tar.xz$" src))
                   (string-match-p ".tar.xz$" dest))
-             (call "tar" "-cJf" (mktarname dest) "-C" (car (rclone--split-path src)) (cdr (rclone--split-path src)))
-             (call "rclone" "sync" (mktarname dest) (car (rclone--split-path dest))))
-            (t (call "rclone" "sync" src dest)))
-      (logt "done")))
+             (rclone--call "tar" "-cJf" (mktarname dest) "-C" (car (rclone--split-path src)) (cdr (rclone--split-path src)))
+             (rclone--call "rclone" "sync" (mktarname dest) (car (rclone--split-path dest))))
+            (t (rclone--call "rclone" "sync" src dest)))
+      (rclone--log "done")))
   (message "rclone-sync finished see buffer *rclone-sync* for details."))
 
+
+(defun rclone--log (msg)
+  (let ((buf (get-buffer-create "*rclone-sync*")))
+    (with-current-buffer buf
+      (goto-char (point-max))
+      (princ (format "[%s] %s\n" (format-time-string "%T") msg) buf))))
+
+(defun rclone--call (program &rest args)
+  (apply 'call-process program nil (get-buffer-create "*rclone-sync*") t args))
 
 (defun rclone--split-path (path)
   "Split the path into a pair (DIR . FILENAME)."
@@ -43,7 +46,7 @@
 (defun my-download-password-store ()
   "Download the password-store from the cloud."
   (interactive)
-  (shell-command "rm -rf ~/.cloud-sync/password-store")
+  (rclone--call "rm" "-rf" (expand-file-name "~/.cloud-sync/password-store"))
   (rclone-sync "gcrypt:password-store.git.tar.xz" "~/.cloud-sync/password-store")
   (cl-letf ((default-directory "~/.password-store/"))
     (magit-fetch-other
@@ -61,7 +64,7 @@
 (defun my-download-emacs.d ()
   "Download the emacs.d directory from the cloud."
   (interactive)
-  (shell-command "rm -rf ~/.cloud-sync/emacs.d")
+  (rclone--call  "rm" "-rf" (expand-file-name "~/.cloud-sync/emacs.d"))
   (rclone-sync "gcrypt:emacs.d.git.tar.xz" "~/.cloud-sync/emacs.d")
   (cl-letf ((default-directory "~/.emacs.d/"))
     (magit-fetch-other
@@ -79,13 +82,17 @@
 (defun my-download-documents ()
   "Download the Documents directory from the cloud."
   (interactive)
-  (shell-command "rm -rf ~/.cloud-sync/Documents")
-  (rclone-sync "gcrypt:Documents.git.tar.xz" "~/.cloud-sync/Documents")
-  (cl-letf ((default-directory "~/Documents/"))
-    (magit-fetch-other
-     (concat "file://" (expand-file-name "~/.cloud-sync/Documents/.git"))
-     nil)
-    (magit-merge-plain "FETCH_HEAD" nil t)))
+  (let ((csdir (expand-file-name "~/.cloud-sync/Documents")))
+    (if (file-directory-p csdir)
+        (progn
+          (rclone--call "chmod" "-R" "u+w" csdir)
+          (rclone--call "rm" "-rf" csdir)))
+    (rclone-sync "gcrypt:Documents.git.tar.xz" csdir)
+    (cl-letf ((default-directory (expand-file-name "~/Documents/")))
+      (magit-fetch-other
+       (concat "file://" (expand-file-name "~/.cloud-sync/Documents/.git"))
+       nil)
+      (magit-merge-plain "FETCH_HEAD" nil t))))
 
 (defun my-download-all ()
   "Download everything from the cloud."

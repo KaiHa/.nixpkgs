@@ -88,6 +88,6 @@
   "Download the elfeed db from the cloud."
   (interactive)
   (elfeed-db-unload)
-  (shell-command "rm -rf ~/.elfeed.bak")
-  (shell-command "mv ~/.elfeed ~/.elfeed.bak")
+  (rclone--call "rm" "-rf" (expand-file-name "~/.elfeed.bak"))
+  (rclone--call "mv" (expand-file-name "~/.elfeed") (expand-file-name "~/.elfeed.bak"))
   (rclone-sync "gcrypt:elfeed-db.tar.xz" "~/"))
