@@ -34,13 +34,13 @@
   `(,(match-string 1 path) . ,(match-string 2 path)))
 
 
-(defun my-password-store-upload ()
+(defun my-upload-password-store ()
   "Upload the password-store into the cloud."
   (interactive)
   (rclone-sync "~/.password-store/.git" "gcrypt:password-store.git.tar.xz"))
 
 
-(defun my-password-store-download ()
+(defun my-download-password-store ()
   "Download the password-store from the cloud."
   (interactive)
   (shell-command "rm -rf ~/.cloud-sync/password-store")
@@ -52,13 +52,13 @@
     (magit-merge-plain "FETCH_HEAD" nil t)))
 
 
-(defun my-emacs.d-upload ()
+(defun my-upload-emacs.d ()
   "Upload the emacs.d directory into the cloud."
   (interactive)
   (rclone-sync "~/.emacs.d/.git" "gcrypt:emacs.d.git.tar.xz"))
 
 
-(defun my-emacs.d-download ()
+(defun my-download-emacs.d ()
   "Download the emacs.d directory from the cloud."
   (interactive)
   (shell-command "rm -rf ~/.cloud-sync/emacs.d")
@@ -70,13 +70,13 @@
     (magit-merge-plain "FETCH_HEAD" nil t)))
 
 
-(defun my-documents-upload ()
+(defun my-upload-documents ()
   "Upload the Documents directory into the cloud."
   (interactive)
   (rclone-sync "~/Documents/.git" "gcrypt:Documents.git.tar.xz"))
 
 
-(defun my-documents-download ()
+(defun my-download-documents ()
   "Download the Documents directory from the cloud."
   (interactive)
   (shell-command "rm -rf ~/.cloud-sync/Documents")

@@ -76,7 +76,7 @@
   (elfeed-db-save))
 
 
-(defun my-elfeed-upload-db ()
+(defun my-upload-elfeed-db ()
   "Upload the elfeed db into the cloud."
   (interactive)
   (elfeed-db-save)
@@ -84,7 +84,7 @@
   (rclone-sync "~/.elfeed" "gcrypt:elfeed-db.tar.xz"))
 
 
-(defun my-elfeed-download-db ()
+(defun my-download-elfeed-db ()
   "Download the elfeed db from the cloud."
   (interactive)
   (elfeed-db-unload)
