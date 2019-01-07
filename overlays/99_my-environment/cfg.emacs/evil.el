@@ -1,3 +1,5 @@
+(setq evil-want-C-i-jump nil)
+
 (evil-mode)
 
 (delete 'git-commit-mode evil-emacs-state-modes)
