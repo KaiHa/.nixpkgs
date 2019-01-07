@@ -23,7 +23,11 @@
 (global-set-key (kbd "C-c a")   'org-agenda)
 (global-set-key (kbd "C-c b")   'org-iswitchb)
 (global-set-key (kbd "C-c c")   'org-capture)
+(global-set-key (kbd "C-c dd")  '(lambda () (interactive) (ispell-change-dictionary "de_DE")))
+(global-set-key (kbd "C-c de")  '(lambda () (interactive) (ispell-change-dictionary "en_US")))
 (global-set-key (kbd "C-c l")   'org-store-link)
+(global-set-key (kbd "C-c L")   'org-insert-link-global)
+(global-set-key (kbd "C-c o")   'org-open-at-point-global)
 (global-set-key (kbd "C-c <S-return>") 'browse-url-xdg-open)
 
 (global-set-key (kbd "C-s")     'swiper)
