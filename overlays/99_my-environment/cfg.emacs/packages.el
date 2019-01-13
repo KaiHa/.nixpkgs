@@ -27,6 +27,7 @@
 			     ivy-rtags
                              json-mode
 			     magit
+                             magit-annex
 			     ;;magit-todos
 			     markdown-mode
 			     nix-mode
