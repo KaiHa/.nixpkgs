@@ -65,11 +65,6 @@
                 "http://we-make-money-not-art.com/feed/")
  elfeed-search-title-max-width 100)
 
-(define-key elfeed-search-mode-map (kbd "j") 'next-line)
-(define-key elfeed-show-mode-map   (kbd "j") 'elfeed-show-next)
-(define-key elfeed-search-mode-map (kbd "k") 'previous-line)
-(define-key elfeed-show-mode-map   (kbd "k") 'elfeed-show-prev)
-
 (defadvice elfeed-search-update--force (after my-elfeed-search-update--force activate)
   "Force refresh view of the feed listing (and save db)"
   (interactive)

@@ -1,12 +1,8 @@
-(require 'evil)
 (require 'notmuch "@notmuch@")
 
 (global-set-key (kbd "C-x n")   'notmuch)
 
 ;; notmuch key bindings
-(evil-add-hjkl-bindings notmuch-search-mode-map 'emacs)
-(evil-add-hjkl-bindings notmuch-show-mode-map   'emacs)
-(evil-add-hjkl-bindings notmuch-tree-mode-map   'emacs)
 (define-key notmuch-search-mode-map  (kbd "a") 'notmuch-tag-jump)
 (define-key notmuch-show-mode-map    (kbd "a") 'notmuch-tag-jump)
 (define-key notmuch-tree-mode-map    (kbd "a") 'notmuch-tag-jump)
