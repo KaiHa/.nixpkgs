@@ -35,6 +35,7 @@
 (global-set-key (kbd "C-x t")   (lambda () (interactive) (if truncate-lines (set 'truncate-lines nil) (set 'truncate-lines t))))
 
 (global-set-key (kbd "M-/")     'hippie-expand)
+(global-set-key (kbd "M-i")     'counsel-imenu)
 (global-set-key (kbd "M-j")     'other-window)
 (global-set-key (kbd "M-k")     (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "M-x")     'counsel-M-x)
