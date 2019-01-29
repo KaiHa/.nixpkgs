@@ -17,6 +17,7 @@
 (load-file "~/.config/emacs/ivy_et_al.el")
 (load-file "~/.config/emacs/keybindings_and_hooks.el")
 (load-file "~/.config/emacs/misc.el")
+(load-file "~/.config/emacs/modalka.el")
 (load-file "~/.config/emacs/nix-list-generations.el")
 (load-file "~/.config/emacs/org.el")
 ;;(load-file "~/.config/emacs/private.el")

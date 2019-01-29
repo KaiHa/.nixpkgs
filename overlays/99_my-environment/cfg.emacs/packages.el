@@ -13,7 +13,6 @@
                              dante
                              editorconfig
                              elfeed
-                             evil
                              flycheck-haskell
                              flycheck-rust
                              forecast
@@ -30,6 +29,7 @@
                              magit-annex
                              ;;magit-todos
                              markdown-mode
+                             modalka
                              nix-mode
                              pdf-tools
                              rtags
