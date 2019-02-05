@@ -7,6 +7,7 @@
 (set-scroll-bar-mode nil)
 (show-paren-mode)
 (tool-bar-mode -1)
+(which-key-mode)
 (winner-mode)
 
 (set-display-table-slot standard-display-table 'truncation (make-glyph-code ?$  'error))

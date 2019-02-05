@@ -36,6 +36,7 @@
                              rust-mode
                              ;;scion
                              undo-tree
+                             which-key
                              yaml-mode))
 
 (package-refresh-contents)
