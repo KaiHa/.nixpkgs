@@ -52,10 +52,12 @@
 
 (setq
  elfeed-feeds '("http://www.brendangregg.com/blog/rss.xml"
+                "http://draketo.de/rss.xml"
                 "https://fivethirtyeight.com/tag/the-riddler/feed/"
                 "https://www.heise.de/newsticker/heise-atom.xml"
 		"https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/"
                 "https://www.lightbluetouchpaper.org/feed/"
+                "https://lwn.net/headlines/rss"
                 "https://mindhacks.com/feed/"
                 "https://blog.mozilla.org/feed/"
                 "http://nullprogram.com/feed/"
