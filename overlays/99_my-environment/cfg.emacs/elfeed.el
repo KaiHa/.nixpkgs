@@ -1,30 +1,9 @@
 (require 'elfeed)
 
 (add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "we-make-money-not-art\\.com"
-                              :add '(art)))
-
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "lightbluetouchpaper\\.org"
-                              :add '(itsec)))
-
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "schneier\\.com"
-                              :add '(itsec)))
-
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "heise\\.de"
-                              :add '(noisy)))
-
-(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "heise\\.de"
                               :feed-title "iMonitor"
                               :remove 'unread))
-
-(add-hook 'elfeed-new-entry-hook
-          (elfeed-make-tagger :feed-url "fivethirtyeight\\.com"
-                              :feed-title "The Riddler"
-                              :add '(riddle)))
 
 (add-hook 'elfeed-db-update-hook 'elfeed-db-save)
 
@@ -53,18 +32,18 @@
 (setq
  elfeed-feeds '("http://www.brendangregg.com/blog/rss.xml"
                 "http://draketo.de/rss.xml"
-                "https://fivethirtyeight.com/tag/the-riddler/feed/"
-                "https://www.heise.de/newsticker/heise-atom.xml"
-		"https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/"
-                "https://www.lightbluetouchpaper.org/feed/"
+                ("https://fivethirtyeight.com/tag/the-riddler/feed/" riddle)
+                ("https://www.heise.de/newsticker/heise-atom.xml" noisy)
+		("https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/" noisy)
+                ("https://www.lightbluetouchpaper.org/feed/" itsec)
                 "https://lwn.net/headlines/rss"
                 "https://mindhacks.com/feed/"
                 "https://blog.mozilla.org/feed/"
                 "http://nullprogram.com/feed/"
                 "http://planet.emacsen.org/atom.xml"
                 "https://possiblywrong.wordpress.com/feed/"
-		"https://www.schneier.com/blog/atom.xml"
-                "http://we-make-money-not-art.com/feed/")
+		("https://www.schneier.com/blog/atom.xml" itsec)
+                ("http://we-make-money-not-art.com/feed/" art))
  elfeed-search-title-max-width 100)
 
 (defadvice elfeed-search-update--force (after my-elfeed-search-update--force activate)
