@@ -50,3 +50,11 @@
                         (   "12"       "Dec"))
                       " \\3, \\1")))))
 
+
+(defun my/eww-toggle-images ()
+  "Toggle whether images are loaded and reload the current page fro cache."
+  (interactive)
+  (setq-local shr-inhibit-images (not shr-inhibit-images))
+  (eww-reload t)
+  (message "Images are now %s"
+           (if shr-inhibit-images "off" "on")))

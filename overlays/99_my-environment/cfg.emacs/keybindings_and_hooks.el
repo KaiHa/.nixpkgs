@@ -1,4 +1,5 @@
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'eww)
 (add-hook 'c++-mode-hook     'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook       'rtags-start-process-unless-running)
 (add-hook 'prog-mode-hook    'hs-minor-mode)
@@ -39,6 +40,10 @@
 (global-set-key (kbd "M-j")     'other-window)
 (global-set-key (kbd "M-k")     (lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "M-x")     'counsel-M-x)
+
+
+(define-key eww-mode-map         (kbd "I")   #'my/eww-toggle-images)
+(define-key eww-link-keymap      (kbd "I")   #'my/eww-toggle-images)
 
 (define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)
