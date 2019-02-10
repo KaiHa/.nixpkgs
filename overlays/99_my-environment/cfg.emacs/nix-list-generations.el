@@ -119,7 +119,7 @@
 (defun nix-ls-gen--collect-garbage ()
   "Run the nix garbage collection."
   (interactive)
-  (shell-command "nix-collect-garbage"))
+  (async-shell-command "nix-collect-garbage"))
 
 
 (define-derived-mode nix-ls-gen-mode special-mode "nix-ls-gen"
