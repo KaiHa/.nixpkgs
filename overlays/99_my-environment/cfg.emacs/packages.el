@@ -19,6 +19,7 @@
                              german-holidays
                              haskell-mode
                              hl-todo
+                             iedit
                              ivy
                              ivy-historian
                              ivy-hydra

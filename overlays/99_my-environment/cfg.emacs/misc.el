@@ -1,3 +1,4 @@
+(require 'iedit)
 (column-number-mode t)
 (global-hl-todo-mode)
 (global-undo-tree-mode)
