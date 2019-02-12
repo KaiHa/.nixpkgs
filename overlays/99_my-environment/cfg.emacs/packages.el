@@ -11,6 +11,7 @@
                              company-ghci
                              counsel
                              dante
+                             dired-du
                              editorconfig
                              elfeed
                              flycheck-haskell

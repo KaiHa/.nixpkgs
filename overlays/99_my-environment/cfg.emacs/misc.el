@@ -20,6 +20,7 @@
 (setq
  browse-url-browser-function 'eww-browse-url
  browse-url-generic-program "firefox"
+ dired-du-size-format ","
  dired-omit-files "^\\.?#\\|^\\.[^.]"
 
  ediff-merge-split-window-function 'split-window-vertically
