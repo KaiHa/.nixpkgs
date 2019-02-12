@@ -1,3 +1,4 @@
+(require 'dired-x)
 (require 'iedit)
 (column-number-mode t)
 (global-hl-todo-mode)
@@ -19,6 +20,7 @@
 (setq
  browse-url-browser-function 'eww-browse-url
  browse-url-generic-program "firefox"
+ dired-omit-files "^\\.?#\\|^\\.[^.]"
 
  ediff-merge-split-window-function 'split-window-vertically
  ediff-split-window-function       'split-window-horizontally
