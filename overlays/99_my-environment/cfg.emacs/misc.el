@@ -37,6 +37,9 @@
  ispell-dictionary "en_US"
  ;;inhibit-startup-screen t
 
+ image-dired-cmd-rotate-original-options '("%o" "-rotate" "%d" "%t")
+ image-dired-cmd-rotate-original-program "convert"
+
  magit-diff-refine-hunk t
  mailcap-user-mime-data '(((viewer . pdf-view-mode)
                            (type   . "application/pdf"))
