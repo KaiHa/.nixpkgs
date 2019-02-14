@@ -14,7 +14,7 @@
 (setq eww-after-render-hook
       (lambda ()
         (if (string-prefix-p "https://www.heise.de/" (eww-current-url))
-            (eww-readable))))
+            (if shr-inhibit-images (eww-readable)))))
 
 ;;;; File extension <-> modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
