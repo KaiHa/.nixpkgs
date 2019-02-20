@@ -75,6 +75,11 @@
  notmuch-show-logo nil)
 
 
+(add-hook 'message-send-hook (lambda ()
+  (or (message-field-value "Subject")
+      (yes-or-no-p "Really send without Subject? ")
+      (keyboard-quit))))
+
 (defadvice notmuch-show-view-part (around my-notmuch-show-view-part activate)
   "View the MIME part containing point in emacs but dont delete the other frames."
   (interactive)
