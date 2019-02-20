@@ -12,6 +12,8 @@
 (which-key-mode)
 (winner-mode)
 
+(put 'narrow-to-region 'disabled nil)
+
 (set-display-table-slot standard-display-table 'truncation (make-glyph-code ?$  'error))
 (set-display-table-slot standard-display-table 'wrap       (make-glyph-code ?\\ 'error))
 
