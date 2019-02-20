@@ -33,6 +33,7 @@
                              markdown-mode
                              modalka
                              nix-mode
+                             org-pdfview
                              pdf-tools
                              rtags
                              rust-mode
