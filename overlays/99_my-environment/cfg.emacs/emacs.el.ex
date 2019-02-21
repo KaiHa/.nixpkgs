@@ -8,7 +8,6 @@
 
 ;;;; My default settings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load-file "~/.config/emacs/packages.el")
-(load-file "~/.config/emacs/evil.el")
 (load-file "~/.config/emacs/calendar.el")
 (load-file "~/.config/emacs/email.el")
 (load-file "~/.config/emacs/elfeed.el")
