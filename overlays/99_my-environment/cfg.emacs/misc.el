@@ -1,5 +1,8 @@
 (require 'dired-x)
+(require 'hideshow)
 (require 'iedit)
+(require 'nxml-mode)
+(require 'sgml-mode)
 (column-number-mode t)
 (global-hl-todo-mode)
 (global-undo-tree-mode)
@@ -18,6 +21,15 @@
 (set-display-table-slot standard-display-table 'wrap       (make-glyph-code ?\\ 'error))
 
 (setq-default indent-tabs-mode nil)
+
+(add-to-list 'hs-special-modes-alist
+             '(nxml-mode
+               "<!--\\|<[^/>]*[^/]>"
+               "-->\\|</[^/>]*[^/]>"
+
+               "<!--"
+               sgml-skip-tag-forward
+               nil))
 
 (setq
  browse-url-browser-function 'eww-browse-url

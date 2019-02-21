@@ -2,6 +2,7 @@
 (require 'eww)
 (add-hook 'c++-mode-hook     'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook       'rtags-start-process-unless-running)
+(add-hook 'nxml-mode-hook    'hs-minor-mode)
 (add-hook 'prog-mode-hook    'hs-minor-mode)
 (add-hook 'text-mode-hook    'auto-fill-mode)
 (add-hook 'text-mode-hook    'flyspell-mode)
