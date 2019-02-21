@@ -30,6 +30,23 @@
                sgml-skip-tag-forward
                nil))
 
+(defface hs-ov-face
+  '((t (:slant italic :background "#dfa" :box t)))
+  "Face to hightlight the ... area of hidden regions"
+  :group 'hideshow)
+
+(setq hs-set-up-overlay
+      (lambda  (ov)
+        (when (eq 'code (overlay-get ov 'hs))
+          (let ((mymarker "+")
+                (mystring (format "...(%d)"
+                                  (count-lines (overlay-start ov)
+                                               (overlay-end ov)))))
+            (put-text-property 0 1 'display '(left-fringe empty-line hs-ov-face) mymarker)
+            (overlay-put ov 'before-string mymarker)
+            (put-text-property 0 (length mystring) 'face 'hs-ov-face mystring)
+            (overlay-put ov 'display mystring)))))
+
 (setq
  browse-url-browser-function 'eww-browse-url
  browse-url-generic-program "firefox"
