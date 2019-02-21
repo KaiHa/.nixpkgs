@@ -73,13 +73,12 @@
 
 (defvar nix-ls-gen-mode-map
   (let ((map (make-keymap)))
-    (define-key map "\C-k" 'nix-ls-gen--rm-gens)
-    (define-key map "k"    'nix-ls-gen--prev-gen)
-    (define-key map "p"    'nix-ls-gen--prev-gen)
-    (define-key map "j"    'nix-ls-gen--next-gen)
-    (define-key map "n"    'nix-ls-gen--next-gen)
-    (define-key map "G"    'nix-list-generations)
-    (define-key map "c"    'nix-ls-gen--collect-garbage)
+    (define-key map (kbd "k")   'nix-ls-gen--rm-gens)
+    (define-key map (kbd "p")   'nix-ls-gen--prev-gen)
+    (define-key map (kbd "n")   'nix-ls-gen--next-gen)
+    (define-key map (kbd "G")   'nix-list-generations)
+    (define-key map (kbd "c")   'nix-ls-gen--collect-garbage)
+    (define-key map (kbd "SPC") 'set-mark-command)
     map)
   "Keymap for nix-ls-gen major mode")
 
@@ -119,7 +118,8 @@
 (defun nix-ls-gen--collect-garbage ()
   "Run the nix garbage collection."
   (interactive)
-  (async-shell-command "nix-collect-garbage"))
+  (if (yes-or-no-p "Collect garbage? ")
+      (async-shell-command "nix-collect-garbage")))
 
 
 (define-derived-mode nix-ls-gen-mode special-mode "nix-ls-gen"
