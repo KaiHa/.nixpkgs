@@ -31,7 +31,7 @@
                nil))
 
 (defface hs-ov-face
-  '((t (:slant italic :background "#dfa" :box t)))
+  '((t (:slant italic :height 0.8 :background "#dfa" :box t)))
   "Face to hightlight the ... area of hidden regions"
   :group 'hideshow)
 
@@ -99,6 +99,4 @@
 (face-spec-set 'font-lock-comment-face '((t (:foreground "dim gray" :slant italic))))
 (face-spec-set 'mode-line              '((t (:background "#fbb" :foreground "black" :box (:line-width 2 :color "#fbb")))))
 (face-spec-set 'mode-line-inactive     '((t (:background "#fff" :inherit mode-line  :box (:line-width 2 :color "#fbb")))))
-(face-spec-set 'hs-face                '((t (:background "#ff8" :slant italic :height 0.8))))
-(face-spec-set 'hs-fringe-face         '((t (:background "#ff8" :foreground "#888"))))
 (face-spec-set 'whitespace-space       '((t (:foreground "lightgray"))))
