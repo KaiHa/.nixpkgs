@@ -2,16 +2,6 @@
 
 (global-set-key (kbd "C-x n")   'notmuch)
 
-;; notmuch key bindings
-(define-key notmuch-search-mode-map  (kbd "a") 'notmuch-tag-jump)
-(define-key notmuch-show-mode-map    (kbd "a") 'notmuch-tag-jump)
-(define-key notmuch-tree-mode-map    (kbd "a") 'notmuch-tag-jump)
-(define-key notmuch-search-mode-map  (kbd "g") 'notmuch-jump-search)
-(define-key notmuch-show-mode-map    (kbd "g") 'notmuch-jump-search)
-(define-key notmuch-tree-mode-map    (kbd "g") 'notmuch-jump-search)
-(define-key notmuch-hello-mode-map   (kbd "g") 'notmuch-jump-search)
-(define-key notmuch-search-mode-map  (kbd "L") 'notmuch-search-filter)
-
 (define-abbrev-table 'notmuch-message-mode-abbrev-table
   '(("mfg"     "Mit freundlichen Grüßen\n\nKai Harries")
     ("regards" "Best regards\n\nKai Harries")
