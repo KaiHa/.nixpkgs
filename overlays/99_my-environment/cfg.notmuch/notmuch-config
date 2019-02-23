@@ -31,6 +31,7 @@ path=/home/kai/.mail
 [user]
 name=Kai Harries
 primary_email=kai.harries@gmail.com
+other_email=kai.harries@googlemail.com
 
 # Configuration for "notmuch new"
 #
@@ -48,7 +49,7 @@ primary_email=kai.harries@gmail.com
 #
 [new]
 tags=new
-ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak
+ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 
 # Search configuration
 #
