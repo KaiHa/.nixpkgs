@@ -43,14 +43,15 @@
                           (:name "[a]ll mail" :query "*" :key "a")
                           (:name "[n]ote2me"  :query "from:kai.harries@gmail.com to:kai.harries@gmail.com" :key "n"))
 
- notmuch-tagging-keys '(("a" notmuch-archive-tags        "Archive")
-                        ("d" ("+trash" "-inbox")         "Delete")
-                        ("e" ("+expires")                "Expires")
-                        ("f" ("+flagged")                "Flag")
-                        ("m" ("+mute" "-inbox")          "Mute")
-                        ("s" ("+spam" "-inbox")          "Mark as spam")
-                        ("t" ("+todo")                   "ToDo")
-                        ("u" notmuch-show-mark-read-tags "Mark read"))
+ notmuch-tagging-keys '(("a" notmuch-archive-tags "Archive")
+                        ("d" ("+trash")       "Delete")
+                        ("e" ("+expires")     "Mark as expires")
+                        ("f" ("+flagged")     "Mark as flagged")
+                        ("m" ("+mute")        "Mute thread")
+                        ("r" notmuch-show-mark-read-tags "Mark read (-unread)")
+                        ("s" ("-new")         "Mark as seen (-new)")
+                        ("S" ("+spam")        "Mark as spam")
+                        ("t" ("+todo")        "Mark as todo"))
 
 
  notmuch-tag-formats '(("unread")
@@ -73,6 +74,10 @@
   (or (message-field-value "Subject")
       (yes-or-no-p "Really send without Subject? ")
       (keyboard-quit))))
+
+(add-hook 'after-init-hook (lambda ()
+  (add-hook 'notmuch-before-tag-hook (lambda ()
+    (setq tag-changes (append tag-changes '("-new")))))))
 
 (defadvice notmuch-show-view-part (around my-notmuch-show-view-part activate)
   "View the MIME part containing point in emacs but dont delete the other frames."
