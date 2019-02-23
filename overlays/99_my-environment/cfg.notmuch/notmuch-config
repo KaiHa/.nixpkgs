@@ -48,7 +48,7 @@ other_email=kai.harries@googlemail.com
 #		in the mail store.
 #
 [new]
-tags=new
+tags=new;NEW
 ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 
 # Search configuration
@@ -61,6 +61,7 @@ ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 #		query will override that exclusion.
 #
 [search]
+# Google Mail tags deleted messages with trash
 exclude_tags=trash;spam;
 
 # Maildir compatibility configuration
