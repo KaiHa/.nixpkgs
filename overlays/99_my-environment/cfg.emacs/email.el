@@ -2,6 +2,17 @@
 
 (global-set-key (kbd "C-x n")   'notmuch)
 
+(define-key notmuch-hello-mode-map   (kbd "g") 'notmuch-refresh-this-buffer)
+(define-key notmuch-search-mode-map  (kbd "g") 'notmuch-refresh-this-buffer)
+(define-key notmuch-show-mode-map    (kbd "g") 'notmuch-refresh-this-buffer)
+(define-key notmuch-tree-mode-map    (kbd "g") 'notmuch-refresh-this-buffer)
+(define-key notmuch-search-mode-map  (kbd "f") (lambda ()
+                                                 "Remove `new` tag and go to next thread."
+                                                 (interactive)
+                                                 (notmuch-search-tag '("-new"))
+                                                 (notmuch-search-next-thread)))
+
+
 (define-abbrev-table 'notmuch-message-mode-abbrev-table
   '(("mfg"     "Mit freundlichen Grüßen\n\nKai Harries")
     ("regards" "Best regards\n\nKai Harries")
