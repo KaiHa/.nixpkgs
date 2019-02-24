@@ -7,6 +7,9 @@
 
 (add-hook 'elfeed-db-update-hook 'elfeed-db-save)
 
+(define-key elfeed-search-mode-map (kbd "SPC") 'scroll-up-command)
+(define-key elfeed-search-mode-map (kbd "<backspace>") 'scroll-down-command)
+
 
 (defface art-elfeed-entry
   '((t :foreground "#f0f"))
