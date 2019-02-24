@@ -5,6 +5,16 @@
                               :feed-title "iMonitor"
                               :remove 'unread))
 
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "lwn\\.net"
+                              :feed-title "Security updates for"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "lwn\\.net"
+                              :feed-title "LWN.net Weekly Edition for"
+                              :remove 'unread))
+
 (add-hook 'elfeed-db-update-hook 'elfeed-db-save)
 
 (define-key elfeed-search-mode-map (kbd "SPC") 'scroll-up-command)
