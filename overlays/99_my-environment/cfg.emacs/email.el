@@ -11,6 +11,11 @@
                                                  (interactive)
                                                  (notmuch-search-tag '("-new"))
                                                  (notmuch-search-next-thread)))
+(define-key notmuch-search-mode-map  (kbd "D") (lambda ()
+                                                 "Delete thread and go to next thread."
+                                                 (interactive)
+                                                 (notmuch-search-tag '("+trash"))
+                                                 (notmuch-search-next-thread)))
 
 
 (define-abbrev-table 'notmuch-message-mode-abbrev-table
