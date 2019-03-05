@@ -11,6 +11,7 @@
                              company-ghci
                              counsel
                              dante
+                             dictionary
                              dired-du
                              editorconfig
                              elfeed
