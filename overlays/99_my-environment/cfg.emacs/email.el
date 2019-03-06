@@ -75,7 +75,7 @@
                        ("inbox"      "📥"   (notmuch-apply-face tag '(:foreground "black")))
                        ("signed")
                        ("sent"              (notmuch-apply-face tag '(:weight normal :foreground "dim gray")))
-                       ("todo"       "ToDo" (notmuch-apply-face tag '(:weight bold :foreground "white" :background "red")))
+                       ("todo"       "ToDo" (notmuch-apply-face tag '(:weight bold :foreground "red" :background "yellow")))
                        ("attachment" "📎"   (notmuch-apply-face tag '(:weight bold :foreground "dark goldenrod")))
                        ("mute"       "🔕"   (notmuch-apply-face tag '(:foreground "black")))
                        ("calendar"   "📆"   (notmuch-apply-face tag '(:foreground "black")))
