@@ -7,6 +7,9 @@
  org-agenda-files '("~/.emacs.d/org")
  org-agenda-include-diary t
  org-agenda-start-on-weekday nil
+ org-agenda-time-grid '((daily today)
+                        (800 1000 1200 1400 1600 1800 2000)
+                        "......" "----------------")
  org-babel-load-languages '((emacs-lisp . t) (shell . t))
  org-capture-templates
       '(("b" "Bookmark" entry (file+headline "~/.emacs.d/org/notes.org" "Bookmarks")
@@ -20,3 +23,7 @@
  org-catch-invisible-edits 'error
  org-default-notes-file "~/.emacs.d/org/notes.org"
  org-fontify-done-headline t)
+
+(face-spec-set 'org-agenda-current-time '((t (:inherit org-time-grid :slant italic :weight bold))))
+(face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
+(face-spec-set 'org-time-grid '((t (:foreground "dark gray"))))
