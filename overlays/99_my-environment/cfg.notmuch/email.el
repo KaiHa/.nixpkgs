@@ -102,9 +102,14 @@
       (yes-or-no-p "Really send without Subject? ")
       (keyboard-quit))))
 
-(add-hook 'after-init-hook (lambda ()
-  (add-hook 'notmuch-before-tag-hook (lambda ()
-    (setq tag-changes (append tag-changes '("-new")))))))
+(add-hook 'after-init-hook
+          (lambda ()
+            (add-hook 'notmuch-before-tag-hook
+                      (lambda ()
+                        (setq tag-changes (append tag-changes
+                                                  (if (member "+deleted" tag-changes)
+                                                      '("-new" "-inbox")
+                                                    '("-new"))))))))
 
 (add-hook 'notmuch-show-hook
           (lambda ()
