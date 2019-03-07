@@ -50,6 +50,7 @@
 		("https://www.heise.de/netze/netzwerk-tools/imonitor-internet-stoerungen/feed/aktuelle-meldungen/" noisy)
                 ("https://www.lightbluetouchpaper.org/feed/" itsec)
                 "https://lwn.net/headlines/rss"
+                ("https://microkerneldude.wordpress.com/feed/" embedded)
                 "https://mindhacks.com/feed/"
                 "https://blog.mozilla.org/feed/"
                 "http://nullprogram.com/feed/"
