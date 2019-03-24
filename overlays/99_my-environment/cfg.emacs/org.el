@@ -2,6 +2,7 @@
 (require 'org-notmuch "~/.config/emacs/org-notmuch.el")
 (require 'org-protocol)
 (eval-after-load 'org '(require 'org-pdfview))
+(org-agenda-to-appt)
 
 (setq
  org-agenda-files '("~/.emacs.d/org")
