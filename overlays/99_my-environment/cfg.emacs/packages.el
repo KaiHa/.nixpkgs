@@ -34,6 +34,7 @@
                              markdown-mode
                              modalka
                              nix-mode
+                             org-gcal
                              org-pdfview
                              pdf-tools
                              rtags
@@ -77,6 +78,7 @@
                            (magit-popup   . "melpa-stable")
                            (markdown-mode . "melpa-stable")
                            (modalka       . "melpa-stable")
+                           (org-gcal      . "melpa-stable")
                            (org-pdfview   . "melpa-stable")
                            (pdf-tools     . "melpa-stable")
                            (pkg-info      . "melpa-stable")
