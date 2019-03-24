@@ -44,6 +44,7 @@
 
 (setq
  elfeed-feeds '("http://www.brendangregg.com/blog/rss.xml"
+                ("https://blog.cryptographyengineering.com/atom.xml" itsec)
                 "http://draketo.de/rss.xml"
                 ("https://fivethirtyeight.com/tag/the-riddler/feed/" riddle)
                 ("https://www.heise.de/newsticker/heise-atom.xml" noisy)
@@ -54,7 +55,6 @@
                 "https://mindhacks.com/feed/"
                 "https://blog.mozilla.org/feed/"
                 "http://nullprogram.com/feed/"
-                "http://planet.emacsen.org/atom.xml"
                 "https://possiblywrong.wordpress.com/feed/"
 		("https://www.schneier.com/blog/atom.xml" itsec)
                 ("http://we-make-money-not-art.com/feed/" art))
