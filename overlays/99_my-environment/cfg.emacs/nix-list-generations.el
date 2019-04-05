@@ -19,7 +19,7 @@
      (mapcar (lambda (x)
                (let ((gens (shell-command-to-string (format "sudo nix-env -p %s --list-generations | cat" x))))
                  (insert (format "%s:\n%s\n" x gens))))
-             profiles))
+             (seq-filter (lambda (x) (not (string-suffix-p "-link" x))) profiles)))
    (deactivate-mark)
    (nix-ls-gen-mode)))
 
