@@ -94,21 +94,21 @@ rec {
     paths = [
       (haskellPackages.ghcWithPackages (p: with p; [
         alex
-        bhoogle
         cabal-install
         doctest
         happy
         hlint
         hoogle
+        xmonad
+        xmonad-contrib
         X11
       ]))
       cabal2nix
       fontconfig.dev
       freetype.dev
       pkgconfig
-      xorg.libX11.dev
-      xorg.libXft.dev
-      xorg.xproto
+      xorg.libX11
+      xorg.libXft
     ];
   };
 
