@@ -17,7 +17,7 @@ mkDerivation {
 
   postPatch = ''
     substitute xmobarrc.in xmobarrc \
-               --subst-var-by datapath $out/share/x86_64-linux-ghc-8.4.3/myxmonad-0.1.0.0
+               --subst-var-by datapath $out/share/x86_64-linux-ghc-8.6.4/myxmonad-0.1.0.0
   '';
 
 
