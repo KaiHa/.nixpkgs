@@ -80,6 +80,7 @@ rec {
       haskellPackages.xmobar
       dmenu
       gmrun
+      i3status
       stalonetray
       unclutter-xfixes
       xorg.xbacklight
