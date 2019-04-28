@@ -75,7 +75,7 @@ rec {
   myDesktopEnv = with self; buildEnv {
     name = "myDesktopEnv";
     paths = [
-      _cfg-redshift
+#      _cfg-redshift
       haskellPackages._cfg-xmonad
       haskellPackages.xmobar
       dmenu
