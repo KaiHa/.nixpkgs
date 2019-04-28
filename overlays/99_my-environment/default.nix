@@ -65,7 +65,6 @@ rec {
       tmux.man
       urlview
       weechat
-      xclip
       zathura
       zsh
       zsh-completions
@@ -76,17 +75,8 @@ rec {
     name = "myDesktopEnv";
     paths = [
 #      _cfg-redshift
-      haskellPackages._cfg-xmonad
-      haskellPackages.xmobar
       dmenu
-      gmrun
       i3status
-      stalonetray
-      unclutter-xfixes
-      xorg.xbacklight
-      xorg.xev
-      xorg.xmessage
-      xrandr-invert-colors
     ];
   };
 
@@ -100,16 +90,11 @@ rec {
         happy
         hlint
         hoogle
-        xmonad
-        xmonad-contrib
-        X11
       ]))
       cabal2nix
       fontconfig.dev
       freetype.dev
       pkgconfig
-      xorg.libX11
-      xorg.libXft
     ];
   };
 
