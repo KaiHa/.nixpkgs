@@ -15,6 +15,8 @@
 (which-key-mode)
 (winner-mode)
 
+(setenv "GDK_BACKEND" "wayland")
+
 (put 'narrow-to-region 'disabled nil)
 
 (set-display-table-slot standard-display-table 'truncation (make-glyph-code ?$  'error))
