@@ -14,6 +14,7 @@ rec {
   };
 
   _cfg-alacritty     = super.callPackage ./cfg.alacritty     {};
+  _cfg-desktop       = super.callPackage ./cfg.desktop       {};
   _cfg-emacs         = super.callPackage ./cfg.emacs         {};
   _cfg-emacs-private = super.callPackage ./cfg.emacs-private {};
   _cfg-git           = super.callPackage ./cfg.git           {};
@@ -74,6 +75,7 @@ rec {
   myDesktopEnv = with self; buildEnv {
     name = "myDesktopEnv";
     paths = [
+      _cfg-desktop
 #      _cfg-redshift
       dmenu
       i3status
