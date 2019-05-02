@@ -15,6 +15,9 @@
 (which-key-mode)
 (winner-mode)
 
+(setenv "DBUS_SESSION_BUS_ADDRESS" (with-temp-buffer
+                                     (insert-file-contents "/home/kai/.dbus-session-bus-address")
+                                     (string-trim (buffer-string))))
 (setenv "GDK_BACKEND" "wayland")
 
 (put 'narrow-to-region 'disabled nil)
