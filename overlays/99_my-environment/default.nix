@@ -79,6 +79,7 @@ rec {
 #      _cfg-redshift
       dmenu
       i3status
+      wl-clipboard
     ];
   };
 
