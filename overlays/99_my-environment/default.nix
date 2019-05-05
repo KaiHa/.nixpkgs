@@ -66,6 +66,7 @@ rec {
       tmux.man
       urlview
       weechat
+      xdg_utils
       zathura
       zsh
       zsh-completions
