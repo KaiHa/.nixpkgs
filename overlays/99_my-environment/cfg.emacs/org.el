@@ -7,7 +7,7 @@
 (setq
  org-agenda-files '("~/.emacs.d/org")
  org-agenda-include-diary t
- org-agenda-start-on-weekday nil
+ org-agenda-start-on-weekday 1
  org-agenda-time-grid '((daily today)
                         (800 1000 1200 1400 1600 1800 2000)
                         "......" "----------------")
