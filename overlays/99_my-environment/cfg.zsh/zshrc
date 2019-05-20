@@ -46,7 +46,7 @@ zstyle ':vcs_info:*' formats ' %K{0}%F{7}  %b %f%k'
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 autoload -Uz colors && colors
-PROMPT="%B%K{4}%F{7} %m %#%f%k%b%F{4}%f "
+PROMPT="%B%K{4}%F{7} %m %f%k%b%F{4}▒░%f"
 RPROMPT="%F{5}%3~%f\${vcs_info_msg_0_}"
 
 if ps $PPID | grep '\bmc\b'
