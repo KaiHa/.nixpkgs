@@ -93,5 +93,5 @@
                            (with-editor   . "melpa-stable")
                            (yaml-mode     . "melpa-stable")))
 
-(package-refresh-contents)
-(package-install-selected-packages)
+;;(package-refresh-contents)
+;;(package-install-selected-packages)
