@@ -1,3 +1,15 @@
+;;;; Definition of functions used below ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun ispell-select-dict-de_de ()
+  "Switch ispell dictionary to de_DE"
+  (interactive)
+  (ispell-change-dictionary "de_DE"))
+
+(defun ispell-select-dict-en_us ()
+  "Switch ispell dictionary to en_US"
+  (interactive)
+  (ispell-change-dictionary "en_US"))
+
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
 (add-hook 'c++-mode-hook     'rtags-start-process-unless-running)
@@ -22,8 +34,8 @@
 (global-set-key (kbd "C-c a")   'org-agenda)
 (global-set-key (kbd "C-c b")   'org-iswitchb)
 (global-set-key (kbd "C-c c")   'org-capture)
-(global-set-key (kbd "C-c d d") '(lambda () (interactive) (ispell-change-dictionary "de_DE")))
-(global-set-key (kbd "C-c d e") '(lambda () (interactive) (ispell-change-dictionary "en_US")))
+(global-set-key (kbd "C-c d d") 'ispell-select-dict-de_de)
+(global-set-key (kbd "C-c d e") 'ispell-select-dict-en_us)
 (global-set-key (kbd "C-c l")   'org-store-link)
 (global-set-key (kbd "C-c L")   'org-insert-link-global)
 (global-set-key (kbd "C-c o")   'org-open-at-point-global)
