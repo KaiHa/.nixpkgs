@@ -87,7 +87,7 @@
 
  password-cache-expiry 300
  read-file-name-completion-ignore-case t
- require-final-newline t
+ require-final-newline 'ask
  user-full-name "Kai Harries"
  user-mail-address "kai.harries@gmail.com"
 
