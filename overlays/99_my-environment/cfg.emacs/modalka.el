@@ -1,7 +1,10 @@
 (require 'modalka)
 
-(setq-default cursor-type 'bar)
-(setq modalka-cursor-type 'box)
+(setq-default cursor-type 'bar
+              blink-cursor-alist '((bar . box)
+                                   (box . bar))
+              blink-cursor-blinks 0)
+(setq modalka-cursor-type 'hollow)
 
 (global-set-key (kbd "M-ESC") #'modalka-mode)
 
