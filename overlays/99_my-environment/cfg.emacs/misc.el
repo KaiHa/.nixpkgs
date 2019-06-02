@@ -92,7 +92,8 @@
  scroll-preserve-screen-position t
  shr-inhibit-images t
  shr-image-animate nil
- tramp-default-proxies-alist '(("\\.fritz\\.box" "\\`root\\'" "/ssh:%h:")))
+ tramp-default-proxies-alist '(("\\.fritz\\.box" "\\`root\\'" "/ssh:%h:"))
+ visible-bell t)
 
 
 ;; reloading of frames (must happen after setting frame-background-mode)
