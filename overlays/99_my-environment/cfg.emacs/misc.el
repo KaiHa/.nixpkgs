@@ -3,6 +3,7 @@
 (require 'iedit)
 (require 'nxml-mode)
 (require 'sgml-mode)
+(blink-cursor-mode)
 (column-number-mode t)
 (global-hl-todo-mode)
 (global-undo-tree-mode)
