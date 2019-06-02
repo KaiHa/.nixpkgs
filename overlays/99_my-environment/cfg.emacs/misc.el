@@ -89,6 +89,7 @@
  user-mail-address "kai.harries@gmail.com"
 
  safe-local-variable-values '((bug-reference-bug-regexp . "\\(\\(?:[Ii]ssue \\|[Ff]ixe[ds] \\|[Rr]esolve[ds]? \\|[Cc]lose[ds]? \\|[Pp]\\(?:ull [Rr]equest\\|[Rr]\\) \\|(\\)#\\([0-9]+\\))?\\)"))
+ scroll-preserve-screen-position t
  shr-inhibit-images t
  shr-image-animate nil
  tramp-default-proxies-alist '(("\\.fritz\\.box" "\\`root\\'" "/ssh:%h:")))
