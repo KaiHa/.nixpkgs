@@ -10,6 +10,13 @@
   (interactive)
   (ispell-change-dictionary "en_US"))
 
+(defun line-number-relative-toggle ()
+  "Toggle display of relative line-numbers on/off"
+  (interactive)
+  (if (equal display-line-numbers 'relative)
+      (setq display-line-numbers nil)
+    (setq display-line-numbers 'relative)))
+
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
 (add-hook 'c++-mode-hook     'rtags-start-process-unless-running)
@@ -38,6 +45,7 @@
 (global-set-key (kbd "C-c d e") 'ispell-select-dict-en_us)
 (global-set-key (kbd "C-c l")   'org-store-link)
 (global-set-key (kbd "C-c L")   'org-insert-link-global)
+(global-set-key (kbd "C-c n")   'line-number-relative-toggle)
 (global-set-key (kbd "C-c o")   'org-open-at-point-global)
 (global-set-key (kbd "C-c s")   'swiper)
 (global-set-key (kbd "C-c <S-return>") 'browse-url-xdg-open)

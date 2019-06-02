@@ -105,3 +105,4 @@
 (face-spec-set 'font-lock-comment-face '((t (:foreground "dim gray" :slant italic))))
 (face-spec-set 'mode-line              '((t (:background "#fbb" :foreground "black" :box (:line-width 2 :color "#fbb")))))
 (face-spec-set 'mode-line-inactive     '((t (:background "#fff" :inherit mode-line  :box (:line-width 2 :color "#fbb")))))
+(face-spec-set 'line-number-current-line '((t (:foreground "magenta" :weight bold))))
