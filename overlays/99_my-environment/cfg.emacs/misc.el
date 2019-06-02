@@ -26,7 +26,9 @@
 (set-display-table-slot standard-display-table 'truncation (make-glyph-code ?$  'error))
 (set-display-table-slot standard-display-table 'wrap       (make-glyph-code ?\\ 'error))
 
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil
+              indicate-buffer-boundaries '((top . left) (t . right))
+              indicate-empty-lines t)
 
 (add-to-list 'hs-special-modes-alist
              '(nxml-mode
