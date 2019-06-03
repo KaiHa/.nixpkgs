@@ -83,6 +83,7 @@
                            (type   . "application/pdf"))
                           ((viewer . image-mode)
                            (type   . "image/jpeg")))
+ midnight-mode t
  mouse-yank-at-point t
 
  password-cache-expiry 300
