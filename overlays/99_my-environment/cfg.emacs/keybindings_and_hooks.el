@@ -21,6 +21,7 @@
 (require 'eww)
 (add-hook 'c++-mode-hook      'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook        'rtags-start-process-unless-running)
+(add-hook 'emacs-startup-hook 'org-gcal-sync)
 (add-hook 'emacs-startup-hook 'org-agenda-to-appt)
 (add-hook 'midnight-mode-hook 'org-agenda-to-appt)
 (add-hook 'nxml-mode-hook     'hs-minor-mode)
