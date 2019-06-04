@@ -18,7 +18,7 @@
         ("e" "Event" entry (file+headline "~/.emacs.d/org/events.org" "Events")
          "* %i\n  %^t%?\n  %a")
         ("j" "Journal" entry (file+datetree "~/.emacs.d/org/journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")
+         "* %?\n  Entered on %U\n  %i\n  %a")
         ("t" "Todo" entry (file+headline "~/.emacs.d/org/tasks.org" "Tasks")
          "* TODO %?\n  %i\n  %a"))
  org-catch-invisible-edits 'error
