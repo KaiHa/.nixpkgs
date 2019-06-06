@@ -42,7 +42,7 @@
 
 ;;;; Custom key-bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c a")   'org-agenda)
-(global-set-key (kbd "C-c b")   'org-iswitchb)
+(global-set-key (kbd "C-c b")   'org-switchb)
 (global-set-key (kbd "C-c c")   'org-capture)
 (global-set-key (kbd "C-c d d") 'ispell-select-dict-de_de)
 (global-set-key (kbd "C-c d e") 'ispell-select-dict-en_us)
