@@ -1,5 +1,17 @@
 ;;;; Definition of functions used below ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defun insert-date (&optional n)
+  "Insert the current date at point.
+With a prefix arg N add an offset of N days to the current date."
+  (interactive "P")
+  (if n
+      (insert (format-time-string "%Y-%m-%d"
+                                  (time-add
+                                   (current-time)
+                                   (* 86400
+                                      (prefix-numeric-value n)))))
+    (insert (format-time-string "%Y-%m-%d"))))
+
 (defun ispell-select-dict-de_de ()
   "Switch ispell dictionary to de_DE"
   (interactive)
@@ -51,6 +63,7 @@
 (global-set-key (kbd "C-c n")   'line-number-relative-toggle)
 (global-set-key (kbd "C-c o")   'org-open-at-point-global)
 (global-set-key (kbd "C-c s")   'swiper)
+(global-set-key (kbd "C-c .")   'insert-date)
 (global-set-key (kbd "C-c <S-return>") 'browse-url-xdg-open)
 
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
