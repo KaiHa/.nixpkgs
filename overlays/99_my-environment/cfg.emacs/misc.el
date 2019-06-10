@@ -12,6 +12,7 @@
 (savehist-mode)
 (set-scroll-bar-mode nil)
 (show-paren-mode)
+(temp-buffer-resize-mode)
 (tool-bar-mode -1)
 (which-key-mode)
 (winner-mode)
