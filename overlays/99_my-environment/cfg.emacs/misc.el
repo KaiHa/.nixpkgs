@@ -60,6 +60,7 @@
 (setq
  browse-url-browser-function 'eww-browse-url
  browse-url-generic-program "firefox"
+ default-input-method "german-postfix"
  dired-du-size-format ","
  dired-omit-files "^\\.?#\\|^\\.[^.]"
 
