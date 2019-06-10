@@ -15,6 +15,7 @@
 (temp-buffer-resize-mode)
 (tool-bar-mode -1)
 (which-key-mode)
+(windmove-default-keybindings)
 (winner-mode)
 
 (setenv "DBUS_SESSION_BUS_ADDRESS" (with-temp-buffer
