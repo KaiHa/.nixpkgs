@@ -93,6 +93,7 @@
  password-cache-expiry 300
  read-file-name-completion-ignore-case t
  require-final-newline 'ask
+ show-paren-style 'expression
  user-full-name "Kai Harries"
  user-mail-address "kai.harries@gmail.com"
 
