@@ -76,6 +76,7 @@
  help-window-select t
  hs-hide-comments-when-hiding-all nil
  ispell-dictionary "en_US"
+ inhibit-eol-conversion t
  ;;inhibit-startup-screen t
 
  image-dired-cmd-rotate-original-options '("%o" "-rotate" "%d" "%t")
