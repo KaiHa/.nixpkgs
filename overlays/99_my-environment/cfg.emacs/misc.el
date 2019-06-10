@@ -5,6 +5,7 @@
 (require 'sgml-mode)
 (blink-cursor-mode)
 (column-number-mode t)
+(electric-pair-mode)
 (global-hl-todo-mode)
 (global-undo-tree-mode)
 (menu-bar-mode t)
