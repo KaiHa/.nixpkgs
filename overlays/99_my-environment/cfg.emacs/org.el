@@ -25,6 +25,6 @@
  org-default-notes-file "~/.emacs.d/org/notes.org"
  org-fontify-done-headline t)
 
-(face-spec-set 'org-agenda-current-time '((t (:inherit org-time-grid :slant italic :weight bold))))
+(face-spec-set 'org-agenda-current-time '((t (:inherit org-time-grid :slant italic :weight bold :background "gray" :foreground "white"))))
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
 (face-spec-set 'org-time-grid '((t (:foreground "dark gray"))))
