@@ -35,7 +35,7 @@ With a prefix arg N add an offset of N days to the current date."
 (add-hook 'c-mode-hook        'rtags-start-process-unless-running)
 (add-hook 'emacs-startup-hook 'org-gcal-sync)
 (add-hook 'emacs-startup-hook 'org-agenda-to-appt)
-(add-hook 'midnight-mode-hook 'org-agenda-to-appt)
+(add-hook 'midnight-hook      'org-agenda-to-appt)
 (add-hook 'nxml-mode-hook     'hs-minor-mode)
 (add-hook 'prog-mode-hook     'hs-minor-mode)
 (add-hook 'text-mode-hook     'auto-fill-mode)
