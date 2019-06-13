@@ -9,8 +9,8 @@
  org-agenda-include-diary t
  org-agenda-start-on-weekday 1
  org-agenda-time-grid '((daily today)
-                        (800 1000 1200 1400 1600 1800 2000)
-                        "......" "----------------")
+                        (800 1200 1600)
+                        " - - -" "----------------")
  org-babel-load-languages '((emacs-lisp . t) (shell . t))
  org-capture-templates
       '(("b" "Bookmark" entry (file+headline "~/.emacs.d/org/notes.org" "Bookmarks")
