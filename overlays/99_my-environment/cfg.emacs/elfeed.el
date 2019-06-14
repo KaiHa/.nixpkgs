@@ -19,6 +19,8 @@
 
 (define-key elfeed-search-mode-map (kbd "SPC") 'scroll-up-command)
 (define-key elfeed-search-mode-map (kbd "<backspace>") 'scroll-down-command)
+(define-key elfeed-search-mode-map (kbd "<") 'beginning-of-buffer)
+(define-key elfeed-search-mode-map (kbd ">") 'end-of-buffer)
 
 
 (defface art-elfeed-entry
