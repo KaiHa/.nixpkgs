@@ -59,6 +59,12 @@
                           (:name "[a]ll mail" :query "*" :key "a")
                           (:name "[n]ote2me"  :query "from:kai.harries@gmail.com to:kai.harries@gmail.com" :key "n"))
 
+ notmuch-search-result-format '(("date"    . "%12s ")
+                                ("count"   . "%-7s ")
+                                ("authors" . "%-20s ")
+                                ("subject" . "%s ")
+                                ("tags"    . " %s"))
+
  notmuch-tagging-keys '(("a" notmuch-archive-tags "Archive")
                         ("d" ("+trash")       "Delete")
                         ("e" ("+expires")     "Mark as expires")
@@ -70,16 +76,17 @@
                         ("t" ("+todo")        "Mark as todo"))
 
 
- notmuch-tag-formats '(("unread")
+ notmuch-tag-formats '(("unread"     "*"    (notmuch-apply-face tag '(:background "dim gray" :foreground "yellow" :weight bold)))
                        ("flagged"           (notmuch-tag-format-image-data tag (notmuch-tag-star-icon)))
                        ("inbox"      "📥"   (notmuch-apply-face tag '(:foreground "black")))
                        ("signed")
-                       ("sent"              (notmuch-apply-face tag '(:weight normal :foreground "dim gray")))
+                       ("sent"              (notmuch-apply-face tag '(:weight bold :foreground "white" :background "gray")))
                        ("todo"       "ToDo" (notmuch-apply-face tag '(:weight bold :foreground "red" :background "yellow")))
                        ("attachment" "📎"   (notmuch-apply-face tag '(:weight bold :foreground "dark goldenrod")))
                        ("mute"       "🔕"   (notmuch-apply-face tag '(:foreground "black")))
                        ("calendar"   "📆"   (notmuch-apply-face tag '(:foreground "black")))
-                       ("trash"      "🗑"    (notmuch-apply-face tag '(:foreground "black"))))
+                       ("trash"      "🗑"    (notmuch-apply-face tag '(:foreground "black")))
+                       (".*"                (notmuch-apply-face tag '(:background "dim gray" :foreground "white" :weight bold ))))
 
  notmuch-search-oldest-first t
  notmuch-show-all-tags-list t
@@ -105,9 +112,10 @@
 (face-spec-set 'notmuch-crypto-decryption        '((t (:background "purple" :foreground "white"))))
 (face-spec-set 'notmuch-crypto-signature-bad     '((t (:background "IndianRed1" :foreground "black"))))
 (face-spec-set 'notmuch-crypto-signature-unknown '((t (:background "IndianRed1" :foreground "black"))))
+(face-spec-set 'notmuch-message-summary-face     '((t (:background "gray"))))
 (face-spec-set 'notmuch-search-count             '((t (:foreground "dim gray"))))
 (face-spec-set 'notmuch-search-date              '((t (:foreground "dim gray"))))
 (face-spec-set 'notmuch-search-flagged-face      '((t nil)))
 (face-spec-set 'notmuch-search-matching-authors  '((t (:foreground "dim gray"))))
 (face-spec-set 'notmuch-tag-added                '((t (:underline "forest green"))))
-(face-spec-set 'notmuch-tag-face                 '((t (:foreground "navy blue" :weight normal :slant italic))))
+(face-spec-set 'notmuch-tag-face                 '((t (:weight normal :slant italic))))
