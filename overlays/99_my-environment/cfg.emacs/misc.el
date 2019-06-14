@@ -111,9 +111,13 @@
 (mapc 'frame-set-background-mode (frame-list))
 
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(face-spec-reset-face 'show-paren-match)
+
 (face-spec-set 'tty-menu-enabled-face  '((t (:foreground "black" :weight normal))))
 (face-spec-set 'default                '((t (:family "Hack" :foundry "bitstream" :slant normal :weight normal :height 98 :width normal))))
 (face-spec-set 'font-lock-comment-face '((t (:foreground "dim gray" :slant italic))))
 (face-spec-set 'mode-line              '((t (:background "#fbb" :foreground "black" :box (:line-width 2 :color "#fbb")))))
 (face-spec-set 'mode-line-inactive     '((t (:background "#fff" :inherit mode-line  :box (:line-width 2 :color "#fbb")))))
+(face-spec-set 'region                      '((t (:background "bisque"))))
+(face-spec-set 'show-paren-match-expression '((t (:underline t))))
 (face-spec-set 'line-number-current-line '((t (:foreground "magenta" :weight bold))))
