@@ -29,6 +29,14 @@ With a prefix arg N add an offset of N days to the current date."
       (setq display-line-numbers nil)
     (setq display-line-numbers 'relative)))
 
+(defun browse-url-generic-toggle-program ()
+  "Toggle the default (external) browser between firefox and tor-browser."
+  (interactive)
+  (if (equal browse-url-generic-program "firefox")
+      (setq browse-url-generic-program "tor-browser")
+    (setq browse-url-generic-program "firefox"))
+  (message "browser changed to %s" browse-url-generic-program))
+
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
 (add-hook 'c++-mode-hook      'rtags-start-process-unless-running)
@@ -64,7 +72,8 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-c o")   'org-open-at-point-global)
 (global-set-key (kbd "C-c s")   'swiper)
 (global-set-key (kbd "C-c .")   'insert-date)
-(global-set-key (kbd "C-c <S-return>") 'browse-url-xdg-open)
+(global-set-key (kbd "C-c <S-return>") 'browse-url-generic)
+(global-set-key (kbd "C-c <C-return>") 'browse-url-generic-toggle-program)
 
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-x g")   'magit-status)

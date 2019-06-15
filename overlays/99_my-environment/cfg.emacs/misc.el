@@ -60,7 +60,7 @@
 
 (setq
  browse-url-browser-function 'eww-browse-url
- browse-url-generic-program "firefox"
+ browse-url-generic-program "tor-browser"
  default-input-method "german-postfix"
  dired-du-size-format ","
  dired-omit-files "^\\.?#\\|^\\.[^.]"
@@ -95,6 +95,7 @@
  read-file-name-completion-ignore-case t
  require-final-newline 'ask
  show-paren-style 'expression
+ shr-external-browser 'browse-url-generic
  user-full-name "Kai Harries"
  user-mail-address "kai.harries@gmail.com"
 
