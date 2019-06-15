@@ -21,6 +21,7 @@
 (define-key elfeed-search-mode-map (kbd "<backspace>") 'scroll-down-command)
 (define-key elfeed-search-mode-map (kbd "<") 'beginning-of-buffer)
 (define-key elfeed-search-mode-map (kbd ">") 'end-of-buffer)
+(define-key elfeed-search-mode-map (kbd "o") 'elfeed-toggle-sort)
 
 
 (defface art-elfeed-entry
@@ -83,3 +84,11 @@
   (rclone--call "rm" "-rf" (expand-file-name "~/.elfeed.bak"))
   (rclone--call "mv" (expand-file-name "~/.elfeed") (expand-file-name "~/.elfeed.bak"))
   (rclone-sync "gcrypt:elfeed-db.tar.xz" "~/"))
+
+(defun elfeed-toggle-sort ()
+  "Toggle the sort order of the elfeed search."
+  (interactive)
+  (if (equal elfeed-sort-order 'ascending)
+      (setq elfeed-sort-order 'descending)
+    (setq elfeed-sort-order 'ascending))
+  (elfeed-search-update--force))
