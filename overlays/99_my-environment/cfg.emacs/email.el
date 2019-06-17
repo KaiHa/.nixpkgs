@@ -1,21 +1,28 @@
 (require 'notmuch "@notmuch@")
 
+;;;; Functions that are used below
+(defun notmuch-search-drop-new-and-forward ()
+  "Remove `new` tag and go to next thread."
+  (interactive)
+  (notmuch-search-tag '("-new"))
+  (notmuch-search-next-thread))
+
+(defun notmuch-search-trash-and-forward ()
+  "Delete thread and go to next thread."
+  (interactive)
+  (notmuch-search-tag '("+trash"))
+  (notmuch-search-next-thread))
+
+
+;;;; Key bindings
 (global-set-key (kbd "C-x n")   'notmuch)
 
 (define-key notmuch-hello-mode-map   (kbd "g") 'notmuch-refresh-this-buffer)
 (define-key notmuch-search-mode-map  (kbd "g") 'notmuch-refresh-this-buffer)
 (define-key notmuch-show-mode-map    (kbd "g") 'notmuch-refresh-this-buffer)
 (define-key notmuch-tree-mode-map    (kbd "g") 'notmuch-refresh-this-buffer)
-(define-key notmuch-search-mode-map  (kbd "f") (lambda ()
-                                                 "Remove `new` tag and go to next thread."
-                                                 (interactive)
-                                                 (notmuch-search-tag '("-new"))
-                                                 (notmuch-search-next-thread)))
-(define-key notmuch-search-mode-map  (kbd "D") (lambda ()
-                                                 "Delete thread and go to next thread."
-                                                 (interactive)
-                                                 (notmuch-search-tag '("+trash"))
-                                                 (notmuch-search-next-thread)))
+(define-key notmuch-search-mode-map  (kbd "f") 'notmuch-search-drop-new-and-forward)
+(define-key notmuch-search-mode-map  (kbd "D") 'notmuch-search-trash-and-forward)
 
 
 (define-abbrev-table 'notmuch-message-mode-abbrev-table
