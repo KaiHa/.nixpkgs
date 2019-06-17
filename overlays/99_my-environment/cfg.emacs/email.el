@@ -50,13 +50,13 @@
                                                        nil t nil
                                                        'notmuch-address-history))
 
- notmuch-saved-searches '((:name "[i]nbox"    :query "tag:inbox" :key "i")
-                          (:name "[u]nread"   :query "tag:unread" :key "u" :count-query "tag:unread and tag:inbox")
-                          (:name "[t]odo"     :query "tag:todo" :key "t")
+ notmuch-saved-searches '((:name "[i]nbox"    :query "tag:inbox"   :key "i")
+                          (:name "[u]nread"   :query "tag:unread"  :key "u" :count-query "tag:unread and tag:inbox")
+                          (:name "[t]odo"     :query "tag:todo"    :key "t")
                           (:name "[f]lagged"  :query "tag:flagged" :key "f")
-                          (:name "[s]ent"     :query "tag:sent" :key "s")
-                          (:name "[d]rafts"   :query "tag:draft" :key "d")
-                          (:name "[a]ll mail" :query "*" :key "a")
+                          (:name "[s]ent"     :query "tag:sent"    :key "s")
+                          (:name "[d]rafts"   :query "tag:draft"   :key "d")
+                          (:name "[a]ll mail" :query "*"           :key "a")
                           (:name "[n]ote2me"  :query "from:kai.harries@gmail.com to:kai.harries@gmail.com" :key "n"))
 
  notmuch-search-result-format '(("date"    . "%12s ")
