@@ -61,7 +61,7 @@
                 "https://possiblywrong.wordpress.com/feed/"
 		("https://www.schneier.com/blog/atom.xml" itsec)
                 ("http://we-make-money-not-art.com/feed/" art))
- elfeed-search-title-max-width 100)
+ elfeed-search-title-max-width 80)
 
 (defadvice elfeed-search-update--force (after my-elfeed-search-update--force activate)
   "Force refresh view of the feed listing (and save db)"
