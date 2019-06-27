@@ -37,10 +37,16 @@ With a prefix arg N add an offset of N days to the current date."
     (setq browse-url-generic-program "firefox"))
   (message "browser changed to %s" browse-url-generic-program))
 
+(defun text-scale-up ()
+  "Make the text bigger."
+  (text-scale-increase 1))
+
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
 (add-hook 'c++-mode-hook      'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook        'rtags-start-process-unless-running)
+(add-hook 'elfeed-show-mode-hook 'text-scale-up)
+(add-hook 'elfeed-search-mode-hook 'text-scale-up)
 (add-hook 'emacs-startup-hook 'org-gcal-sync)
 (add-hook 'emacs-startup-hook 'org-agenda-to-appt)
 (add-hook 'midnight-hook      'org-agenda-to-appt)
