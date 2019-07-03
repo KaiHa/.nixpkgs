@@ -6,6 +6,11 @@
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "heise\\.de"
+                              :entry-title "Anzeige:"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "lwn\\.net"
                               :entry-title "Security updates for"
                               :remove 'unread))
