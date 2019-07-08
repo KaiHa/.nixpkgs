@@ -29,4 +29,5 @@
                      haskell-indentation-mode
                      highlight-uses-mode
                      interactive-haskell-mode)
+ haskell-process-log t
  haskell-process-type 'auto)
