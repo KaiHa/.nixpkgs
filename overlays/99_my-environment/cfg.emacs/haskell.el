@@ -29,4 +29,4 @@
                      haskell-indentation-mode
                      highlight-uses-mode
                      interactive-haskell-mode)
- haskell-process-type 'cabal-new-repl)
+ haskell-process-type 'auto)
