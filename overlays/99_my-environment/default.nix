@@ -94,6 +94,7 @@ rec {
         happy
         hlint
         hoogle
+        pointfree
       ]))
       cabal2nix
       fontconfig.dev
