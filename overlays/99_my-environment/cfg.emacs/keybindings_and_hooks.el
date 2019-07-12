@@ -15,12 +15,14 @@ With a prefix arg N add an offset of N days to the current date."
 (defun ispell-select-dict-de_de ()
   "Switch ispell dictionary to de_DE"
   (interactive)
-  (ispell-change-dictionary "de_DE"))
+  (ispell-change-dictionary "de_DE")
+  (activate-input-method "german-postfix"))
 
 (defun ispell-select-dict-en_us ()
   "Switch ispell dictionary to en_US"
   (interactive)
-  (ispell-change-dictionary "en_US"))
+  (ispell-change-dictionary "en_US")
+  (activate-input-method 'nil))
 
 (defun line-number-relative-toggle ()
   "Toggle display of relative line-numbers on/off"
