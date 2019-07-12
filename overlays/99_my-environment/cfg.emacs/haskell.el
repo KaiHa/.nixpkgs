@@ -6,6 +6,7 @@
 
  haskell-compile-cabal-build-alt-command "cd %s && cabal v2-clean && cabal new-build --ghc-option=-ferror-spans"
  haskell-compile-cabal-build-command     "cd %s && cabal new-build --ghc-option=-ferror-spans"
+ haskell-hoogle-command "hoogle --count=60"
  haskell-mode-hook '(company-mode
                      dante-mode
                      flycheck-haskell-setup
