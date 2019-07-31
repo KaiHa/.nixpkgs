@@ -91,7 +91,7 @@
                        ("todo"       "ToDo" (notmuch-apply-face tag '(:foreground "red"   :background "yellow")))
                        ("attachment"        (notmuch-apply-face tag '(:foreground "white" :background "olive drab")))
                        ("calendar"          (notmuch-apply-face tag '(:foreground "white" :background "forest green")))
-                       ("trash"             (notmuch-apply-face tag '(:foreground "white" :backround "brown")))
+                       ("trash"             (notmuch-apply-face tag '(:foreground "white" :background "brown")))
                        (".*"                (notmuch-apply-face tag '(:foreground "white" :background "dim gray"))))
 
  notmuch-search-oldest-first t
