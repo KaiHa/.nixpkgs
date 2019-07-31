@@ -24,6 +24,7 @@
 (load-file "~/.config/emacs/rclone.el")
 
 ;;;; Deviations from the defaults ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(elfeed-update)
 
 
 ;;;; Customization
