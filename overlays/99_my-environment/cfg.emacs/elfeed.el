@@ -65,7 +65,26 @@
                 "http://nullprogram.com/feed/"
                 "https://possiblywrong.wordpress.com/feed/"
 		("https://www.schneier.com/blog/atom.xml" itsec)
-                ("http://we-make-money-not-art.com/feed/" art))
+                ("http://we-make-money-not-art.com/feed/" art)
+                ("https://haskellweekly.news/haskell-weekly.atom" haskell)
+                ("https://haskellweekly.news/podcast/feed.rss" audio haskell)
+                ("http://feeds.soundcloud.com/users/soundcloud:users:159515815/sounds.rss" audio hildesheim)
+                ("https://www.hildesheim.de/magazin/rss.php" hildesheim)
+                ("https://freizeit.hildesheimer-allgemeine.de/veranstaltungskalender/feed/" hildesheim)
+                ("http://nordstadt-mehr-wert.de/feed" hildesheim)
+                "http://bit-player.org/feed"
+                "https://danluu.com/atom.xml"
+                "http://dvdp.tumblr.com/rss"
+                "https://www.econlib.org/feed/indexCaplan_xml"
+                "http://feeds.gimletmedia.com/eltshow"
+                "https://feeds.feedburner.com/Pidjin"
+                "https://feeds.feedburner.com/MrMoneyMustache"
+                "http://www.overcomingbias.com/feed"
+                "https://piecomic.tumblr.com/rss"
+                ("https://www.npr.org/rss/podcast.php?id=510289" audio)
+                "https://blog.plover.com/index.atom"
+                ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
+                "https://xkcd.com/atom.xml")
  elfeed-search-title-max-width 80)
 
 (defadvice elfeed-search-update--force (after my-elfeed-search-update--force activate)
