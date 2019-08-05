@@ -27,7 +27,10 @@
 (define-key elfeed-search-mode-map (kbd "<") 'beginning-of-buffer)
 (define-key elfeed-search-mode-map (kbd ">") 'end-of-buffer)
 (define-key elfeed-search-mode-map (kbd "o") 'elfeed-toggle-sort)
-
+(define-key elfeed-show-mode-map   (kbd "n")   'next-line)
+(define-key elfeed-show-mode-map   (kbd "p")   'previous-line)
+(define-key elfeed-show-mode-map   (kbd "M-n") 'elfeed-show-next)
+(define-key elfeed-show-mode-map   (kbd "M-p") 'elfeed-show-prev)
 
 (defface art-elfeed-entry
   '((t :foreground "#f0f"))
