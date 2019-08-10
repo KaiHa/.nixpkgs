@@ -43,6 +43,16 @@ With a prefix arg N add an offset of N days to the current date."
   "Make the text bigger."
   (text-scale-increase 1))
 
+(defun emms-play-url-at-point ()
+  "Play the url found at point in emms."
+  (interactive)
+  (emms-play-url (shr-url-at-point nil)))
+
+(defun emms-add-url-at-point ()
+  "Add the url found at point to emms playlist."
+  (interactive)
+  (emms-add-url (shr-url-at-point nil)))
+
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
 (add-hook 'c++-mode-hook           'rtags-start-process-unless-running)

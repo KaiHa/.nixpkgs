@@ -1,3 +1,5 @@
+(require 'emms-setup)
+(require 'emms-info-mediainfo)
 (require 'dired-x)
 (require 'hideshow)
 (require 'iedit)
@@ -6,6 +8,9 @@
 (blink-cursor-mode)
 (column-number-mode t)
 (electric-pair-mode)
+(emms-all)
+(emms-default-players)
+(add-to-list 'emms-info-functions 'emms-info-mediainfo)
 (global-hl-todo-mode)
 (global-undo-tree-mode)
 (menu-bar-mode t)
@@ -68,6 +73,8 @@
  ediff-merge-split-window-function 'split-window-vertically
  ediff-split-window-function       'split-window-horizontally
  ediff-window-setup-function       'ediff-setup-windows-plain
+
+ emms-source-file-default-directory "~/Media/"
 
  explicit-shell-file-name "/run/current-system/sw/bin/bash"
  frame-background-mode 'light

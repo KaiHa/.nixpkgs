@@ -17,6 +17,8 @@
                              dired-du
                              editorconfig
                              elfeed
+                             emms
+                             emms-info-mediainfo
                              flycheck-haskell
                              flycheck-rust
                              forecast

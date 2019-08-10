@@ -1,4 +1,4 @@
-{stdenv, bash, coreutils, emacs, glibcLocales, graphicsmagick-imagemagick-compat, notmuch, tzdata, writeText}:
+{stdenv, bash, coreutils, emacs, glibcLocales, graphicsmagick-imagemagick-compat, mediainfo, notmuch, tzdata, writeText}:
 
 let
   emacsService = writeText "emacs.service" ''
@@ -13,7 +13,7 @@ let
     Environment=PKG_CONFIG_PATH=$HOME/.nix-profile/lib/pkgconfig/
     Environment=C_INCLUDE_PATH=$HOME/.nix-profile/include/
 
-    ExecStart=${bash}/bin/bash -c 'source /etc/profile; PATH="$PATH:${graphicsmagick-imagemagick-compat}/bin" exec ${emacs}/bin/emacs --fg-daemon'
+    ExecStart=${bash}/bin/bash -c 'source /etc/profile; PATH="$PATH:${graphicsmagick-imagemagick-compat}/bin:${mediainfo}/bin" exec ${emacs}/bin/emacs --fg-daemon'
     Restart=on-failure
 
     [Install]
