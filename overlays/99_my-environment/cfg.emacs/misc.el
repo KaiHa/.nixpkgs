@@ -100,7 +100,6 @@
 
  password-cache-expiry 300
  read-file-name-completion-ignore-case t
- require-final-newline 'ask
  show-paren-style 'expression
  shr-external-browser 'browse-url-generic
  user-full-name "Kai Harries"
