@@ -79,7 +79,7 @@
                 "https://danluu.com/atom.xml"
                 "http://dvdp.tumblr.com/rss"
                 "https://www.econlib.org/feed/indexCaplan_xml"
-                "http://feeds.gimletmedia.com/eltshow"
+                ("http://feeds.gimletmedia.com/eltshow" audio)
                 "https://feeds.feedburner.com/Pidjin"
                 "https://feeds.feedburner.com/MrMoneyMustache"
                 "http://www.overcomingbias.com/feed"
