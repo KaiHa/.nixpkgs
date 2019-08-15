@@ -13,8 +13,8 @@
                         " - - -" "----------------")
  org-babel-load-languages '((emacs-lisp . t) (shell . t))
  org-capture-templates
-      '(("b" "Bookmark" entry (file+headline "~/.emacs.d/org/notes.org" "Bookmarks")
-         "* %?%i\n  %a")
+      '(("a" "Action for clocked in task" entry (clock)
+         "* %?%i\n  %U\n  %a")
         ("e" "Event" entry (file+headline "~/.emacs.d/org/events.org" "Events")
          "* %i\n  %^t%?\n  %a")
         ("j" "Journal" entry (file+datetree "~/.emacs.d/org/journal.org")
