@@ -119,7 +119,14 @@
   "Run the nix garbage collection."
   (interactive)
   (if (yes-or-no-p "Collect garbage? ")
-      (async-shell-command "nix-collect-garbage")))
+      (with-current-buffer-window
+       "*nix-collect-garbage*"
+       nil
+       nil
+       (start-process "nix-collect-garbage"
+                      "*nix-collect-garbage*"
+                      "nix-collect-garbage")
+       (view-mode))))
 
 
 (define-derived-mode nix-ls-gen-mode special-mode "nix-ls-gen"
