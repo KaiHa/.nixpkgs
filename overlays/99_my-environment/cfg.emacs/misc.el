@@ -24,9 +24,12 @@
 (windmove-default-keybindings)
 (winner-mode)
 
-(setenv "DBUS_SESSION_BUS_ADDRESS" (with-temp-buffer
-                                     (insert-file-contents "/home/kai/.dbus-session-bus-address")
-                                     (string-trim (buffer-string))))
+(let
+ ((f (expand-file-name "~/.dbus-session-bus-address")))
+ (if (file-exists-p f)
+     (setenv "DBUS_SESSION_BUS_ADDRESS" (with-temp-buffer
+                                          (insert-file-contents f)
+                                          (string-trim (buffer-string))))))
 (setenv "GDK_BACKEND" "wayland")
 
 (put 'narrow-to-region 'disabled nil)
