@@ -7,9 +7,11 @@ lnk ()
   dest=${2:?}
 
   if [[ $(readlink -f "$src") = $(readlink -f "$dest") ]]; then
-      echo "info: link $dest already OK"
+      echo "info: link already OK: $dest"
+  elif [[ "/dev/null" = $(readlink -f "$dest") ]]; then
+      echo "warn: link points to /dev/null, leaving it as it is: $dest"
   elif [[ -e "$dest" ]]; then
-      echo "error: '$dest' already exists but links NOT to '$src', will NOT overwrite" >&2
+      echo "error: file already exists but links NOT to '$src', will NOT overwrite:  $dest" >&2
       exit 1
   else
       echo "info: creating link $src -> $dest"
