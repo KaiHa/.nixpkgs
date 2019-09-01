@@ -40,7 +40,7 @@
                       (re-search-backward "^\\(/.*\\):")
                       (match-string 1))))
         (if (and gens profile)
-            (if (yes-or-no-p (format "Delete generations %s of profile '%s'? " gens profile))
+            (if (y-or-n-p (format "Delete generations %s of profile '%s'? " gens profile))
                 (progn
                   (shell-command (format "sudo nix-env --delete-generations %s -p %s" gens profile))
                   (nix-list-generations)))
@@ -56,7 +56,7 @@
                    (re-search-backward "^\\(/.*\\):")
                    (match-string 1))))
     (if (and gen profile)
-        (if (yes-or-no-p (format "Delete generation %s of profile '%s'? " gen profile))
+        (if (y-or-n-p (format "Delete generation %s of profile '%s'? " gen profile))
             (progn
               (shell-command (format "sudo nix-env --delete-generations %s -p %s" gen profile))
               (nix-list-generations)))
@@ -118,7 +118,7 @@
 (defun nix-ls-gen--collect-garbage ()
   "Run the nix garbage collection."
   (interactive)
-  (if (yes-or-no-p "Collect garbage? ")
+  (if (y-or-n-p "Collect garbage? ")
       (with-current-buffer-window
        "*nix-collect-garbage*"
        nil
