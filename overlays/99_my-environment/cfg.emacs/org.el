@@ -11,7 +11,6 @@
  org-agenda-time-grid '((daily today)
                         (800 1200 1600)
                         " - - -" "----------------")
- org-babel-load-languages '((emacs-lisp . t) (shell . t))
  org-capture-templates
       '(("a" "Action for clocked in task" entry (clock)
          "* %?%i\n  %U\n  %a")
@@ -24,6 +23,10 @@
  org-catch-invisible-edits 'error
  org-default-notes-file "~/.emacs.d/org/notes.org"
  org-fontify-done-headline t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((emacs-lisp . t)
+                             (shell . t)))
 
 (face-spec-set 'org-agenda-current-time '((t (:inherit org-time-grid :slant italic :weight bold :background "dark magenta" :foreground "green"))))
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
