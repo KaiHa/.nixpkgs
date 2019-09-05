@@ -58,3 +58,9 @@
   (eww-reload t)
   (message "Images are now %s"
            (if shr-inhibit-images "off" "on")))
+
+
+(defun ssh-auth-sock-set (sock)
+  "Set the environment variable SSH_AUTH_SOCK"
+  (interactive "fssh auth sock: ")
+  (setenv "SSH_AUTH_SOCK" sock))
