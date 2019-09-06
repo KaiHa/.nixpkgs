@@ -8,7 +8,7 @@
  org-agenda-files '("~/.emacs.d/org")
  org-agenda-include-diary t
  org-agenda-start-on-weekday 1
- org-agenda-time-grid '((daily today)
+ org-agenda-time-grid '((daily today remove-match)
                         (800 1200 1600)
                         " - - -" "----------------")
  org-capture-templates
