@@ -2,5 +2,7 @@
 
 set -e
 
-cd ~/.mail/account.gmail/
-gmi sync
+( cd ~/.mail/account.gmail/
+  gmi sync)
+
+offlineimap

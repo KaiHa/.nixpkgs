@@ -59,6 +59,7 @@ rec {
       noto-fonts-cjk
       noto-fonts-emoji
       noto-fonts-extra
+      offlineimap
       pass
       shellcheck
       symbola

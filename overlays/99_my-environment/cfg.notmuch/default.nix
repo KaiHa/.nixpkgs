@@ -1,4 +1,4 @@
-{stdenv, aescrypt, bash, coreutils, glibcLocales, gmailieer, notmuch, tzdata, writeText}:
+{stdenv, aescrypt, bash, coreutils, glibcLocales, gmailieer, notmuch, offlineimap, tzdata, writeText}:
 
 let
   fmService = writeText "fetch-mail.service" ''
@@ -7,7 +7,7 @@ let
 
     [Service]
     Environment="LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive"
-    Environment="PATH=${bash}/bin:${gmailieer}/bin:${notmuch}/bin:${coreutils}/bin"
+    Environment="PATH=${bash}/bin:${gmailieer}/bin:${notmuch}/bin:${coreutils}/bin:${offlineimap}/bin"
     Environment="TZDIR=${tzdata}/share/zoneinfo"
 
     ExecStart=${notmuch}/bin/notmuch new
@@ -41,6 +41,7 @@ stdenv.mkDerivation rec {
   secret = import <secret>;
 
   installPhase = ''
+    install -dm 755 "$out/target-home/DOT.config/offlineimap"
     install -dm 755 "$out/target-home/DOT.config/systemd/user/default.target.wants"
     install -dm 755 "$out/target-home/DOT.config/systemd/user/fetch-mail.timer.wants"
     install -Dm 444 ${fmService}        "$out/target-home/DOT.config/systemd/user/fetch-mail.service"
@@ -49,6 +50,7 @@ stdenv.mkDerivation rec {
     install -Dm 444 ${fmTimer}          "$out/target-home/DOT.config/systemd/user/default.target.wants/fetch-mail.timer"
     install -Dm 444 $src/notmuch-config "$out/target-home/DOT.notmuch-config"
     install -Dm 755 $src/pre-new        "$out/target-home/DOT.mail/DOT.notmuch/hooks/pre-new"
+    aescrypt -d -p "${secret}" -o "$out/target-home/DOT.config/offlineimap/config" "$src/offlineimaprc.aes"
     aescrypt -d -p "${secret}" -o "$out/target-home/DOT.mail/DOT.notmuch/hooks/post-new" "$src/post-new.aes"
     chmod 755 $out/target-home/DOT.mail/DOT.notmuch/hooks/post-new
   '';
