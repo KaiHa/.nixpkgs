@@ -49,6 +49,7 @@ other_email=kai.harries@gmail.com;kai.harries@googlemail.com
 #		in the mail store.
 #
 [new]
+# TODO set back to the default "unread;inbox"
 tags=new
 ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 
@@ -63,7 +64,7 @@ ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 #
 [search]
 # Google Mail tags deleted messages with trash
-exclude_tags=trash;spam;
+exclude_tags=deleted;spam;trash
 
 # Maildir compatibility configuration
 #

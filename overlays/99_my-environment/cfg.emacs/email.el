@@ -10,7 +10,7 @@
 (defun notmuch-search-trash-and-forward ()
   "Delete thread and go to next thread."
   (interactive)
-  (notmuch-search-tag '("+trash"))
+  (notmuch-search-tag '("+deleted"))
   (notmuch-search-next-thread))
 
 
@@ -75,7 +75,7 @@
                                 ("tags"    . " %s"))
 
  notmuch-tagging-keys '(("a" notmuch-archive-tags "Archive")
-                        ("d" ("+trash")       "Delete")
+                        ("d" ("+deleted")     "Delete")
                         ("e" ("+expires")     "Mark as expires")
                         ("f" ("+flagged")     "Mark as flagged")
                         ("m" ("+mute")        "Mute thread")
@@ -94,6 +94,7 @@
                        ("attachment"        (notmuch-apply-face tag '(:foreground "white" :background "olive drab")))
                        ("calendar"          (notmuch-apply-face tag '(:foreground "white" :background "forest green")))
                        ("trash"             (notmuch-apply-face tag '(:foreground "white" :background "brown")))
+                       ("deleted"           (notmuch-apply-face tag '(:foreground "white" :background "brown")))
                        (".*"                (notmuch-apply-face tag '(:foreground "white" :background "dim gray"))))
 
  notmuch-search-oldest-first t
