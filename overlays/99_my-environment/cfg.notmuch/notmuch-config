@@ -1,3 +1,4 @@
+#-*- conf -*-
 # .notmuch-config - Configuration file for the notmuch mail system
 #
 # For more information about notmuch, see https://notmuchmail.org
@@ -48,7 +49,7 @@ other_email=kai.harries@googlemail.com
 #		in the mail store.
 #
 [new]
-tags=new;NEW
+tags=new
 ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 
 # Search configuration
