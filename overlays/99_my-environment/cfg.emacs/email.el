@@ -33,8 +33,10 @@
 (setq
  mail-host-address "x230.kaiha.invalid"
  send-mail-function 'smtpmail-send-it
- smtpmail-smtp-server "smtp.gmail.com"
- smtpmail-smtp-service 25
+ smtpmail-smtp-server "posteo.de"
+ smtpmail-smtp-service 587
+ smtpmail-stream-type 'starttls
+ notmuch-identities "kai.harries@posteo.de"
 
  message-completion-alist '(("^\\(To\\|CC\\|BCC\\):" . notmuch-address-expand-name)
                             ("^\\(Newsgroups\\|Followup-To\\|Posted-To\\|Gcc\\):" . message-expand-group)

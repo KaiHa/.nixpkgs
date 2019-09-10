@@ -31,8 +31,8 @@ path=/home/kai/.mail
 #
 [user]
 name=Kai Harries
-primary_email=kai.harries@gmail.com
-other_email=kai.harries@googlemail.com
+primary_email=kai.harries@posteo.de
+other_email=kai.harries@gmail.com;kai.harries@googlemail.com
 
 # Configuration for "notmuch new"
 #
