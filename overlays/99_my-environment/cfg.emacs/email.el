@@ -46,6 +46,7 @@
  message-forward-as-mime t
  message-forward-show-mml 'best
 
+ notmuch-archive-tags '("-inbox" "+archive")
  notmuch-hello-sections '(notmuch-hello-insert-header
                           notmuch-hello-insert-saved-searches
                           notmuch-hello-insert-search

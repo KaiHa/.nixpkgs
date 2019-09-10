@@ -6,6 +6,12 @@ notmuch search --output=files --exclude=false "tag:deleted and not path:deleted/
     mv $item ~/.mail/deleted/
 done
 
+notmuch search --output=files "tag:archive" | while read item; do
+    mv $item ~/.mail/archive/
+done
+notmuch tag -archive -- tag:archive
+
+
 ( cd ~/.mail/account.gmail/
   gmi sync)
 
