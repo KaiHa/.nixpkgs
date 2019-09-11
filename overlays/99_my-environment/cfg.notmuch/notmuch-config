@@ -63,8 +63,7 @@ ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
 #		query will override that exclusion.
 #
 [search]
-# Google Mail tags deleted messages with trash
-exclude_tags=deleted;spam;trash
+exclude_tags=deleted;spam
 
 # Maildir compatibility configuration
 #
