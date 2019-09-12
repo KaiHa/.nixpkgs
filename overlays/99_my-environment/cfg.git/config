@@ -2,7 +2,7 @@
 # (see section FILES in git-config(1))
 
 [user]
-  email = kai.harries@gmail.com
+  email = kai.harries@posteo.de
   name = Kai Harries
   signingkey = 9BF317AAADF833085154BEB55B9AFA98996CC931
 
