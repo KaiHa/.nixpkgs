@@ -3,11 +3,11 @@
 set -e
 
 notmuch search --output=files --exclude=false "tag:deleted and not path:deleted/**" | while read item; do
-    mv $item ~/.mail/deleted/
+    mv $item ~/.mail/deleted/ || true
 done
 
 notmuch search --output=files "tag:archive" | while read item; do
-    mv $item ~/.mail/archive/
+    mv $item ~/.mail/archive/ || true
 done
 notmuch tag -archive -- tag:archive
 
