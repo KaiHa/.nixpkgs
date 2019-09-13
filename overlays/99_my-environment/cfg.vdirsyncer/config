@@ -1,0 +1,36 @@
+# Configuration for @vdirsyncer@
+
+[general]
+status_path = "~/.config/vdirsyncer/status/"
+
+[pair posteo_contacts]
+a = "contacts_posteo_local"
+b = "contacts_posteo"
+collections = ["from a", "from b"]
+
+[storage contacts_posteo_local]
+type = "filesystem"
+path = "~/.contacts.posteo/"
+fileext = ".vcf"
+
+[storage contacts_posteo]
+type = "carddav"
+url = "https://posteo.de:8843/addressbooks/kai.harries/default"
+username = "kai.harries"
+password.fetch = ["command", "pass", "www/posteo.de"]
+
+[pair posteo_calendar]
+a = "calendar_posteo_local"
+b = "calendar_posteo"
+collections = ["from a", "from b"]
+
+[storage calendar_posteo_local]
+type = "filesystem"
+path = "~/.calendar.posteo/"
+fileext = ".ics"
+
+[storage calendar_posteo]
+type = "caldav"
+url = "https://posteo.de:8443/calendars/kai.harries/"
+username = "kai.harries"
+password.fetch = ["command", "pass", "www/posteo.de"]

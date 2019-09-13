@@ -25,6 +25,7 @@ rec {
   _cfg-ssh           = super.callPackage ./cfg.ssh           {};
   _cfg-tmux          = super.callPackage ./cfg.tmux          { inherit (self.tmuxPlugins) open urlview; };
   _cfg-urlview       = super.callPackage ./cfg.urlview       {};
+  _cfg-vdirsyncer    = super.callPackage ./cfg.vdirsyncer    {};
   _cfg-vim           = super.callPackage ./cfg.vim           {};
   _cfg-zsh           = super.callPackage ./cfg.zsh           {};
 
@@ -110,8 +111,10 @@ rec {
       _cfg-emacs-private
       _cfg-notmuch
       _cfg-rclone
+      _cfg-vdirsyncer
       _cfg-ssh
       rclone
+      vdirsyncer
     ];
   };
 
