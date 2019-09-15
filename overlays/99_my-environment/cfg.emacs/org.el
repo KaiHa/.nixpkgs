@@ -32,12 +32,17 @@
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
 (face-spec-set 'org-time-grid '((t (:foreground "dark gray"))))
 
+(defcustom org-icalendar-import-file
+  (expand-file-name "~/.emacs.d/org/events.org")
+  "The path of the file in which imported icalender events will be saved."
+  :type 'file)
 
-(defun org-icalendar-import (&optional outfile)
-  "Extract iCalendar events from current buffer.
+(defun org-icalendar-import (&optional org-link)
+  "Import iCalendar events from current buffer.
 
 This function searches the current buffer for the first iCalendar
-object, reads it and adds all VEVENT elements to the outfile."
+object, reads it and adds all VEVENT elements to the
+`org-icalendar-import-file'."
   (interactive)
   (save-current-buffer
     ;; prepare ical
@@ -72,15 +77,16 @@ object, reads it and adds all VEVENT elements to the outfile."
                    (description (icalendar--convert-string-for-import
                                  (let ((desc (icalendar--get-event-property e 'DESCRIPTION)))
                                    (if desc
-                                       (format "   %s\n" desc)
+                                       (format "*** Description\n%s\n" desc)
                                      ""))))
                    (location (icalendar--convert-string-for-import
                               (let ((loc (icalendar--get-event-property e 'LOCATION)))
-                                (if loc
+                                (if (and loc (not (equal "" loc)))
                                     (format "   @%s\n" loc)
                                   ""))))
                    (rrule (icalendar--get-event-property e 'RRULE))
                    (rdate (icalendar--get-event-property e 'RDATE))
+                   (uid   (icalendar--get-event-property e 'UID))
                    (duration (icalendar--get-event-property e 'DURATION)))
               (when duration
                 (let ((dtend-dec-d (icalendar--add-decoded-times
@@ -92,11 +98,20 @@ object, reads it and adds all VEVENT elements to the outfile."
                   (setq dtend-dec dtend-dec-d)))
               ;; write event to org-file
               (with-current-buffer
-                  (find-file-noselect "/home/kai/.emacs.d/org/events.org")
+                  (find-file-noselect org-icalendar-import-file)
                 (save-excursion
                   (goto-char (point-max))
-                  (insert (format "\n** %s\n   %s\n%s%s"
+                  (insert (format "
+** %s
+   :PROPERTIES:
+   :LINK: %s
+   :ID: %s
+   :END:
+   %s
+%s%s"
                                   summary
+                                  (if org-link org-link "")
+                                  uid
                                   (org-icalendar--dt-to-timestamp dtstart-dec dtend-dec)
                                   location
                                   description))))))
@@ -123,3 +138,20 @@ object, reads it and adds all VEVENT elements to the outfile."
   (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 3 2019 0 t 7200))                              "<2019-03-28 17:00>"))
   (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 3 2019 0 t 2700) '(0 0 19 28 3 2019 0 t 7200)) "<2019-03-28 17:00-19:00>"))
   (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 3 2019 0 t 2700) '(0 0  2 29 3 2019 0 t 7200)) "<2019-03-28 17:00>--<2019-03-29 02:00>")))
+
+(defun org-icalendar-import-notmuch-message ()
+  "Import iCalendar events from the current message."
+  (interactive)
+  (let* ((id (notmuch-show-get-message-id)))
+    (with-temp-buffer
+      "*org-icalender-import-message*"
+      (erase-buffer)
+      (let ((coding-system-for-read 'no-conversion))
+        (call-process notmuch-command nil t nil "show" "--format=raw" id))
+      (goto-char (point-min))
+      (let ((calendar (mm-get-part
+                       (mm-find-part-by-type
+                        (nconc (list (mm-dissect-buffer t nil)) nil) "text/calendar" nil t))))
+        (erase-buffer)
+        (insert calendar)
+        (org-icalendar-import (concat "[[notmuch:" id "][Invitation Email]]"))))))
