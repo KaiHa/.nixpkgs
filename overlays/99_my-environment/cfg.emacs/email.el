@@ -100,6 +100,7 @@
 
  notmuch-search-oldest-first t
  notmuch-show-all-tags-list t
+ notmuch-show-imenu-indent t
  notmuch-show-logo nil)
 
 
