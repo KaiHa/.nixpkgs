@@ -5,7 +5,6 @@ rec {
   emacs      = super.emacsWithPackages (p: [ self.ghostscript ]);
   gnupg      = super.gnupg.override { pinentry = self.pinentry; };
   lbdb       = super.lbdb.override { inherit gnupg; goobook = self.python3Packages.goobook; };
-  zathura    = super.zathura.override { synctexSupport = false; };
 
   haskellPackages = super.haskellPackages.override {
     overrides = hs_self: hs_super: {
