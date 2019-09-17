@@ -36,6 +36,27 @@
   "The path of the file in which imported icalender events will be saved."
   :type 'file)
 
+(defcustom org-icalendar-import-template
+  "
+** %s
+   :PROPERTIES:
+   :LINK: %l
+   :ID: %i
+   :END:
+   %t
+   @%p
+*** Description
+%d"
+  "Template for the import of icalender events. The following
+placeholders can be used:
+  %s SUMMARY
+  %l link to the source of this event
+  %i ID
+  %t timestamp
+  %p location (mnemonic place)
+  %d description"
+  :type 'string)
+
 (defun org-icalendar-import (&optional org-link)
   "Import iCalendar events from current buffer.
 
@@ -75,14 +96,10 @@ object, reads it and adds all VEVENT elements to the
                                  "No summary")))
                    (description (icalendar--convert-string-for-import
                                  (let ((desc (icalendar--get-event-property e 'DESCRIPTION)))
-                                   (if desc
-                                       (format "*** Description\n%s\n" desc)
-                                     ""))))
+                                   (if desc desc ""))))
                    (location (icalendar--convert-string-for-import
                               (let ((loc (icalendar--get-event-property e 'LOCATION)))
-                                (if (and loc (not (equal "" loc)))
-                                    (format "   @%s\n" loc)
-                                  ""))))
+                                (if loc loc ""))))
                    (rrule (icalendar--get-event-property e 'RRULE))
                    (rdate (icalendar--get-event-property e 'RDATE))
                    (uid   (icalendar--get-event-property e 'UID))
@@ -100,20 +117,14 @@ object, reads it and adds all VEVENT elements to the
                   (find-file-noselect org-icalendar-import-file)
                 (save-excursion
                   (goto-char (point-max))
-                  (insert (format "
-** %s
-   :PROPERTIES:
-   :LINK: %s
-   :ID: %s
-   :END:
-   %s
-%s%s"
-                                  summary
-                                  (if org-link org-link "")
-                                  uid
-                                  (org-icalendar--dt-to-timestamp dtstart-dec dtend-dec)
-                                  location
-                                  description))))))
+                  (insert (format-spec
+                           org-icalendar-import-template
+                           `((?s . ,summary)
+                             (?l . ,(if org-link org-link ""))
+                             (?i . ,uid)
+                             (?t . ,(org-icalendar--dt-to-timestamp dtstart-dec dtend-dec))
+                             (?p . ,location)
+                             (?d . ,description))))))))
           t)
 
       (message "Current buffer does not contain iCalendar contents!")
