@@ -144,10 +144,10 @@ object, reads it and adds all VEVENT elements to the
 
 (ert-deftest org-icalendar--dt-to-timestamp-test ()
   (should (equal (org-icalendar--dt-to-timestamp '(0 0  0 14 9 2019 0 t 7200))                              "<2019-09-14>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0  0 28 3 2019 0 t 7200) '(0 0  0  1 4 2019 0 t 7200)) "<2019-03-28>--<2019-03-31>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 3 2019 0 t 7200))                              "<2019-03-28 17:00>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 3 2019 0 t 2700) '(0 0 19 28 3 2019 0 t 7200)) "<2019-03-28 17:00-19:00>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 3 2019 0 t 2700) '(0 0  2 29 3 2019 0 t 7200)) "<2019-03-28 17:00>--<2019-03-29 02:00>")))
+  (should (equal (org-icalendar--dt-to-timestamp '(0 0  0 28 1 2019 0 t 7200) '(0 0  0  1 2 2019 0 t 7200)) "<2019-01-28>--<2019-01-31>"))
+  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 7200))                              "<2019-01-28 17:00>"))
+  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0 19 28 1 2019 0 t 7200)) "<2019-01-28 17:00-19:00>"))
+  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0  2 29 1 2019 0 t 7200)) "<2019-01-28 17:00>--<2019-01-29 02:00>")))
 
 (defun org-icalendar-import-notmuch-message ()
   "Import iCalendar events from the current message."
