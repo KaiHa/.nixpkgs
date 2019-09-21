@@ -75,6 +75,28 @@ rec {
     ];
   };
 
+  myServerEnv = with self; buildEnv {
+    name = "myServerEnv";
+    paths = [
+      _cfg-emacs
+      _cfg-git
+      _cfg-tmux
+      _cfg-vim
+      _cfg-zsh
+      (aspellWithDicts (p: [ p.de p.en ] ))
+      aescrypt
+      emacs
+      mosh
+      ncdu
+      nix-zsh-completions
+      shellcheck
+      tmux
+      tmux.man
+      zsh
+      zsh-completions
+    ];
+  };
+
   myDesktopEnv = with self; buildEnv {
     name = "myDesktopEnv";
     paths = [
