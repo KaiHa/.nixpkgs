@@ -64,6 +64,24 @@ This function searches the current buffer for the first iCalendar
 object, reads it and adds all VEVENT elements to the
 `org-icalendar-import-file'."
   (interactive)
+  (let ((events (org-icalendar-convert org-link)))
+    (if events
+        (progn
+          (with-current-buffer
+              (find-file-noselect org-icalendar-import-file)
+            (save-excursion
+              (goto-char (point-max))
+              (insert events)))
+          t)
+      nil)))
+
+(defun org-icalendar-convert (&optional org-link)
+  "Convert all iCalendar events from current buffer.
+
+This function searches the current buffer for the first iCalendar
+object, reads it and returns all VEVENT elements as a string
+accoring to the `org-icalendar-import-template'."
+  (interactive)
   (save-current-buffer
     ;; prepare ical
     (set-buffer (icalendar--get-unfolded-buffer (current-buffer)))
@@ -72,6 +90,7 @@ object, reads it and adds all VEVENT elements to the
         (let* ((ical-contents (progn (beginning-of-line)
                                      (icalendar--read-element nil nil)))
                ical-errors
+               events
                (ev (icalendar--all-events ical-contents))
                (zone-map (icalendar--convert-all-timezones ical-contents)))
           (while ev
@@ -113,22 +132,57 @@ object, reads it and adds all VEVENT elements to the
                                summary))
                   (setq dtend-dec dtend-dec-d)))
               ;; write event to org-file
-              (with-current-buffer
-                  (find-file-noselect org-icalendar-import-file)
-                (save-excursion
-                  (goto-char (point-max))
-                  (insert (format-spec
-                           org-icalendar-import-template
-                           `((?s . ,summary)
-                             (?l . ,(if org-link org-link ""))
-                             (?i . ,uid)
-                             (?t . ,(org-icalendar--dt-to-timestamp dtstart-dec dtend-dec))
-                             (?p . ,location)
-                             (?d . ,description))))))))
-          t)
+              (setq events (concat events
+                                   (format-spec
+                                    org-icalendar-import-template
+                                    `((?s . ,summary)
+                                      (?l . ,(if org-link org-link ""))
+                                      (?i . ,uid)
+                                      (?t . ,(org-icalendar--dt-to-timestamp dtstart-dec dtend-dec))
+                                      (?p . ,location)
+                                      (?d . ,description)))))))
+          events)
 
       (message "Current buffer does not contain iCalendar contents!")
       nil)))
+
+(ert-deftest org-icalendar-convert-test ()
+  (letf ((org-icalendar-import-template "** %s
+   :PROPERTIES:
+   :LINK: %l
+   :ID: %i
+   :END:
+   %t
+   @%p
+*** Description
+%d"))
+    (should (equal (with-temp-buffer
+                     (insert "BEGIN:VCALENDAR
+PRODID:-//Posteo Webmail//NONSGML Calendar//EN
+VERSION:2.0
+X-WR-Timezone: Europe/London
+BEGIN:VEVENT
+CATEGORIES:Keine
+DTEND;VALUE=DATE:20190916
+DTSTAMP:20190914T184452Z
+DTSTART;VALUE=DATE:20190914
+SEQUENCE:1568486692
+SUMMARY:Wochenende
+LOCATION;CHARSET=UTF-8:Somewhere\, Some Place 2
+UID:17ccf6eec15d84a8c8e6cb4a54f3db0a-baFWgfj
+END:VEVENT
+END:VCALENDAR
+")
+                     (org-icalendar-convert "[[https://example.org][Goto source]]"))
+                   "** Wochenende
+   :PROPERTIES:
+   :LINK: [[https://example.org][Goto source]]
+   :ID: 17ccf6eec15d84a8c8e6cb4a54f3db0a-baFWgfj
+   :END:
+   <2019-09-14>--<2019-09-15>
+   @Somewhere, Some Place 2
+*** Description
+"))))
 
 (defun org-icalendar--dt-to-timestamp (dtstart &optional dtend)
   (pcase (list dtstart dtend)
@@ -149,7 +203,7 @@ object, reads it and adds all VEVENT elements to the
   (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0 19 28 1 2019 0 t 7200)) "<2019-01-28 17:00-19:00>"))
   (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0  2 29 1 2019 0 t 7200)) "<2019-01-28 17:00>--<2019-01-29 02:00>")))
 
-(defun org-icalendar-import-notmuch-message ()
+(defun org-icalendar-import-from-notmuch-message ()
   "Import iCalendar events from the current message."
   (interactive)
   (let* ((id (notmuch-show-get-message-id)))
