@@ -1,4 +1,4 @@
-{stdenv, bash, coreutils, emacs, glibcLocales, graphicsmagick-imagemagick-compat, mediainfo, notmuch, tzdata, writeText}:
+{stdenv, bash, coreutils, emacs, glibcLocales, graphicsmagick-imagemagick-compat, mediainfo, tzdata, writeText}:
 
 let
   emacsService = writeText "emacs.service" ''
@@ -46,10 +46,7 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/modalka.el               $out/target-home/DOT.config/emacs/modalka.el
     install -Dm 444 $src/nix-list-generations.el  $out/target-home/DOT.config/emacs/nix-list-generations.el
     install -Dm 444 $src/org.el                   $out/target-home/DOT.config/emacs/org.el
-    install -Dm 444 $src/org-notmuch.el           $out/target-home/DOT.config/emacs/org-notmuch.el
     install -Dm 444 $src/packages.el              $out/target-home/DOT.config/emacs/packages.el
     install -Dm 444 $src/rclone.el                $out/target-home/DOT.config/emacs/rclone.el
-    substitute $src/email.el                      $out/target-home/DOT.config/emacs/email.el \
-               --subst-var-by notmuch ${notmuch}/share/emacs/site-lisp/notmuch.el
   '';
 }

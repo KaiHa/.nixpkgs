@@ -50,8 +50,11 @@ stdenv.mkDerivation rec {
     install -Dm 444 ${fmTimer}          "$out/target-home/DOT.config/systemd/user/default.target.wants/fetch-mail.timer"
     install -Dm 444 $src/notmuch-config "$out/target-home/DOT.notmuch-config"
     install -Dm 755 $src/pre-new        "$out/target-home/DOT.mail/DOT.notmuch/hooks/pre-new"
+    install -Dm 444 $src/org-notmuch.el "$out/target-home/DOT.config/emacs/org-notmuch.el"
     aescrypt -d -p "${secret}" -o "$out/target-home/DOT.config/offlineimap/config" "$src/offlineimaprc.aes"
     aescrypt -d -p "${secret}" -o "$out/target-home/DOT.mail/DOT.notmuch/hooks/post-new" "$src/post-new.aes"
     chmod 755 $out/target-home/DOT.mail/DOT.notmuch/hooks/post-new
+    substitute $src/email.el            "$out/target-home/DOT.config/emacs/email.el" \
+               --subst-var-by notmuch ${notmuch}/share/emacs/site-lisp/notmuch.el
   '';
 }
