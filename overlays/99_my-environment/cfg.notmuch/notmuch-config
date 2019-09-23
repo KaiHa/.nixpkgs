@@ -51,7 +51,7 @@ other_email=kai.harries@gmail.com;kai.harries@googlemail.com
 [new]
 # TODO set back to the default "unread;inbox"
 tags=new
-ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock
+ignore=.credentials.gmailieer.json;.gmailieer.json;.gmailieer.json.bak;.lock;.git
 
 # Search configuration
 #
