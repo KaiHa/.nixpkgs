@@ -2,12 +2,20 @@
 
 set -e
 
+move ()
+{
+    d1=$(basename $1 | cut -c1-2)
+    d2=$(basename $1 | cut -c3-4)
+    mkdir -p $2/$d1/$d2/
+    mv $1 $2/$d1/$d2/
+}
+
 notmuch search --output=files --exclude=false "tag:deleted and not path:deleted/**" | while read item; do
-    mv $item ~/.mail/deleted/ || true
+    move $item ~/.mail/deleted/ || true
 done
 
 notmuch search --output=files "tag:archive" | while read item; do
-    mv $item ~/.mail/archive/ || true
+    move $item ~/.mail/archive/ || true
 done
 notmuch tag -archive -- tag:archive
 
