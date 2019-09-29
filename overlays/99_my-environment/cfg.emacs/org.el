@@ -1,5 +1,4 @@
 (require 'org-eww)
-(require 'org-notmuch "~/.config/emacs/org-notmuch.el")
 (require 'org-protocol)
 (eval-after-load 'org '(require 'org-pdfview))
 (org-agenda-to-appt)

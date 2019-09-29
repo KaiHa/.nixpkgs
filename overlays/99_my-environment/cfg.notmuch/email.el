@@ -1,4 +1,5 @@
 (require 'notmuch "@notmuch@")
+(require 'org-notmuch "~/.config/emacs/org-notmuch.el")
 
 ;;;; Functions that are used below
 (defun notmuch-search-drop-new-and-forward ()
