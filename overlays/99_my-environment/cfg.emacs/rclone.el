@@ -37,24 +37,6 @@
   `(,(match-string 1 path) . ,(match-string 2 path)))
 
 
-(defun my-upload-password-store ()
-  "Upload the password-store into the cloud."
-  (interactive)
-  (rclone-sync "~/.password-store/.git" "gcrypt:password-store.git.tar.xz"))
-
-
-(defun my-download-password-store ()
-  "Download the password-store from the cloud."
-  (interactive)
-  (rclone--call "rm" "-rf" (expand-file-name "~/.cloud-sync/password-store"))
-  (rclone-sync "gcrypt:password-store.git.tar.xz" "~/.cloud-sync/password-store")
-  (cl-letf ((default-directory "~/.password-store/"))
-    (magit-fetch-other
-     (concat "file://" (expand-file-name "~/.cloud-sync/password-store/.git"))
-     nil)
-    (magit-merge-plain "FETCH_HEAD" nil t)))
-
-
 (defun my-upload-emacs.d ()
   "Upload the emacs.d directory into the cloud."
   (interactive)
@@ -73,39 +55,14 @@
     (magit-merge-plain "FETCH_HEAD" nil t)))
 
 
-(defun my-upload-documents ()
-  "Upload the Documents directory into the cloud."
-  (interactive)
-  (rclone-sync "~/Documents/.git" "gcrypt:Documents.git.tar.xz"))
-
-
-(defun my-download-documents ()
-  "Download the Documents directory from the cloud."
-  (interactive)
-  (let ((csdir (expand-file-name "~/.cloud-sync/Documents")))
-    (if (file-directory-p csdir)
-        (progn
-          (rclone--call "chmod" "-R" "u+w" csdir)
-          (rclone--call "rm" "-rf" csdir)))
-    (rclone-sync "gcrypt:Documents.git.tar.xz" csdir)
-    (cl-letf ((default-directory (expand-file-name "~/Documents/")))
-      (magit-fetch-other
-       (concat "file://" (expand-file-name "~/.cloud-sync/Documents/.git"))
-       nil)
-      (magit-merge-plain "FETCH_HEAD" nil t))))
-
 (defun my-download-all ()
   "Download everything from the cloud."
   (interactive)
-  (my-download-documents)
   (my-download-elfeed-db)
-  (my-download-emacs.d)
-  (my-download-password-store))
+  (my-download-emacs.d))
 
 (defun my-upload-all ()
   "Upload everything from the cloud."
   (interactive)
-  (my-upload-documents)
   (my-upload-elfeed-db)
-  (my-upload-emacs.d)
-  (my-upload-password-store))
+  (my-upload-emacs.d))
