@@ -3,6 +3,7 @@
 (define-key interactive-haskell-mode-map (kbd "C-c C-c") 'haskell-compile)
 
 (setq
+ dante-repl-command-line-methods '(impure-nix new-build bare bare-ghci)
  haskell-compile-cabal-build-alt-command "cd %s && cabal v1-clean && cabal v1-build --ghc-option=-ferror-spans"
  haskell-compile-cabal-build-command     "cd %s && cabal v1-build --ghc-option=-ferror-spans"
  haskell-hoogle-command "hoogle --count=60"
