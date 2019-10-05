@@ -14,5 +14,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/sway.config     $out/target-home/DOT.config/sway/config
     install -Dm 755 $src/run-or-raise.sh $out/target-home/bin/run-or-raise.sh
     install -Dm 755 $src/status.sh       $out/target-home/bin/status.sh
+    install -Dm 755 $src/toggle-monitor-setup.sh $out/target-home/bin/toggle-monitor-setup.sh
   '';
 }
