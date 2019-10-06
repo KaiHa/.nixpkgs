@@ -17,6 +17,7 @@
                              dired-du
                              editorconfig
                              elfeed
+                             elfeed-web
                              emms
                              emms-info-mediainfo
                              flycheck-haskell

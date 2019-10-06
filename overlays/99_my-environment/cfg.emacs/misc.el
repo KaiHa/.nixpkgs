@@ -86,6 +86,8 @@
 
  help-window-select t
  hs-hide-comments-when-hiding-all nil
+ httpd-host "0.0.0.0"
+ httpd-port 49080
  ispell-dictionary "en_US"
  inhibit-eol-conversion t
  ;;inhibit-startup-screen t
