@@ -48,5 +48,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/org.el                   $out/target-home/DOT.config/emacs/org.el
     install -Dm 444 $src/packages.el              $out/target-home/DOT.config/emacs/packages.el
     install -Dm 444 $src/rclone.el                $out/target-home/DOT.config/emacs/rclone.el
+    install -Dm 755 $src/elfeed-web.sh            $out/target-home/bin/elfeed-web.sh
   '';
 }
