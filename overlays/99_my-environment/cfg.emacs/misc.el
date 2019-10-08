@@ -39,7 +39,8 @@
 
 (setq-default indent-tabs-mode nil
               indicate-buffer-boundaries '((top . left) (t . right))
-              indicate-empty-lines t)
+              indicate-empty-lines t
+              notmuch-show-indent-content nil) ;; indentation seems to be slow
 
 (add-to-list 'hs-special-modes-alist
              '(nxml-mode
@@ -107,6 +108,8 @@
  read-file-name-completion-ignore-case t
  show-paren-style 'expression
  shr-external-browser 'browse-url-generic
+ shr-use-fonts nil ;; proportional fonts seem to make notmuch-show slow
+ shr-width 100
  user-full-name "Kai Harries"
  user-mail-address "kai.harries@gmail.com"
 
