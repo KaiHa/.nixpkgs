@@ -114,6 +114,12 @@
   (add-hook 'notmuch-before-tag-hook (lambda ()
     (setq tag-changes (append tag-changes '("-new")))))))
 
+(add-hook 'notmuch-show-hook
+          (lambda ()
+            (setq header-line-format
+                  (propertize header-line-format 'face '(:foreground "DarkGreen" :weight bold :slant italic)))))
+
+
 (defadvice notmuch-show-view-part (around my-notmuch-show-view-part activate)
   "View the MIME part containing point in emacs but dont delete the other frames."
   (interactive)
@@ -122,10 +128,11 @@
 
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (face-spec-reset-face 'notmuch-search-flagged-face)
+(face-spec-set 'message-header-subject           '((t (:foreground "DarkGreen"))))
 (face-spec-set 'notmuch-crypto-decryption        '((t (:background "purple" :foreground "white"))))
 (face-spec-set 'notmuch-crypto-signature-bad     '((t (:background "IndianRed1" :foreground "black"))))
 (face-spec-set 'notmuch-crypto-signature-unknown '((t (:background "IndianRed1" :foreground "black"))))
-(face-spec-set 'notmuch-message-summary-face     '((t (:background "gray"))))
+(face-spec-set 'notmuch-message-summary-face     '((t (:foreground "White" :background "ForestGreen"))))
 (face-spec-set 'notmuch-search-count             '((t (:foreground "dim gray"))))
 (face-spec-set 'notmuch-search-date              '((t (:foreground "dim gray"))))
 (face-spec-set 'notmuch-search-matching-authors  '((t (:foreground "dim gray"))))
