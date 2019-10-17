@@ -7,9 +7,11 @@
  org-agenda-files '("~/.emacs.d/org")
  org-agenda-include-diary t
  org-agenda-start-on-weekday 1
+ org-agenda-sticky t
  org-agenda-time-grid '((daily today remove-match)
                         (800 1200 1600)
                         " - - -" "----------------")
+ org-agenda-window-setup 'other-window
  org-capture-templates
       '(("a" "Action for clocked in task" entry (clock)
          "* %?%i\n  %U\n  %a")
