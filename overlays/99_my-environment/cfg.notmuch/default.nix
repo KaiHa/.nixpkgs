@@ -41,6 +41,7 @@ stdenv.mkDerivation rec {
   secret = import <secret>;
 
   installPhase = ''
+    install -dm 755 "$out/target-home/DOT.config/emacs"
     install -dm 755 "$out/target-home/DOT.config/offlineimap"
     install -dm 755 "$out/target-home/DOT.config/systemd/user/default.target.wants"
     install -dm 755 "$out/target-home/DOT.config/systemd/user/fetch-mail.timer.wants"
