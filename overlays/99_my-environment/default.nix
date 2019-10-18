@@ -1,10 +1,13 @@
 self: super:
 rec {
   diffoscope = super.diffoscope.override { enableBloat = true; };
-  emacs26    = super.emacs26.override { imagemagick = self.imagemagick; };
-  emacs      = super.emacsWithPackages (p: [ self.ghostscript ]);
   gnupg      = super.gnupg.override { pinentry = self.pinentry; };
   lbdb       = super.lbdb.override { inherit gnupg; goobook = self.python3Packages.goobook; };
+
+  myEmacs = super.emacs26.override { imagemagick = self.imagemagick; };
+  emacs = (super.emacsPackagesGen myEmacs).emacsWithPackages (p:
+    [ self.ghostscript
+    ]);
 
   haskellPackages = super.haskellPackages.override {
     overrides = hs_self: hs_super: {
