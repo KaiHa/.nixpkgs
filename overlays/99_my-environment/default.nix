@@ -125,6 +125,7 @@ rec {
       cabal2nix
       fontconfig.dev
       freetype.dev
+      ghcid
       pkgconfig
     ];
   };
