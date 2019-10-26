@@ -26,5 +26,20 @@
  calendar-mark-diary-entries-flag t
  calendar-week-start-day 1)
 
+;;;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun ical-concat-files (target-file files)
+  (with-temp-file target-file
+    (mapcar 'insert-file-contents files)
+    (goto-char (point-min))
+    (while (re-search-forward "END:VCALENDAR.*\nBEGIN:VCALENDAR.*\n" nil t)
+      (replace-match ""))))
+
+(defun ical-concat-files-in-dir (dir target-file)
+  (interactive "Dical source directory: \nFdestination file: ")
+  (ical-concat-files
+   target-file
+   (directory-files dir t "\\.ics" t)))
+
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (face-spec-set 'calendar-today '((t (:background "green" :underline nil :weight bold))))
