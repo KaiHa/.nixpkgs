@@ -95,6 +95,7 @@
                        ("todo"       "ToDo" (notmuch-apply-face tag '(:foreground "red"   :background "yellow")))
                        ("attachment"        (notmuch-apply-face tag '(:foreground "white" :background "olive drab")))
                        ("calendar"          (notmuch-apply-face tag '(:foreground "white" :background "forest green")))
+                       ("hansea"            (notmuch-apply-face tag '(:foreground "light blue" :background "dark blue")))
                        ("trash"             (notmuch-apply-face tag '(:foreground "white" :background "brown")))
                        ("deleted"           (notmuch-apply-face tag '(:foreground "white" :background "brown")))
                        (".*"                (notmuch-apply-face tag '(:foreground "white" :background "dim gray"))))
