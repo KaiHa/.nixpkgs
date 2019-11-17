@@ -51,6 +51,7 @@ rec {
       gitRepo
       gmailieer
       hack-font
+      hicolor-icon-theme
       lbdb
       mc
       mosh
