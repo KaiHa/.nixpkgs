@@ -7,7 +7,22 @@
 
 (add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "heise\\.de"
+                              :entry-title "heise\\+ |"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "heise\\.de"
+                              :entry-title "heise-Angebot:"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "heise\\.de"
                               :entry-title "Anzeige:"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "heise\\.de"
+                              :entry-title "TechStage |"
                               :remove 'unread))
 
 (add-hook 'elfeed-new-entry-hook
@@ -18,6 +33,11 @@
 (add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "lwn\\.net"
                               :entry-title "LWN.net Weekly Edition for"
+                              :remove 'unread))
+
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "schneier\\.com"
+                              :entry-title "Friday Squid Blogging"
                               :remove 'unread))
 
 (add-hook 'elfeed-db-update-hook 'elfeed-db-save)
