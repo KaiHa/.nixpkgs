@@ -97,13 +97,11 @@
                 ("http://nordstadt-mehr-wert.de/feed" hildesheim)
                 "http://bit-player.org/feed"
                 "https://danluu.com/atom.xml"
-                "http://dvdp.tumblr.com/rss"
                 "https://www.econlib.org/feed/indexCaplan_xml"
                 ("http://feeds.gimletmedia.com/eltshow" audio)
                 "https://feeds.feedburner.com/Pidjin"
                 "https://feeds.feedburner.com/MrMoneyMustache"
                 "http://www.overcomingbias.com/feed"
-                "https://piecomic.tumblr.com/rss"
                 ("https://www.npr.org/rss/podcast.php?id=510289" audio)
                 "https://blog.plover.com/index.atom"
                 ("https://feeds.megaphone.fm/stuffyoushouldknow" audio)
