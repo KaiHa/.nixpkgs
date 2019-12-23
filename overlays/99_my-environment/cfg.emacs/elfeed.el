@@ -1,4 +1,5 @@
 (require 'elfeed)
+(require 'magit)
 
 (add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "heise\\.de"
@@ -40,7 +41,8 @@
                               :entry-title "Friday Squid Blogging"
                               :remove 'unread))
 
-(add-hook 'elfeed-db-update-hook 'elfeed-db-save)
+(add-hook 'elfeed-db-update-hook 'my-elfeed-db-commit)
+
 
 (define-key elfeed-search-mode-map (kbd "SPC") 'scroll-up-command)
 (define-key elfeed-search-mode-map (kbd "<backspace>") 'scroll-down-command)
@@ -137,3 +139,11 @@
       (setq elfeed-sort-order 'descending)
     (setq elfeed-sort-order 'ascending))
   (elfeed-search-update--force))
+
+(defun my-elfeed-db-commit ()
+  "Git Add/Commit the changes to the elfeed DB"
+  (elfeed-db-save)
+  (if (equal (system-name) "schubiduschubi.de")
+      (let ((default-directory  (expand-file-name "~/.elfeed/")))
+        (magit-run-git "add" ".")
+        (magit-run-git "commit" "-m" "Update of the DB"))))
