@@ -147,3 +147,10 @@
       (let ((default-directory  (expand-file-name "~/.elfeed/")))
         (magit-run-git "add" ".")
         (magit-run-git "commit" "-m" "Update of the DB"))))
+
+(defun kai/elfeed-db-git-fetch ()
+  "Git fetch the changes of the elfeed DB from the VPS"
+  (interactive)
+  (elfeed-db-unload)
+  (let ((default-directory  (expand-file-name "~/.elfeed/")))
+    (magit-run-git "pull")))
