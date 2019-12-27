@@ -41,7 +41,7 @@
                               :entry-title "Friday Squid Blogging"
                               :remove 'unread))
 
-(add-hook 'elfeed-db-update-hook 'my-elfeed-db-commit)
+(add-hook 'elfeed-db-update-hook 'kai/elfeed-db-commit)
 
 
 (define-key elfeed-search-mode-map (kbd "SPC") 'scroll-up-command)
@@ -140,7 +140,7 @@
     (setq elfeed-sort-order 'ascending))
   (elfeed-search-update--force))
 
-(defun my-elfeed-db-commit ()
+(defun kai/elfeed-db-commit ()
   "Git Add/Commit the changes to the elfeed DB"
   (elfeed-db-save)
   (if (equal (system-name) "schubiduschubi.de")
