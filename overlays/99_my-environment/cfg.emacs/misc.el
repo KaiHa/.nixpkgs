@@ -50,6 +50,11 @@
                sgml-skip-tag-forward
                nil))
 
+(define-abbrev global-abbrev-table "mbbg" "Mit bundesbrüderlichem Gruß
+
+Kai Harris v/Zwirbel Z!
+")
+
 (defface hs-ov-face
   '((t (:slant italic :height 0.8 :background "#dfa" :box t)))
   "Face to hightlight the ... area of hidden regions"
