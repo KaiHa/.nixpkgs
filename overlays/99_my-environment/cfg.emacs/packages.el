@@ -12,6 +12,7 @@
                              calfw-cal
                              company-ghci
                              counsel
+                             csv-mode
                              dante
                              dictionary
                              dired-du
