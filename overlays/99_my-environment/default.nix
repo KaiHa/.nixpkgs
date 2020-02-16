@@ -35,6 +35,7 @@ rec {
   _cfg-urlview       = super.callPackage ./cfg.urlview       {};
   _cfg-vdirsyncer    = super.callPackage ./cfg.vdirsyncer    {};
   _cfg-vim           = super.callPackage ./cfg.vim           {};
+  _cfg-webserver     = super.callPackage ./cfg.webserver     {};
   _cfg-zsh           = super.callPackage ./cfg.zsh           {};
 
   myDefaultEnv = with self; buildEnv {
@@ -86,6 +87,7 @@ rec {
       _cfg-git
       _cfg-tmux
       _cfg-vim
+      _cfg-webserver
       _cfg-zsh
       (aspellWithDicts (p: [ p.de p.en ] ))
       aescrypt
