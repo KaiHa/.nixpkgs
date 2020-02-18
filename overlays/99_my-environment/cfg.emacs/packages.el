@@ -50,7 +50,8 @@
                              which-key
                              yaml-mode)
 
- package-pinned-packages '((german-holidays . "melpa")))
+ package-pinned-packages '((german-holidays . "melpa")
+                           (org-gcal        . "melpa")))
 
 ;; Use the following commands to install the selected packages:
 ;;
