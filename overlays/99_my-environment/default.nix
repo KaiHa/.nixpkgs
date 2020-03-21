@@ -105,6 +105,7 @@ rec {
     paths = [
       _cfg-desktop
 #      _cfg-redshift
+      bemenu
       dmenu
       i3status
       wl-clipboard
