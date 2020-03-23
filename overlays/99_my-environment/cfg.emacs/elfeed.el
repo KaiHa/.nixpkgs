@@ -88,6 +88,7 @@
                 "https://mindhacks.com/feed/"
                 "https://blog.mozilla.org/feed/"
                 "http://nullprogram.com/feed/"
+                ("https://www.presseportal.de/rss/dienststelle_57621.rss2" hildesheim)
                 "https://possiblywrong.wordpress.com/feed/"
 		("https://www.schneier.com/blog/atom.xml" itsec)
                 ("http://we-make-money-not-art.com/feed/" art)
