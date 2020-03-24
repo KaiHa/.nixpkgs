@@ -8,7 +8,6 @@ let
 
     [Service]
     Environment="LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive"
-    Environment="PATH=${bash}/bin:${coreutils}/bin"
     Environment="TZDIR=${tzdata}/share/zoneinfo"
     Environment=PKG_CONFIG_PATH=$HOME/.nix-profile/lib/pkgconfig/
     Environment=C_INCLUDE_PATH=$HOME/.nix-profile/include/
