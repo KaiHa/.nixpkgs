@@ -150,6 +150,13 @@ rec {
     name = "myHeavyEnv";
     paths = [
       diffoscope
+      gdb
+      libreoffice
+      manpages
+      pianobooster
+      signal-cli
+      signal-desktop
+      squashfsTools
     ];
   };
 }
