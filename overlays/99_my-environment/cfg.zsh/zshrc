@@ -406,7 +406,12 @@ compdef gpg2=gpg
 alias c="toilet --termwidth --gay -f bigmono9"
 alias e="emacsclient -nw"
 alias E="emacsclient -c --no-wait"
+alias emacs="GDK_BACKEND=x11 emacs"
+alias emacsclient="GDK_BACKEND=x11 emacsclient"
 alias pwgen="pwgen --secure --symbols 10"
+alias signal-desktop="GDK_BACKEND=x11 signal-desktop"
+alias skype="GDK_BACKEND=x11 skypeforlinux"
+alias skypeforlinux="GDK_BACKEND=x11 skypeforlinux"
 
 export EDITOR=vim
 export PKG_CONFIG_PATH=$HOME/.nix-profile/lib/pkgconfig/${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH
