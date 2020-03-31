@@ -7,6 +7,9 @@ rec {
   myEmacs = super.emacs26.override { imagemagick = self.imagemagick; };
   emacs = (super.emacsPackagesGen myEmacs).emacsWithPackages (p:
     [ self.ghostscript
+      self.poppler_utils
+      p.org-pdfview
+      p.pdf-tools
     ]);
 
   haskellPackages = super.haskellPackages.override {
