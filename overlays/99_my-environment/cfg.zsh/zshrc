@@ -402,7 +402,6 @@ bindkey "p"  history-beginning-search-backward
 bindkey "OB" history-beginning-search-forward
 bindkey "n"  history-beginning-search-forward
 
-compdef gpg2=gpg
 alias c="toilet --termwidth --gay -f bigmono9"
 alias e="emacsclient -nw"
 alias E="emacsclient -c --no-wait"
