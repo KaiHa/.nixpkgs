@@ -152,8 +152,10 @@ rec {
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
     paths = [
+      calibre
       diffoscope
       gdb
+      inkscape
       libreoffice
       manpages
       pianobooster
