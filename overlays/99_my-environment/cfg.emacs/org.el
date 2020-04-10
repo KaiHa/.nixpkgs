@@ -23,7 +23,8 @@
          "* TODO %?\n  %i\n  %a"))
  org-catch-invisible-edits 'error
  org-default-notes-file "~/.emacs.d/org/notes.org"
- org-fontify-done-headline t)
+ org-fontify-done-headline t
+ org-n-level-faces 1)
 
 (org-babel-do-load-languages
  'org-babel-load-languages '((emacs-lisp . t)
@@ -32,6 +33,8 @@
 (face-spec-set 'org-agenda-current-time '((t (:inherit org-time-grid :slant italic :weight bold :background "dark magenta" :foreground "green"))))
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
 (face-spec-set 'org-time-grid '((t (:foreground "dark gray"))))
+(face-spec-set 'org-headline-done '((t (:foreground "gray" :weight normal))))
+(face-spec-set 'org-level-1 '((t (:foreground "dim gray" :weight bold))))
 
 (defcustom org-icalendar-import-file
   (expand-file-name "~/.emacs.d/org/events.org")
