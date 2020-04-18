@@ -41,8 +41,6 @@
                               :entry-title "Friday Squid Blogging"
                               :remove 'unread))
 
-(add-hook 'elfeed-db-update-hook 'kai/elfeed-db-update-hook)
-
 
 (define-key elfeed-search-mode-map (kbd "SPC") 'scroll-up-command)
 (define-key elfeed-search-mode-map (kbd "<backspace>") 'scroll-down-command)
@@ -124,31 +122,3 @@
       (setq elfeed-sort-order 'descending)
     (setq elfeed-sort-order 'ascending))
   (elfeed-search-update--force))
-
-
-(defun kai/elfeed-db-update-hook ()
-  "Git Add/Commit the changes to the elfeed DB"
-  (elfeed-db-save)
-  (if (equal (system-name) "schubiduschubi.de")
-      (let ((default-directory  (expand-file-name "~/.elfeed/")))
-        (magit-run-git "add" ".")
-        (magit-run-git "commit" "-m" "Update of the DB"))))
-
-
-(defun kai/elfeed-db-commit ()
-  "Git Add/Commit the changes to the elfeed DB"
-  (interactive)
-  (elfeed-db-save)
-  (let ((default-directory  (expand-file-name "~/.elfeed/")))
-    (magit-run-git "add" ".")
-    (magit-run-git "commit" "-m" "Update of the DB")
-    (if (not (equal (system-name) "schubiduschubi.de"))
-        (magit-run-git "push" "vps1" "master:master"))))
-
-
-(defun kai/elfeed-db-git-fetch ()
-  "Git fetch the changes of the elfeed DB from the VPS"
-  (interactive)
-  (elfeed-db-unload)
-  (let ((default-directory  (expand-file-name "~/.elfeed/")))
-    (magit-run-git "pull")))
