@@ -15,6 +15,7 @@
 (global-undo-tree-mode)
 (menu-bar-mode t)
 (pdf-tools-install)
+(random t)
 (savehist-mode)
 (set-scroll-bar-mode nil)
 (show-paren-mode)
