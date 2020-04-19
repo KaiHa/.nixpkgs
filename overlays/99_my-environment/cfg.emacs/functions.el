@@ -64,3 +64,15 @@
   "Set the environment variable SSH_AUTH_SOCK"
   (interactive "fssh auth sock: ")
   (setenv "SSH_AUTH_SOCK" sock))
+
+
+(defun kai/insert-random-string (count)
+  "Insert a random alphanumerics string of length 16.
+The possible chars are: A to Z, a to z, 0 to 9, _, +, -, =.
+Call `universal-argument' before for different count."
+  (interactive "P")
+  (let* ((charset "_+-=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+         (baseCount (length charset))
+         (n (if (numberp count) (abs count) 16)))
+    (dotimes (_ n)
+      (insert (elt charset (random baseCount))))))
