@@ -156,6 +156,7 @@ rec {
       diffoscope
       gdb
       inkscape
+      khal
       libreoffice
       manpages
       pianobooster
