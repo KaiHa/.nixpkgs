@@ -76,3 +76,10 @@ Call `universal-argument' before for different count."
          (n (if (numberp count) (abs count) 16)))
     (dotimes (_ n)
       (insert (elt charset (random baseCount))))))
+
+(defun kai/command-line-diff (switch)
+  (let ((a (pop command-line-args-left))
+        (b (pop command-line-args-left)))
+    (ediff a b)))
+
+(add-to-list 'command-switch-alist '("diff" . kai/command-line-diff))

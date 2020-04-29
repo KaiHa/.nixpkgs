@@ -92,7 +92,7 @@
  httpd-port 49080
  ispell-dictionary "en_US"
  inhibit-eol-conversion t
- ;;inhibit-startup-screen t
+ inhibit-startup-screen t
 
  image-dired-cmd-rotate-original-options '("%o" "-rotate" "%d" "%t")
  image-dired-cmd-rotate-original-program "convert"
