@@ -7,6 +7,7 @@ status_path = "~/.config/vdirsyncer/status/"
 a = "contacts_posteo_local"
 b = "contacts_posteo"
 collections = ["from a", "from b"]
+conflict_resolution = ["command", "emacs", "-diff"]
 
 [storage contacts_posteo_local]
 type = "filesystem"
