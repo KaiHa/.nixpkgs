@@ -29,7 +29,8 @@
 (define-abbrev-table 'notmuch-message-mode-abbrev-table
   '(("mfg"     "Mit freundlichen Grüßen\n\nKai Harries")
     ("regards" "Best regards\n\nKai Harries")
-    ("shrug"   "¯\\_(ツ)_/¯")))
+    ("shrug"   "¯\\_(ツ)_/¯")
+    ("mbbg"    "Mit bundesbrüderlichem Gruß\n\nKai Harries v/Zwirbel Z!")))
 
 (setq
  mail-host-address "x230.kaiha.invalid"
