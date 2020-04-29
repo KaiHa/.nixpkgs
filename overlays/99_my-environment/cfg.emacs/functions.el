@@ -83,3 +83,12 @@ Call `universal-argument' before for different count."
     (ediff a b)))
 
 (add-to-list 'command-switch-alist '("diff" . kai/command-line-diff))
+
+(defun kai/bbdb-import-posteo-vcards ()
+  (interactive)
+  (bbdb-do-all-records 1)
+  (bbdb-delete-records (bbdb-do-records) t)
+  (bbdb-save)
+  (seq-do 'bbdb-vcard-import-file
+          (file-expand-wildcards "~/.contacts.posteo/default/*.vcard"))
+  (bbdb-save))

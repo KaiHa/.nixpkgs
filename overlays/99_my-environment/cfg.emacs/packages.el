@@ -7,7 +7,9 @@
                     ("melpa"        . "https://melpa.org/packages/")
                     ("gnu"          . "https://elpa.gnu.org/packages/"))
 
- package-selected-packages '(bitbake
+ package-selected-packages '(bbdb
+                             bbdb-vcard
+                             bitbake
                              calfw
                              calfw-cal
                              company-ghci
@@ -50,7 +52,8 @@
                              which-key
                              yaml-mode)
 
- package-pinned-packages '((german-holidays . "melpa")
+ package-pinned-packages '((bbdb-vcard      . "melpa")
+                           (german-holidays . "melpa")
                            (org-gcal        . "melpa")))
 
 ;; Use the following commands to install the selected packages:

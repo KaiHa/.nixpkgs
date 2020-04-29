@@ -1,3 +1,5 @@
+(require 'bbdb)
+(require 'bbdb-com)
 (require 'emms-setup)
 (require 'emms-info-mediainfo)
 (require 'dired-x)
@@ -5,6 +7,7 @@
 (require 'iedit)
 (require 'nxml-mode)
 (require 'sgml-mode)
+(bbdb-initialize)
 (blink-cursor-mode)
 (column-number-mode t)
 (electric-pair-mode)

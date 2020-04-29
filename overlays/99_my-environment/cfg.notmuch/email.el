@@ -19,6 +19,7 @@
 (global-set-key (kbd "C-x n")   'notmuch)
 
 (define-key notmuch-hello-mode-map   (kbd "g") 'notmuch-refresh-this-buffer)
+(define-key notmuch-message-mode-map (kbd "<M-tab>") 'notmuch-company)
 (define-key notmuch-search-mode-map  (kbd "g") 'notmuch-refresh-this-buffer)
 (define-key notmuch-show-mode-map    (kbd "g") 'notmuch-refresh-this-buffer)
 (define-key notmuch-tree-mode-map    (kbd "g") 'notmuch-refresh-this-buffer)
@@ -33,6 +34,7 @@
     ("mbbg"    "Mit bundesbrüderlichem Gruß\n\nKai Harries v/Zwirbel Z!")))
 
 (setq
+ company-bbdb-modes '(message-mode notmuch-message-mode)
  mail-host-address "x230.kaiha.invalid"
  send-mail-function 'smtpmail-send-it
  smtpmail-smtp-server "posteo.de"
@@ -40,11 +42,6 @@
  smtpmail-stream-type 'starttls
  notmuch-identities "kai.harries@posteo.de"
 
- message-completion-alist '(("^\\(To\\|CC\\|BCC\\):" . notmuch-address-expand-name)
-                            ("^\\(Newsgroups\\|Followup-To\\|Posted-To\\|Gcc\\):" . message-expand-group)
-                            ("^\\(Resent-\\)?\\(To\\|B?Cc\\):" . message-expand-name)
-                            ("^\\(Reply-To\\|From\\|Mail-Followup-To\\|Mail-Copies-To\\):" . message-expand-name)
-                            ("^\\(Disposition-Notification-To\\|Return-Receipt-To\\):" . message-expand-name))
  message-forward-as-mime t
  message-forward-show-mml 'best
 
@@ -54,13 +51,6 @@
                           notmuch-hello-insert-search
                           notmuch-hello-insert-alltags
                           notmuch-hello-insert-footer)
-
- notmuch-address-selection-function (lambda
-                                      (prompt collection initial-input)
-                                      (completing-read prompt
-                                                       (cons initial-input collection)
-                                                       nil t nil
-                                                       'notmuch-address-history))
 
  notmuch-saved-searches '((:name "[i]nbox"    :query "tag:inbox"   :key "i")
                           (:name "[u]nread"   :query "tag:unread"  :key "u" :count-query "tag:unread and tag:inbox")
@@ -120,6 +110,11 @@
             (setq header-line-format
                   (propertize header-line-format 'face '(:foreground "DarkGreen" :weight bold :slant italic)))))
 
+;; 'notmuch-company-setup' sets 'company-backends to notmuch-company
+;; but I want it to use company-bbdb
+(add-hook 'notmuch-message-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-bbdb))))
 
 (defadvice notmuch-show-view-part (around my-notmuch-show-view-part activate)
   "View the MIME part containing point in emacs but dont delete the other frames."
