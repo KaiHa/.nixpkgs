@@ -67,8 +67,7 @@
                           (:name "[f]lagged"  :query "tag:flagged" :key "f")
                           (:name "[s]ent"     :query "tag:sent"    :key "s")
                           (:name "[d]rafts"   :query "tag:draft"   :key "d")
-                          (:name "[a]ll mail" :query "*"           :key "a")
-                          (:name "[n]ote2me"  :query "from:kai.harries@gmail.com to:kai.harries@gmail.com" :key "n"))
+                          (:name "[a]ll mail" :query "*"           :key "a"))
 
  notmuch-search-result-format '(("date"    . "%12s ")
                                 ("count"   . "%-7s ")

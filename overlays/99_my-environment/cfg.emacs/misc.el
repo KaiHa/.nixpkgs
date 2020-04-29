@@ -117,7 +117,7 @@ Kai Harris v/Zwirbel Z!
  shr-use-fonts nil ;; proportional fonts seem to make notmuch-show slow
  shr-width 100
  user-full-name "Kai Harries"
- user-mail-address "kai.harries@gmail.com"
+ user-mail-address "kai.harries@posteo.de"
 
  safe-local-variable-values '((bug-reference-bug-regexp . "\\(\\(?:[Ii]ssue \\|[Ff]ixe[ds] \\|[Rr]esolve[ds]? \\|[Cc]lose[ds]? \\|[Pp]\\(?:ull [Rr]equest\\|[Rr]\\) \\|(\\)#\\([0-9]+\\))?\\)"))
  scroll-preserve-screen-position t
