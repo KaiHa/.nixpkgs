@@ -128,6 +128,11 @@
 ;; reloading of frames (must happen after setting frame-background-mode)
 (mapc 'frame-set-background-mode (frame-list))
 
+;; Set fonts for special characters
+(add-hook 'before-make-frame-hook
+          (lambda ()
+            (set-fontset-font t '(#x1f382 . #x1f515) (font-spec :name "unifont upper"))))
+
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (face-spec-reset-face 'show-paren-match)
 
