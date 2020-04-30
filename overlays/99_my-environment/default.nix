@@ -66,14 +66,9 @@ rec {
       nitrokey-app
       nix-zsh-completions
       notmuch
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      noto-fonts-extra
       offlineimap
       pass
       shellcheck
-      symbola
       tmux
       tmux.man
       urlview
