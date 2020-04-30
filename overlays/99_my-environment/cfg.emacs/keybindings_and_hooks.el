@@ -59,7 +59,6 @@ With a prefix arg N add an offset of N days to the current date."
 (add-hook 'c-mode-hook             'rtags-start-process-unless-running)
 (add-hook 'elfeed-show-mode-hook   'text-scale-up)
 (add-hook 'elfeed-search-mode-hook 'text-scale-up)
-(add-hook 'emacs-startup-hook      'org-gcal-sync)
 (add-hook 'emacs-startup-hook      'org-agenda-to-appt)
 (add-hook 'midnight-hook           'org-agenda-to-appt)
 (add-hook 'midnight-hook           'elfeed-update)

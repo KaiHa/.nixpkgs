@@ -42,7 +42,6 @@
                              markdown-mode
                              modalka
                              nix-mode
-                             org-gcal
                              org-pdfview
                              pdf-tools
                              rtags
@@ -53,8 +52,7 @@
                              yaml-mode)
 
  package-pinned-packages '((bbdb-vcard      . "melpa")
-                           (german-holidays . "melpa")
-                           (org-gcal        . "melpa")))
+                           (german-holidays . "melpa")))
 
 ;; Use the following commands to install the selected packages:
 ;;
