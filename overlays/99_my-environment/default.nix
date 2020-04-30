@@ -4,7 +4,11 @@ rec {
   gnupg      = super.gnupg.override { pinentry = self.pinentry; };
   lbdb       = super.lbdb.override { inherit gnupg; goobook = self.python3Packages.goobook; };
 
-  myEmacs = super.emacs26.override { imagemagick = self.imagemagick; };
+  myEmacs = super.emacs26.override {
+    imagemagick = self.imagemagick;
+    withGTK3 = true;
+    withGTK2 = false;
+  };
   emacs = (super.emacsPackagesGen myEmacs).emacsWithPackages (p:
     [ self.ghostscript
       self.poppler_utils
