@@ -12,7 +12,7 @@ conflict_resolution = ["command", "emacs", "-diff"]
 [storage contacts_posteo_local]
 type = "filesystem"
 path = "~/.contacts.posteo/"
-fileext = ".vcf"
+fileext = ".vcard"
 
 [storage contacts_posteo]
 type = "carddav"
