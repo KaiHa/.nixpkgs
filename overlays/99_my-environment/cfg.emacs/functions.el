@@ -92,3 +92,22 @@ Call `universal-argument' before for different count."
   (seq-do 'bbdb-vcard-import-file
           (file-expand-wildcards "~/.contacts.posteo/default/*.vcard"))
   (bbdb-save))
+
+
+(defun kai/sort-posteo-vcards ()
+  "Sort the fields of the VCards in ~/.contacts.posteo alphabetically."
+  (interactive)
+  (seq-do (lambda (a)
+            (let ((buf (find-file-noselect a)))
+              (with-current-buffer buf
+                (goto-char (point-min))
+                (let ((beg (progn
+                             (search-forward "BEGIN:VCARD")
+                             (match-end 0)))
+                      (end (progn
+                             (search-forward "END:VCARD")
+                             (match-beginning 0))))
+                  (sort-lines nil beg end))
+                (save-buffer))
+                (kill-buffer buf)))
+          (file-expand-wildcards "~/.contacts.posteo/default/*.vcard")))
