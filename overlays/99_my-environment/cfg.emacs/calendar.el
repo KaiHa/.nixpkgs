@@ -16,13 +16,13 @@
 
  calendar-intermonth-header '(propertize
                               "KW"
-                              'face '(italic (:foreground "blue")))
+                              'face '(italic (:foreground "gray50")))
  calendar-intermonth-text   '(propertize
                               (format "%2d"
                                       (car (calendar-iso-from-absolute
                                             (calendar-absolute-from-gregorian
                                              (list month day year)))))
-                              'face '(italic (:foreground "blue")))
+                              'face '(italic (:foreground "gray50")))
  calendar-mark-diary-entries-flag t
  calendar-week-start-day 1)
 
@@ -42,4 +42,4 @@
    (directory-files dir t "\\.ics" t)))
 
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(face-spec-set 'calendar-today '((t (:background "green" :underline nil :weight bold))))
+(face-spec-set 'calendar-today '((t (:background "gray50" :underline nil :weight bold))))

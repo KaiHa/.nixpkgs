@@ -8,9 +8,7 @@
  org-agenda-include-diary t
  org-agenda-start-on-weekday 1
  org-agenda-sticky t
- org-agenda-time-grid '((daily today remove-match)
-                        (800 1200 1600)
-                        " - - -" "----------------")
+ org-agenda-time-grid '((today remove-match) (800 1200 1600) " - - -" "")
  org-agenda-window-setup 'other-window
  org-capture-templates
       '(("a" "Action for clocked in task" entry (clock)
@@ -30,9 +28,7 @@
  'org-babel-load-languages '((emacs-lisp . t)
                              (shell . t)))
 
-(face-spec-set 'org-agenda-current-time '((t (:inherit org-time-grid :slant italic :weight bold :background "dark magenta" :foreground "green"))))
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
-(face-spec-set 'org-time-grid '((t (:foreground "dark gray"))))
 (face-spec-set 'org-headline-done '((t (:foreground "gray" :weight normal))))
 (face-spec-set 'org-level-1 '((t (:foreground "dim gray" :weight bold))))
 
