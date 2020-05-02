@@ -104,8 +104,8 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "M-x")     'counsel-M-x)
 
 
-(define-key eww-mode-map         (kbd "I")   #'my/eww-toggle-images)
-(define-key eww-link-keymap      (kbd "I")   #'my/eww-toggle-images)
+(define-key eww-mode-map         (kbd "I")   #'kai/eww-toggle-images)
+(define-key eww-link-keymap      (kbd "I")   #'kai/eww-toggle-images)
 
 (define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)

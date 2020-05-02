@@ -1,23 +1,23 @@
-(defun mysecret-open-file (fpath)
+(defun kai/encrypted-file-open (fpath)
   "Open FILE and decrypt it."
   (interactive "Ffilename: ")
   (let ((buf (generate-new-buffer
 	      (concat (file-name-nondirectory fpath) ".tmp"))))
-    (mysecret--crypt
+    (kai/encrypted-file--crypt
      (concat "-d -o - " fpath)
      buf)
     (pop-to-buffer buf)))
 
 
-(defun mysecret-write-file (fpath)
+(defun kai/encrypted-file-write (fpath)
   "Encrypt current buffer and write it to FILE."
   (interactive "Ffilename: ")
-  (mysecret--crypt
+  (kai/encrypted-file--crypt
    (concat "-e -o " fpath " -")
    (current-buffer)))
 
 
-(defun mysecret--crypt (args buf)
+(defun kai/encrypted-file--crypt (args buf)
   (letrec ((secret
 	    (string-trim
 	     (shell-command-to-string
@@ -28,7 +28,7 @@
     (shell-command-on-region (point-min) (point-max) cmd buf)))
 
 
-(defun fix-diary-dates ()
+(defun kai/fix-diary-dates ()
   "Change dates like 2019/01/30 to Jan 30, 2019"
   (interactive)
   (save-excursion
@@ -51,7 +51,7 @@
                       " \\3, \\1")))))
 
 
-(defun my/eww-toggle-images ()
+(defun kai/eww-toggle-images ()
   "Toggle whether images are loaded and reload the current page fro cache."
   (interactive)
   (setq-local shr-inhibit-images (not shr-inhibit-images))
@@ -60,7 +60,7 @@
            (if shr-inhibit-images "off" "on")))
 
 
-(defun ssh-auth-sock-set (sock)
+(defun kai/ssh-auth-sock-set (sock)
   "Set the environment variable SSH_AUTH_SOCK"
   (interactive "fssh auth sock: ")
   (setenv "SSH_AUTH_SOCK" sock))
