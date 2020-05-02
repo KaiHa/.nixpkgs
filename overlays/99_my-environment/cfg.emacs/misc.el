@@ -1,5 +1,6 @@
 (require 'bbdb)
 (require 'bbdb-com)
+(require 'bbdb-snarf)
 (require 'emms-setup)
 (require 'emms-info-mediainfo)
 (require 'dired-x)
