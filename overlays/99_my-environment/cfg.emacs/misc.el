@@ -54,6 +54,28 @@
                sgml-skip-tag-forward
                nil))
 
+(add-to-list 'bbdb-snarf-rule-alist
+             '(ah-vz-pdf
+               bbdb-snarf-surrounding-space
+               bbdb-snarf-name
+               (lambda (record)
+                 (re-search-forward "^v\n/\\(.*\\)" nil t)
+                 (bbdb-record-set-field record 'aka (match-string 1) t t)
+                 (replace-match ""))
+               (lambda (record)
+                 (re-search-forward "^\\* \\(.*\\)" nil t)
+                 (bbdb-record-set-field record 'birthday (match-string 1) nil t)
+                 (replace-match ""))
+               (lambda (_record)
+                 (re-search-forward "^[12][90][0-9][0-9]/[0-9]* [WS]S\nAH ...\\. [12][90][0-9][0-9] " nil t)
+                 (replace-match ""))
+               bbdb-snarf-empty-lines
+               bbdb-snarf-address-eu
+               (lambda (rec) (bbdb-snarf-phone-eu rec "^T: \\([0-9 ]*\\)"))
+               (lambda (rec) (bbdb-snarf-phone-eu rec "^H: \\([0-9 ]*\\)"))
+               bbdb-snarf-mail))
+
+
 (defface hs-ov-face
   '((t (:slant italic :height 0.8 :background "#dfa" :box t)))
   "Face to hightlight the ... area of hidden regions"
