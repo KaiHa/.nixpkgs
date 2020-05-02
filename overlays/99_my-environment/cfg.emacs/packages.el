@@ -42,8 +42,10 @@
                              markdown-mode
                              modalka
                              nix-mode
+                             noccur
                              org-pdfview
                              pdf-tools
+                             rfc-mode
                              rtags
                              rust-mode
                              ;;scion
