@@ -65,6 +65,15 @@
   (interactive "fssh auth sock: ")
   (setenv "SSH_AUTH_SOCK" sock))
 
+(defun kai/insert-random-hex (count)
+  "Insert a random hex value of length 32.
+Call `universal-argument' before for different count."
+  (interactive "P")
+  (let* ((charset "0123456789abcdef")
+         (baseCount (length charset))
+         (n (if (numberp count) (abs count) 32)))
+    (dotimes (_ n)
+      (insert (elt charset (random baseCount))))))
 
 (defun kai/insert-random-string (count)
   "Insert a random alphanumerics string of length 16.
