@@ -121,14 +121,18 @@ Call `universal-argument' before for different count."
                 (kill-buffer buf)))
           (file-expand-wildcards "~/.contacts.posteo/default/*.vcard")))
 
-(defun kai/theme-toggle ()
+(defun kai/theme-toggle (&optional theme)
+  "Toggle color theme. Optional argument theme can be either `light' or `dark'."
   (interactive)
-  (if (eq (car custom-enabled-themes) 'tango-dark)
-      (progn
-        (setq custom-enabled-themes '()
-              frame-background-mode 'light)
-        (load-theme 'tango t))
-    (setq custom-enabled-themes '()
-          frame-background-mode 'dark)
-    (load-theme 'tango-dark t))
+  (let ((next (or theme (if (eq (car custom-enabled-themes) 'tango-dark)
+                            'light
+                          'dark))))
+    (if (eq next 'light)
+        (progn
+          (setq custom-enabled-themes '()
+                frame-background-mode 'light)
+          (load-theme 'tango t))
+      (setq custom-enabled-themes '()
+            frame-background-mode 'dark)
+      (load-theme 'tango-dark t)))
   (mapc 'frame-set-background-mode (frame-list)))
