@@ -4,7 +4,7 @@
 (org-agenda-to-appt)
 
 (setq
- org-agenda-files '("~/.emacs.d/org" "~/Documents.annex/Hansea/hansea.org")
+ org-agenda-files '("~/.emacs.d/org")
  org-agenda-include-diary t
  org-agenda-start-on-weekday 1
  org-agenda-sticky t
