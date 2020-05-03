@@ -1,8 +1,6 @@
 self: super:
 rec {
   diffoscope = super.diffoscope.override { enableBloat = true; };
-  gnupg      = super.gnupg.override { pinentry = self.pinentry; };
-  lbdb       = super.lbdb.override { inherit gnupg; goobook = self.python3Packages.goobook; };
 
   myEmacs = super.emacs26.override {
     imagemagick = self.imagemagick;
@@ -59,7 +57,6 @@ rec {
       gmailieer
       hack-font
       hicolor-icon-theme
-      lbdb
       mc
       mosh
       ncdu
