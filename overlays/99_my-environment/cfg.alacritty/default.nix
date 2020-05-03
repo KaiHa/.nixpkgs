@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -Dm 444 $src/alacritty.yml      $out/target-home/DOT.config/alacritty/alacritty.yml
-    install -Dm 444 $src/alacritty-dark.yml $out/target-home/DOT.config/alacritty/alacritty-dark.yml
+    install -Dm 444 $src/alacritty-light.yml $out/target-home/DOT.config/alacritty/alacritty-light.yml
+    install -Dm 444 $src/alacritty-dark.yml  $out/target-home/DOT.config/alacritty/alacritty-dark.yml
   '';
 }
