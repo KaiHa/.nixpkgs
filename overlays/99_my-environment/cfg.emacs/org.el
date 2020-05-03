@@ -30,7 +30,7 @@
 
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
 (face-spec-set 'org-headline-done '((t (:foreground "gray" :weight normal))))
-(face-spec-set 'org-level-1 '((t (:foreground "dim gray" :weight bold))))
+(face-spec-set 'org-level-1 '((t (:weight bold))))
 
 (defcustom org-icalendar-import-file
   (expand-file-name "~/.emacs.d/org/events.org")
