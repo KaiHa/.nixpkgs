@@ -9,6 +9,7 @@ rec {
   };
   emacs = (super.emacsPackagesGen myEmacs).emacsWithPackages (p:
     [ self.ghostscript
+      self.pinentry-emacs
       self.poppler_utils
       p.org-pdfview
       p.pdf-tools
