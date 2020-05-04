@@ -6,7 +6,7 @@
   "Open FILE and decrypt it."
   (interactive "Ffilename: ")
   (let ((buf (generate-new-buffer
-	      (concat (file-name-nondirectory fpath) ".tmp"))))
+              (concat (file-name-nondirectory fpath) ".tmp"))))
     (kai/encrypted-file--crypt
      (concat "-d -o - " fpath)
      buf)
@@ -23,12 +23,12 @@
 
 (defun kai/encrypted-file--crypt (args buf)
   (letrec ((secret
-	    (string-trim
-	     (shell-command-to-string
-	      "gpg --decrypt /home/kai/.config/nixpkgs/secret.gpg 2> /dev/null")
-	     "[\"]+"
-	     "[\n\"]+"))
-	   (cmd (concat "aescrypt  -p " secret " " args)))
+            (string-trim
+             (shell-command-to-string
+              "gpg --decrypt /home/kai/.config/nixpkgs/secret.gpg 2> /dev/null")
+             "[\"]+"
+             "[\n\"]+"))
+           (cmd (concat "aescrypt  -p " secret " " args)))
     (shell-command-on-region (point-min) (point-max) cmd buf)))
 
 
