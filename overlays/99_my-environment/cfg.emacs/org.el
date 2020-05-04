@@ -58,14 +58,14 @@ placeholders can be used:
   %d description"
   :type 'string)
 
-(defun org-icalendar-import (&optional org-link)
+(defun kai/org-icalendar-import (&optional org-link)
   "Import iCalendar events from current buffer.
 
 This function searches the current buffer for the first iCalendar
 object, reads it and adds all VEVENT elements to the
 `org-icalendar-import-file'."
   (interactive)
-  (let ((events (org-icalendar-convert org-link)))
+  (let ((events (kai/org-icalendar-convert org-link)))
     (if events
         (progn
           (with-current-buffer
@@ -76,7 +76,7 @@ object, reads it and adds all VEVENT elements to the
           t)
       nil)))
 
-(defun org-icalendar-convert (&optional org-link)
+(defun kai/org-icalendar-convert (&optional org-link)
   "Convert all iCalendar events from current buffer.
 
 This function searches the current buffer for the first iCalendar
@@ -139,7 +139,7 @@ accoring to the `org-icalendar-import-template'."
                                     `((?s . ,summary)
                                       (?l . ,(if org-link org-link ""))
                                       (?i . ,uid)
-                                      (?t . ,(org-icalendar--dt-to-timestamp dtstart-dec dtend-dec))
+                                      (?t . ,(kai/org-icalendar--dt-to-timestamp dtstart-dec dtend-dec))
                                       (?p . ,location)
                                       (?d . ,description)))))))
           events)
@@ -147,7 +147,7 @@ accoring to the `org-icalendar-import-template'."
       (message "Current buffer does not contain iCalendar contents!")
       nil)))
 
-(ert-deftest org-icalendar-convert-test ()
+(ert-deftest kai/org-icalendar-convert-test ()
   (letf ((org-icalendar-import-template "** %s
    :PROPERTIES:
    :LINK: %l
@@ -174,7 +174,7 @@ UID:17ccf6eec15d84a8c8e6cb4a54f3db0a-baFWgfj
 END:VEVENT
 END:VCALENDAR
 ")
-                     (org-icalendar-convert "[[https://example.org][Goto source]]"))
+                     (kai/org-icalendar-convert "[[https://example.org][Goto source]]"))
                    "** Wochenende
    :PROPERTIES:
    :LINK: [[https://example.org][Goto source]]
@@ -185,7 +185,7 @@ END:VCALENDAR
 *** Description
 "))))
 
-(defun org-icalendar--dt-to-timestamp (dtstart &optional dtend)
+(defun kai/org-icalendar--dt-to-timestamp (dtstart &optional dtend)
   (pcase (list dtstart dtend)
     (`((0  0  0  ,D ,M ,Y ,_ ,_ ,_) nil)                               (format "<%d-%02d-%02d>" Y M D))
     (`((,_ ,m ,h ,D ,M ,Y ,_ ,_ ,_) nil)                               (format "<%d-%02d-%02d %02d:%02d>" Y M D h m))
@@ -197,14 +197,14 @@ END:VCALENDAR
          (format "<%d-%02d-%02d %02d:%02d-%02d:%02d>" Y M D h m h2 m2)
        (format "<%d-%02d-%02d %02d:%02d>--<%d-%02d-%02d %02d:%02d>" Y M D h m Y2 M2 D2 h2 m2)))))
 
-(ert-deftest org-icalendar--dt-to-timestamp-test ()
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0  0 14 9 2019 0 t 7200))                              "<2019-09-14>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0  0 28 1 2019 0 t 7200) '(0 0  0  1 2 2019 0 t 7200)) "<2019-01-28>--<2019-01-31>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 7200))                              "<2019-01-28 17:00>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0 19 28 1 2019 0 t 7200)) "<2019-01-28 17:00-19:00>"))
-  (should (equal (org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0  2 29 1 2019 0 t 7200)) "<2019-01-28 17:00>--<2019-01-29 02:00>")))
+(ert-deftest kai/org-icalendar--dt-to-timestamp-test ()
+  (should (equal (kai/org-icalendar--dt-to-timestamp '(0 0  0 14 9 2019 0 t 7200))                              "<2019-09-14>"))
+  (should (equal (kai/org-icalendar--dt-to-timestamp '(0 0  0 28 1 2019 0 t 7200) '(0 0  0  1 2 2019 0 t 7200)) "<2019-01-28>--<2019-01-31>"))
+  (should (equal (kai/org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 7200))                              "<2019-01-28 17:00>"))
+  (should (equal (kai/org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0 19 28 1 2019 0 t 7200)) "<2019-01-28 17:00-19:00>"))
+  (should (equal (kai/org-icalendar--dt-to-timestamp '(0 0 17 28 1 2019 0 t 2700) '(0 0  2 29 1 2019 0 t 7200)) "<2019-01-28 17:00>--<2019-01-29 02:00>")))
 
-(defun org-icalendar-import-from-notmuch-message ()
+(defun kai/org-icalendar-import-from-notmuch-message ()
   "Import iCalendar events from the current message."
   (interactive)
   (let* ((id (notmuch-show-get-message-id)))
@@ -219,4 +219,4 @@ END:VCALENDAR
                         (nconc (list (mm-dissect-buffer t nil)) nil) "text/calendar" nil t))))
         (erase-buffer)
         (insert calendar)
-        (org-icalendar-import (concat "[[notmuch:" id "][Invitation Email]]"))))))
+        (kai/org-icalendar-import (concat "[[notmuch:" id "][Invitation Email]]"))))))
