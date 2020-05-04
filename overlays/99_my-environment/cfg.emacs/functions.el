@@ -1,3 +1,7 @@
+(require 'calfw)
+(require 'calfw-ical)
+(require 'calfw-org)
+
 (defun kai/encrypted-file-open (fpath)
   "Open FILE and decrypt it."
   (interactive "Ffilename: ")
@@ -136,3 +140,21 @@ Call `universal-argument' before for different count."
             frame-background-mode 'dark)
       (load-theme 'tango-dark t)))
   (mapc 'frame-set-background-mode (frame-list)))
+
+
+(defun kai/cfw:open-calendar ()
+  (interactive)
+  (cfw:open-calendar-buffer
+   :contents-sources
+   (list
+    (cfw:org-create-source "IndianRed")
+    (cfw:cal-create-source "Orange")
+    (cfw:ical-create-source
+     "posteo"
+     (with-temp-buffer
+     (seq-do 'insert-file-contents
+             (file-expand-wildcards "~/.calendar.posteo/**/*.ics"))
+     (let ((filepath (concat "/tmp/" (buffer-hash) ".ics")))
+       (write-region nil nil filepath)
+       filepath))
+     "ForestGreen"))))

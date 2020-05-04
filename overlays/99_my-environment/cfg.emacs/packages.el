@@ -12,6 +12,8 @@
                              bitbake
                              calfw
                              calfw-cal
+                             calfw-ical
+                             calfw-org
                              company-ghci
                              counsel
                              csv-mode
