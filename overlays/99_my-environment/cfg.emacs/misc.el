@@ -132,7 +132,8 @@
 
  password-cache-expiry 300
  read-file-name-completion-ignore-case t
- show-paren-style 'expression
+ show-paren-delay 0.5
+ show-paren-style 'mixed
  shr-external-browser 'browse-url-generic
  shr-use-fonts nil ;; proportional fonts seem to make notmuch-show slow
  shr-width 100
