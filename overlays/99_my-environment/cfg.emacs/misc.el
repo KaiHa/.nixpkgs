@@ -95,6 +95,7 @@
             (overlay-put ov 'display mystring)))))
 
 (setq
+ bbdb-vcard-try-merge nil
  browse-url-browser-function 'eww-browse-url
  browse-url-generic-program "tor-browser"
  default-input-method "german-postfix"
