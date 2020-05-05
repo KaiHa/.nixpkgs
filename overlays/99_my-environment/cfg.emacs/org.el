@@ -4,7 +4,7 @@
 (org-agenda-to-appt)
 
 (setq
- org-agenda-files '("~/.emacs.d/org")
+ org-agenda-files '("~/org/" "~/org/imported/")
  org-agenda-include-diary t
  org-agenda-start-on-weekday 1
  org-agenda-sticky t
@@ -14,14 +14,14 @@
  org-capture-templates
       '(("a" "Action for clocked in task" entry (clock)
          "* %?%i\n  %U\n  %a")
-        ("e" "Event" entry (file+headline "~/.emacs.d/org/events.org" "Events")
+        ("e" "Event" entry (file+headline "~/org/events.org" "Events")
          "* %i\n  %^t%?\n  %a")
-        ("j" "Journal" entry (file+datetree "~/.emacs.d/org/journal.org")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\n  Entered on %U\n  %i\n  %a")
-        ("t" "Todo" entry (file+headline "~/.emacs.d/org/tasks.org" "Tasks")
+        ("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
          "* TODO %?\n  %i\n  %a"))
  org-catch-invisible-edits 'error
- org-default-notes-file "~/.emacs.d/org/notes.org"
+ org-default-notes-file "~/org/notes.org"
  org-fontify-done-headline t
  org-n-level-faces 1)
 
