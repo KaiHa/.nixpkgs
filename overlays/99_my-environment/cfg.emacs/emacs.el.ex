@@ -21,10 +21,12 @@
 (load-file "~/.config/emacs/nix-list-generations.el")
 (load-file "~/.config/emacs/org.el")
 ;;(load-file "~/.config/emacs/private.el")
-(load-file "~/.config/emacs/rclone.el")
 
 ;;;; Deviations from the defaults ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;(elfeed-update)
+;; (kai/bbdb-import-posteo-vcards)
+;; (kai/org-import-posteo-calendar)
 
-
-;;;; Customization
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; Customization ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;

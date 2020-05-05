@@ -117,22 +117,6 @@
   (elfeed-db-save))
 
 
-(defun my-upload-elfeed-db ()
-  "Upload the elfeed db into the cloud."
-  (interactive)
-  (elfeed-db-save)
-  (elfeed-db-unload)
-  (rclone-sync "~/.elfeed" "gcrypt:elfeed-db.tar.xz"))
-
-
-(defun my-download-elfeed-db ()
-  "Download the elfeed db from the cloud."
-  (interactive)
-  (elfeed-db-unload)
-  (rclone--call "rm" "-rf" (expand-file-name "~/.elfeed.bak"))
-  (rclone--call "mv" (expand-file-name "~/.elfeed") (expand-file-name "~/.elfeed.bak"))
-  (rclone-sync "gcrypt:elfeed-db.tar.xz" "~/"))
-
 (defun elfeed-toggle-sort ()
   "Toggle the sort order of the elfeed search."
   (interactive)
