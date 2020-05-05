@@ -96,8 +96,8 @@
 
 (setq
  bbdb-vcard-try-merge nil
- browse-url-browser-function 'eww-browse-url
- browse-url-generic-program "tor-browser"
+ browse-url-browser-function 'browse-url-firefox
+ browse-url-generic-program "firefox"
  default-input-method "german-postfix"
  dired-du-size-format ","
  dired-omit-files "^\\.?#\\|^\\.[^.]"
