@@ -99,9 +99,8 @@ Call `universal-argument' before for different count."
 
 (defun kai/bbdb-import-posteo-vcards ()
   (interactive)
-  (bbdb-do-all-records 1)
-  (bbdb-delete-records (bbdb-do-records) t)
-  (bbdb-save)
+  (seq-do (lambda (r) (bbdb-delete-record-internal r t))
+          (bbdb-records))
   (seq-do 'bbdb-vcard-import-file
           (file-expand-wildcards "~/.contacts.posteo/default/*.vcard"))
   (bbdb-save))
