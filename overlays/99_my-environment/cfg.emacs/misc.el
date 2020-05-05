@@ -7,6 +7,7 @@
 (require 'hideshow)
 (require 'iedit)
 (require 'nxml-mode)
+(require 'rfc-mode)
 (require 'sgml-mode)
 (bbdb-initialize)
 (blink-cursor-mode)
