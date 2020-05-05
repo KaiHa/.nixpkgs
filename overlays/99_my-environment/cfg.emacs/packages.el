@@ -45,6 +45,7 @@
                              modalka
                              nix-mode
                              noccur
+                             org-caldav
                              org-pdfview
                              pdf-tools
                              rfc-mode

@@ -152,9 +152,58 @@ Call `universal-argument' before for different count."
     (cfw:ical-create-source
      "posteo"
      (with-temp-buffer
-     (seq-do 'insert-file-contents
-             (file-expand-wildcards "~/.calendar.posteo/**/*.ics"))
-     (let ((filepath (concat "/tmp/" (buffer-hash) ".ics")))
-       (write-region nil nil filepath)
-       filepath))
+       (seq-do 'insert-file-contents
+               (file-expand-wildcards "~/.calendar.posteo/**/*.ics"))
+       (let ((filepath (concat "/tmp/" (buffer-hash) ".ics")))
+         (write-region nil nil filepath)
+         filepath))
      "ForestGreen"))))
+
+(defun kai/org-import-posteo-calendar ()
+  "Import an icalendar file."
+  (interactive)
+  (let* ((org-caldav-inbox "~/org/imported/posteo.org")
+         (inbox-buffer (find-file-noselect org-caldav-inbox)))
+    (with-current-buffer inbox-buffer
+      (erase-buffer)
+      (insert "#+FILETAGS: :posteo:\n#+CATEGORY: 📆\n\n"))
+    (seq-do (lambda (f)
+              (with-temp-buffer
+                (insert-file-contents f)
+                (kai/rfc2425-unfold-buffer)
+                (goto-char (point-min))
+                (org-caldav-import-ics-buffer-to-org)
+                (with-current-buffer inbox-buffer
+                  (goto-char (point-max))
+                  (insert "  Imported from [[file://" f "][here]].\n"))))
+            (file-expand-wildcards "~/.calendar.posteo/**/*.ics"))
+    (with-current-buffer inbox-buffer (save-buffer))))
+
+
+(defun kai/org-import-notmuch-calendar ()
+  "Import iCalendar events from the current message."
+  (interactive)
+  (let* ((id (notmuch-show-get-message-id))
+         (org-caldav-inbox "~/org/notmuch.org")
+         (inbox-buffer (find-file-noselect org-caldav-inbox)))
+    (with-temp-buffer
+      (let ((coding-system-for-read 'no-conversion))
+        (call-process notmuch-command nil t nil "show" "--format=raw" id))
+      (goto-char (point-min))
+      (let ((calendar (mm-get-part
+                       (mm-find-part-by-type
+                        (nconc (list (mm-dissect-buffer t nil)) nil) "text/calendar" nil t))))
+        (erase-buffer)
+        (insert calendar)
+        (kai/rfc2425-unfold-buffer)
+        (goto-char (point-min))
+        (org-caldav-import-ics-buffer-to-org)
+        (with-current-buffer inbox-buffer
+          (goto-char (point-max))
+          (insert "  [[notmuch:" id "][Invitation Email]]")
+          (save-buffer))))))
+
+(defun kai/rfc2425-unfold-buffer ()
+  (goto-char (point-min))
+  (while (re-search-forward "\n\\( \\|\t\\)" nil t)
+    (replace-match "")))
