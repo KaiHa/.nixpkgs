@@ -149,6 +149,7 @@
  shr-image-animate nil
  tramp-default-proxies-alist '(("\\.fritz\\.box" "\\`root\\'" "/ssh:%h:"))
  vc-follow-symlinks t
+ view-read-only t
  visible-bell t)
 
 
