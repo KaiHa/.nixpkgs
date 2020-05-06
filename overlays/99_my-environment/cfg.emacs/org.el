@@ -23,7 +23,8 @@
  org-catch-invisible-edits 'error
  org-default-notes-file "~/org/notes.org"
  org-fontify-done-headline t
- org-n-level-faces 1)
+ org-n-level-faces 1
+ org-todo-keywords '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED")))
 
 (org-babel-do-load-languages
  'org-babel-load-languages '((emacs-lisp . t)
