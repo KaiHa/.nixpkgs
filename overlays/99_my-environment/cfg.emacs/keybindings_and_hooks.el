@@ -1,3 +1,5 @@
+(require 'flyspell)
+
 ;;;; Definition of functions used below ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun insert-date (&optional n)
@@ -106,6 +108,8 @@ With a prefix arg N add an offset of N days to the current date."
 
 (define-key eww-mode-map         (kbd "I")   #'kai/eww-toggle-images)
 (define-key eww-link-keymap      (kbd "I")   #'kai/eww-toggle-images)
+
+(define-key flyspell-mode-map (kbd "C-;") nil)
 
 (define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)
