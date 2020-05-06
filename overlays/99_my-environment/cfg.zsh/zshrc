@@ -413,8 +413,6 @@ alias skype="GDK_BACKEND=x11 skypeforlinux"
 alias skypeforlinux="GDK_BACKEND=x11 skypeforlinux"
 
 export EDITOR=vim
-export PKG_CONFIG_PATH=$HOME/.nix-profile/lib/pkgconfig/${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH
-export C_INCLUDE_PATH=$HOME/.nix-profile/include/${C_INCLUDE:+:}$C_INCLUDE_PATH
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
