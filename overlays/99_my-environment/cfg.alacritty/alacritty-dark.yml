@@ -174,7 +174,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#101020'
+    background: '#101000'
   #  foreground: '#eaeaea'
 
     # Bright and dim foreground colors
@@ -272,7 +272,7 @@ colors:
 visual_bell:
 #  animation: EaseOutExpo
   duration: 200
-#  color: '#ffffff'
+  color: '#aaaa99'
 
 # Background opacity
 #
