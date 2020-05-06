@@ -1,0 +1,8 @@
+* Deploy to vps1
+
+  #+BEGIN_SRC sh
+    nix-build -A myServerEnv '<nixos>'
+    nix sign-paths --key-file /etc/nix/nix-binary-cache-key -r ./result
+    nix-copy-closure vps1 ./result
+    rm ./result
+  #+END_SRC
