@@ -21,6 +21,8 @@ rec {
     };
   };
 
+  wsgidav = super.callPackage ./wsgidav.nix {};
+
   _cfg-alacritty     = super.callPackage ./cfg.alacritty     {};
   _cfg-desktop       = super.callPackage ./cfg.desktop       {};
   _cfg-emacs         = super.callPackage ./cfg.emacs         {};
@@ -104,6 +106,7 @@ rec {
       shellcheck
       tmux
       toilet
+      wsgidav
       zile
       zlib
       zsh
