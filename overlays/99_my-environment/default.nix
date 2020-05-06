@@ -73,6 +73,7 @@ rec {
       weechat
       xdg_utils
       zathura
+      zile
       zsh
       zsh-completions
     ];
@@ -95,6 +96,7 @@ rec {
       shellcheck
       tmux
       tmux.man
+      zile
       zsh
       zsh-completions
     ];

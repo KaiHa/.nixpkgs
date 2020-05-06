@@ -42,7 +42,6 @@
   default = nothing
 
 [core]
-  editor = vim
   excludesfile = ~/.config/git/gitignore
 
 [pull]

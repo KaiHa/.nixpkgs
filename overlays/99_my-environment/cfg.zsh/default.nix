@@ -1,4 +1,4 @@
-{stdenv}:
+{stdenv, zile}:
 
 stdenv.mkDerivation rec {
   name = "config-zsh";
@@ -10,6 +10,8 @@ stdenv.mkDerivation rec {
   src = ./.;
 
   installPhase = ''
-    install -Dm 444 $src/zshrc $out/target-home/DOT.zshrc
+    install -dm 755 $out/target-home
+    substitute $src/zshrc $out/target-home/DOT.zshrc \
+               --subst-var-by zile ${zile}/bin/zile
   '';
 }

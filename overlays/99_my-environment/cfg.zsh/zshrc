@@ -412,7 +412,7 @@ alias signal-desktop="GDK_BACKEND=x11 signal-desktop"
 alias skype="GDK_BACKEND=x11 skypeforlinux"
 alias skypeforlinux="GDK_BACKEND=x11 skypeforlinux"
 
-export EDITOR=vim
+export EDITOR=@zile@
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
