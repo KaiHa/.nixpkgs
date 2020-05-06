@@ -95,7 +95,6 @@ rec {
       nix-zsh-completions
       shellcheck
       tmux
-      tmux.man
       zile
       zsh
       zsh-completions
