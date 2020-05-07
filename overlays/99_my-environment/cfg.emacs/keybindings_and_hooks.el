@@ -72,6 +72,11 @@ With a prefix arg N add an offset of N days to the current date."
 	  (lambda ()
 	    (define-key pdf-view-mode-map    (kbd "C-s") 'isearch-forward-regexp)))
 
+(add-hook 'org-mode-hook
+          (lambda ()
+            (make-local-variable 'write-file-functions)
+            (add-to-list 'write-file-functions 'kai/org-patch-shadow-file)))
+
 (setq eww-after-render-hook
       (lambda ()
         (if (string-prefix-p "https://www.heise.de/" (eww-current-url))

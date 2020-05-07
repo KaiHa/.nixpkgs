@@ -1,6 +1,7 @@
 (require 'calfw)
 (require 'calfw-ical)
 (require 'calfw-org)
+(require 's)
 
 (defun kai/encrypted-file-open (fpath)
   "Open FILE and decrypt it."
@@ -206,3 +207,29 @@ Call `universal-argument' before for different count."
   (goto-char (point-min))
   (while (re-search-forward "\n\\( \\|\t\\)" nil t)
     (replace-match "")))
+
+(defun kai/org-fetch-shadow-files ()
+  (interactive)
+  (let ((default-directory (expand-file-name "~/org/")))
+    (if (magit-anything-unstaged-p)
+        (message "kai/org-fetch-shadow-files: you have unstaged changes in %s" default-directory)
+      (seq-do (lambda (f)
+                (copy-file f (s-replace "/media/org.dav/" "./" f) t))
+              (concatenate 'list
+                           (file-expand-wildcards "/media/org.dav/*.org")
+                           (file-expand-wildcards "/media/org.dav/shared/*.org"))))))
+
+(defun kai/org-patch-shadow-file ()
+  "Patch the shadow file."
+  (let* ((patch-file (make-temp-file "owh-"))
+         (shadow-file (concat "/media/org.dav/"
+                              (s-replace (expand-file-name "~/org/") "" (buffer-file-name))))
+         (new (diff-file-local-copy (current-buffer))))
+    (when (file-exists-p shadow-file)
+      (call-process "diff" nil (list :file patch-file) nil "-u" (buffer-file-name) new)
+      (with-temp-buffer
+        (call-process "patch" nil t nil "--no-backup-if-mismatch" "--reject-file=-" shadow-file patch-file)
+        (message (buffer-string)))))
+  ;; This function must return nil! Because it is in the `write-file-functions'.
+  nil)
+
