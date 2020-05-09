@@ -36,7 +36,6 @@ let
     Description=WebDAV Server
 
     [Service]
-    Environment="PATH=${bash}/bin:${coreutils}/bin
     ExecStart=${wsgidav}/bin/wsgidav --config /home/kai/.config/nixpkgs/overlays/99_my-environment/cfg.webserver/wsgidav.conf
     Restart=on-failure
 
