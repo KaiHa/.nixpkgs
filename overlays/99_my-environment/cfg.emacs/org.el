@@ -42,6 +42,8 @@
  'org-babel-load-languages '((emacs-lisp . t)
                              (shell . t)))
 
+(org-link-set-parameters "tel")
+
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
 (face-spec-set 'org-headline-done '((t (:foreground "gray" :weight normal))))
 (face-spec-set 'org-level-1 '((t (:weight bold))))
