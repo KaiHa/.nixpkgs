@@ -37,6 +37,7 @@
  org-n-level-faces 1
  org-refile-targets (kai/org-refile-targets)
  org-todo-keywords '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED")))
+ org-stuck-projects '("project+LEVEL=1/-DONE" ("TODO" "NEXT") nil "")
 
 (org-babel-do-load-languages
  'org-babel-load-languages '((emacs-lisp . t)
