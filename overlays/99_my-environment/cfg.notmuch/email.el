@@ -57,6 +57,7 @@
                           (:name "[t]odo"     :query "tag:todo"    :key "t")
                           (:name "[f]lagged"  :query "tag:flagged" :key "f")
                           (:name "[s]ent"     :query "tag:sent"    :key "s")
+                          (:name "[S]ent recently" :query "date:7d.. and from:kai.harries"    :key "S")
                           (:name "[d]rafts"   :query "tag:draft"   :key "d")
                           (:name "[a]ll mail" :query "*"           :key "a"))
 
