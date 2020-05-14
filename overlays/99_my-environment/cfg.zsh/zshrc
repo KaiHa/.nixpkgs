@@ -394,9 +394,6 @@ compdef md=mkdir
 #     echo
 # fi
 
-# ### Source ~/.zshrc.local if it exists and is readable:
-# [[ -r ~/.zshrc.local ]] && . ~/.zshrc.local || true
-
 bindkey "OA" history-beginning-search-backward
 bindkey "p"  history-beginning-search-backward
 bindkey "OB" history-beginning-search-forward
@@ -415,6 +412,9 @@ alias skypeforlinux="GDK_BACKEND=x11 skypeforlinux"
 export EDITOR=@zile@
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+### Source ~/.zshrc.local if it exists and is readable:
+[[ -r ~/.zshrc.local ]] && . ~/.zshrc.local || true
 
 if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
