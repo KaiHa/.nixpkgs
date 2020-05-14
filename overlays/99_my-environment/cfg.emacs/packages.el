@@ -31,6 +31,7 @@
                              german-holidays
                              haskell-mode
                              hl-todo
+                             htmlize
                              iedit
                              ivy
                              ivy-historian
