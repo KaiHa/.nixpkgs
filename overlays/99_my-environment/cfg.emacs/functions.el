@@ -184,8 +184,8 @@ Call `universal-argument' before for different count."
   "Import iCalendar events from the current message."
   (interactive)
   (let* ((id (notmuch-show-get-message-id))
-         (org-caldav-inbox "~/org/notmuch.org")
-         (inbox-buffer (find-file-noselect org-caldav-inbox)))
+         (org-caldav-inbox '(file+headline "~/org/notmuch.org" "Imported from Notmuch"))
+         (inbox-buffer (find-file-noselect "~/org/notmuch.org")))
     (with-temp-buffer
       (let ((coding-system-for-read 'no-conversion))
         (call-process notmuch-command nil t nil "show" "--format=raw" id))
