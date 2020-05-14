@@ -7,7 +7,9 @@
   `((,(seq-filter
        (lambda (f)
          (or
+          (string-suffix-p "events.org" f)
           (string-suffix-p "notes.org" f)
+          (string-suffix-p "notmuch.org" f)
           (string-suffix-p "Notizen.org" f)
           (string-suffix-p "tasks.org" f)
           (string-suffix-p "projects.org" f)))
