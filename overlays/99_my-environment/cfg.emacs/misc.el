@@ -19,6 +19,7 @@
 (global-hl-todo-mode)
 (global-undo-tree-mode)
 (menu-bar-mode t)
+(midnight-mode t)
 (pdf-tools-install)
 (random t)
 (savehist-mode)
@@ -129,7 +130,6 @@
                            (type   . "application/pdf"))
                           ((viewer . image-mode)
                            (type   . "image/jpeg")))
- midnight-mode t
  mouse-yank-at-point t
 
  password-cache-expiry 300
