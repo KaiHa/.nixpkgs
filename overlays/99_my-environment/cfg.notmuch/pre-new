@@ -23,6 +23,7 @@ notmuch search --output=files "path:account.gmail/**" | while read item; do
     move $item ~/.mail/archive/ || true
 done
 
+find -L ~/.mail -type l -delete
 
 ( cd ~/.mail/account.gmail/
   gmi sync)

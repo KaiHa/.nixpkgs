@@ -1,4 +1,4 @@
-{stdenv, aescrypt, bash, coreutils, glibcLocales, gmailieer, notmuch, offlineimap, tzdata, writeText}:
+{stdenv, aescrypt, bash, coreutils, findutils, glibcLocales, gmailieer, notmuch, offlineimap, tzdata, writeText}:
 
 let
   fmService = writeText "fetch-mail.service" ''
@@ -7,7 +7,7 @@ let
 
     [Service]
     Environment="LOCALE_ARCHIVE=${glibcLocales}/lib/locale/locale-archive"
-    Environment="PATH=${bash}/bin:${gmailieer}/bin:${notmuch}/bin:${coreutils}/bin:${offlineimap}/bin"
+    Environment="PATH=${findutils}/bin:${bash}/bin:${gmailieer}/bin:${notmuch}/bin:${coreutils}/bin:${offlineimap}/bin"
     Environment="TZDIR=${tzdata}/share/zoneinfo"
 
     ExecStart=${notmuch}/bin/notmuch new
