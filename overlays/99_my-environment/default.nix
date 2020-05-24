@@ -15,6 +15,22 @@ rec {
       p.pdf-tools
     ]);
 
+  weechat = super.weechat.override {
+    configure = { availablePlugins, ... }: {
+      scripts = with self.weechatScripts; [ weechat-matrix ];
+      plugins = with availablePlugins; [
+        guile
+        lua
+        (python.withPackages (ps: with ps; [ future
+                                             Logbook
+                                             matrix-nio
+                                             pyopenssl
+                                             webcolors
+                                           ]))
+      ];
+    };
+  };
+
   haskellPackages = super.haskellPackages.override {
     overrides = hs_self: hs_super: {
       _cfg-xmonad = hs_self.callPackage ./cfg.xmonad {};

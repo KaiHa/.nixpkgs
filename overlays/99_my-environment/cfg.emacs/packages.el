@@ -55,6 +55,7 @@
                              rustic
                              ;;scion
                              undo-tree
+                             weechat
                              which-key
                              yaml-mode
                              yasnippet) ;; used by rustic
