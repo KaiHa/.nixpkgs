@@ -39,6 +39,7 @@
                              ivy-rich
                              ivy-rtags
                              json-mode
+                             lsp-mode ;; used by rustic
                              magit
                              magit-annex
                              ;;magit-todos
@@ -51,11 +52,12 @@
                              pdf-tools
                              rfc-mode
                              rtags
-                             rust-mode
+                             rustic
                              ;;scion
                              undo-tree
                              which-key
-                             yaml-mode)
+                             yaml-mode
+                             yasnippet) ;; used by rustic
 
  package-pinned-packages '((bbdb-vcard      . "melpa")
                            (german-holidays . "melpa")))
