@@ -214,16 +214,25 @@ Call `universal-argument' before for different count."
     (if (magit-anything-unstaged-p)
         (message "kai/org-fetch-shadow-files: you have unstaged changes in %s" default-directory)
       (seq-do (lambda (f)
-                (copy-file f (s-replace "/media/org.dav/" "./" f) t))
+                (copy-file f
+                           (s-replace "/var/lib/syncthing/org-files/"
+                                      "./"
+                                      (s-replace "/var/lib/syncthing/nina-kai/"
+                                                 "./shared/"
+                                                 f))
+                           t))
               (concatenate 'list
-                           (file-expand-wildcards "/media/org.dav/*.org")
-                           (file-expand-wildcards "/media/org.dav/shared/*.org"))))))
+                           (file-expand-wildcards "/var/lib/syncthing/org-files/*.org")
+                           (file-expand-wildcards "/var/lib/syncthing/nina-kai/*.org"))))))
 
 (defun kai/org-patch-shadow-file ()
   "Patch the shadow file."
   (let* ((patch-file (make-temp-file "owh-"))
-         (shadow-file (concat "/media/org.dav/"
-                              (s-replace (expand-file-name "~/org/") "" (buffer-file-name))))
+         (shadow-file (s-replace (expand-file-name "~/org/")
+                                 "/var/lib/syncthing/org-files/"
+                                 (s-replace (expand-file-name "~/org/shared/")
+                                            "/var/lib/syncthing/nina-kai/"
+                                            (buffer-file-name))))
          (new (diff-file-local-copy (current-buffer))))
     (when (file-exists-p shadow-file)
       (call-process "diff" nil (list :file patch-file) nil "-u" (buffer-file-name) new)
