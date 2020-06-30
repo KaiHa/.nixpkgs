@@ -50,6 +50,7 @@
                              org-caldav
                              org-pdfview
                              pdf-tools
+                             projectile
                              rfc-mode
                              rtags
                              rustic

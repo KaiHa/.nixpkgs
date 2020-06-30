@@ -1,4 +1,5 @@
 (require 'flyspell)
+(require 'projectile)
 
 ;;;; Definition of functions used below ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -119,3 +120,4 @@ With a prefix arg N add an offset of N days to the current date."
 (define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)
 
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
