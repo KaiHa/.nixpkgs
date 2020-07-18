@@ -314,8 +314,8 @@ visual_bell:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
+shell:
+ program: /home/kai/.nix-profile/bin/tmux
 #  args:
 #    - --login
 
