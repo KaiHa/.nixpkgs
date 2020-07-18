@@ -1,8 +1,18 @@
 * Deploy to vps1
 
-  #+BEGIN_SRC sh
+  #+NAME: storepath
+  #+BEGIN_SRC sh :results output
     nix-build -A myServerEnv '<nixos>'
-    nix sign-paths --key-file /etc/nix/nix-binary-cache-key -r ./result
+  #+END_SRC
+
+  #+BEGIN_SRC sh :dir /sudo:: :var result=storepath
+    nix sign-paths --key-file /etc/nix/nix-binary-cache-key -r ${result}
+  #+END_SRC
+
+  #+RESULTS:
+
+  #+BEGIN_SRC sh
+    set -e
     nix-copy-closure vps1 ./result
     rm ./result
   #+END_SRC
