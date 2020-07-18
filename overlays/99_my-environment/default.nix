@@ -160,8 +160,8 @@ rec {
   myHeavyEnv = with self; buildEnv {
     name = "myHeavyEnv";
     paths = [
-      calibre
-      diffoscope
+      # calibre
+      # diffoscope
       gdb
       inkscape
       khal
