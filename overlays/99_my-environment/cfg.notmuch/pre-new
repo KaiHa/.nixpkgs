@@ -25,7 +25,7 @@ done
 
 find -L ~/.mail -type l -delete
 
-( cd ~/.mail/account.gmail/
-  gmi sync)
+# ( cd ~/.mail/account.gmail/
+#   gmi sync)
 
 offlineimap
