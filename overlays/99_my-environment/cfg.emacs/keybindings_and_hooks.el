@@ -102,6 +102,7 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-c <C-return>") 'browse-url-generic-toggle-program)
 
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-x B")   'bury-buffer)
 (global-set-key (kbd "C-x g")   'magit-status)
 (global-set-key (kbd "C-x t")   'toggle-truncate-lines)
 
