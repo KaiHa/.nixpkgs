@@ -72,7 +72,6 @@ rec {
       emacs
       gitAndTools.git-annex
       gitRepo
-      gmailieer
       hack-font
       hicolor-icon-theme
       mc
