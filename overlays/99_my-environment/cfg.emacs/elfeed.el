@@ -94,7 +94,6 @@
                 ("https://haskellweekly.news/podcast/feed.rss" audio haskell)
                 ("http://feeds.soundcloud.com/users/soundcloud:users:159515815/sounds.rss" audio hildesheim)
                 ("https://www.hildesheim.de/magazin/rss.php" hildesheim)
-                ("https://freizeit.hildesheimer-allgemeine.de/veranstaltungskalender/feed/" hildesheim)
                 ("http://nordstadt-mehr-wert.de/feed" hildesheim)
                 "http://bit-player.org/feed"
                 "https://danluu.com/atom.xml"
