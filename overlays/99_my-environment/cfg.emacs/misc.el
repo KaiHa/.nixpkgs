@@ -21,7 +21,6 @@
 (menu-bar-mode t)
 (midnight-mode t)
 (pdf-tools-install)
-(projectile-mode 1)
 (random t)
 (savehist-mode)
 (set-scroll-bar-mode nil)
