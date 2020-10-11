@@ -32,7 +32,7 @@ if [[ "$env" == "myPrivateEnv" ]]; then
   NIX_PATH=$NIX_PATH${NIX_PATH:+:}secret=$selfdir/secret
 fi
 
-nix-env -i $env "$@"
+nix-env -iA $env "$@"
 
 echo "Creating dotfiles links in $HOME"
 ( cd "$HOME"
