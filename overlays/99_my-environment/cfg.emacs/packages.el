@@ -17,7 +17,6 @@
                              company-ghci
                              counsel
                              csv-mode
-                             dante
                              dictionary
                              dired-du
                              editorconfig
@@ -25,7 +24,6 @@
                              elfeed-web
                              emms
                              emms-info-mediainfo
-                             flycheck-haskell
                              flycheck-rust
                              forecast
                              german-holidays
@@ -39,7 +37,11 @@
                              ivy-rich
                              ivy-rtags
                              json-mode
-                             lsp-mode ;; used by rustic
+                             lsp-haskell
+                             lsp-ivy
+                             lsp-mode
+                             lsp-treemacs
+                             lsp-ui
                              magit
                              magit-annex
                              ;;magit-todos
@@ -54,7 +56,6 @@
                              rfc-mode
                              rtags
                              rustic
-                             ;;scion
                              undo-tree
                              weechat
                              which-key
@@ -62,6 +63,7 @@
                              yasnippet) ;; used by rustic
 
  package-pinned-packages '((bbdb-vcard      . "melpa")
+                           (flycheck        . "melpa")
                            (german-holidays . "melpa")))
 
 ;; Use the following commands to install the selected packages:

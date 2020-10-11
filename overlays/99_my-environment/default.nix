@@ -140,14 +140,16 @@ rec {
         cabal-install
         doctest
         happy
+        haskell-language-server
         hlint
-        hoogle
-        pointfree
+        # hoogle
+        # pointfree
       ]))
       cabal2nix
       fontconfig.dev
       freetype.dev
       ghcid
+      ormolu
       pkgconfig
     ];
   };

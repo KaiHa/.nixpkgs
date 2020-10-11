@@ -126,6 +126,9 @@
  image-dired-cmd-rotate-original-options '("%o" "-rotate" "%d" "%t")
  image-dired-cmd-rotate-original-program "convert"
 
+ lsp-ui-doc-delay 2
+ lsp-ui-doc-position 'top
+
  magit-diff-refine-hunk t
  mailcap-user-mime-data '(((viewer . pdf-view-mode)
                            (type   . "application/pdf"))
