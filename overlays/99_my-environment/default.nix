@@ -31,12 +31,6 @@ rec {
     };
   };
 
-  haskellPackages = super.haskellPackages.override {
-    overrides = hs_self: hs_super: {
-      _cfg-xmonad = hs_self.callPackage ./cfg.xmonad {};
-    };
-  };
-
   _cfg-alacritty     = super.callPackage ./cfg.alacritty     {};
   _cfg-desktop       = super.callPackage ./cfg.desktop       {};
   _cfg-emacs         = super.callPackage ./cfg.emacs         {};
