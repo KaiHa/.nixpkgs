@@ -56,6 +56,6 @@ stdenv.mkDerivation rec {
     aescrypt -d -p "${secret}" -o "$out/target-home/DOT.mail/DOT.notmuch/hooks/post-new" "$src/post-new.aes"
     chmod 755 $out/target-home/DOT.mail/DOT.notmuch/hooks/post-new
     substitute $src/email.el            "$out/target-home/DOT.config/emacs/email.el" \
-               --subst-var-by notmuch ${notmuch}/share/emacs/site-lisp/notmuch.el
+               --subst-var-by notmuch-site-lisp ${notmuch.emacs}/share/emacs/site-lisp/
   '';
 }

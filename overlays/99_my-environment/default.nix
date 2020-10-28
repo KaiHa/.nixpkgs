@@ -1,8 +1,8 @@
 self: super:
 rec {
-  diffoscope = super.diffoscope.override { enableBloat = true; };
+  diffoscope = super.diffoscope.override { enableBloat = false; };
 
-  myEmacs = super.emacs26.override {
+  myEmacs = super.emacs.override {
     imagemagick = self.imagemagick;
     withGTK3 = true;
     withGTK2 = false;
@@ -11,7 +11,7 @@ rec {
     [ self.ghostscript
       self.pinentry-emacs
       self.poppler_utils
-      p.org-pdfview
+      p.org-pdftools
       p.pdf-tools
     ]);
 

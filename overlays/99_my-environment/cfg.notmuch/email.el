@@ -1,4 +1,5 @@
-(require 'notmuch "@notmuch@")
+(add-to-list 'load-path "@notmuch-site-lisp@")
+(require 'notmuch)
 (require 'org-notmuch "~/.config/emacs/org-notmuch.el")
 
 ;;;; Functions that are used below

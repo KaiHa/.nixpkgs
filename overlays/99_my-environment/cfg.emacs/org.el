@@ -1,6 +1,5 @@
-(require 'org-eww)
 (require 'org-protocol)
-(eval-after-load 'org '(require 'org-pdfview))
+(eval-after-load 'org '(require 'org-pdftools))
 (org-agenda-to-appt)
 
 (defun kai/org-refile-targets ()
