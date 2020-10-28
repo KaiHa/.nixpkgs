@@ -15,6 +15,10 @@ rec {
       p.pdf-tools
     ]);
 
+  mytexlive = super.texlive.combine {
+    inherit (super.texlive) enumitem scheme-medium fontawesome moderncv xcolor-solarized;
+  };
+
   weechat = super.weechat.override {
     configure = { availablePlugins, ... }: {
       scripts = with self.weechatScripts; [ weechat-matrix ];
