@@ -2,12 +2,7 @@ self: super:
 rec {
   diffoscope = super.diffoscope.override { enableBloat = false; };
 
-  myEmacs = super.emacs.override {
-    imagemagick = self.imagemagick;
-    withGTK3 = true;
-    withGTK2 = false;
-  };
-  emacs = (super.emacsPackagesGen myEmacs).emacsWithPackages (p:
+  emacs = super.emacsWithPackages (p:
     [ self.ghostscript
       self.pinentry-emacs
       self.poppler_utils
