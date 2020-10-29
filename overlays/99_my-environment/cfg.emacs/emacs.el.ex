@@ -7,7 +7,6 @@
 (load-file "~/.config/emacs/packages.el")
 
 (require 'package)
-(package-initialize)
 
 (load-file "~/.config/emacs/calendar.el")
 ;;(load-file "~/.config/emacs/email.el")
