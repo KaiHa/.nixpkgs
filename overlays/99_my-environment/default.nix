@@ -46,6 +46,7 @@ rec {
   _cfg-vim           = super.callPackage ./cfg.vim           {};
   _cfg-webserver     = super.callPackage ./cfg.webserver     {};
   _cfg-zsh           = super.callPackage ./cfg.zsh           {};
+  _sway-win-select   = super.callPackage ./sway-window-select { inherit (self.haskellPackages) mkDerivation aeson base bytestring containers extra fmt optparse-applicative pretty-simple split stdenv typed-process; };
 
   myDefaultEnv = with self; buildEnv {
     name = "myDefaultEnv";
@@ -124,6 +125,7 @@ rec {
     paths = [
       _cfg-desktop
 #      _cfg-redshift
+      _sway-win-select
       bemenu
       dmenu
       i3status
