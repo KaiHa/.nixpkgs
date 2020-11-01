@@ -1,4 +1,4 @@
-{stdenv, nix, writeText, bash, cabal-install, coreutils}:
+{stdenv, nix, writeText, _webserver}:
 
 let
   webserverService = writeText "webserver.service" ''
@@ -6,7 +6,7 @@ let
     Description=My simple webserver
 
     [Service]
-    ExecStart=myhttp-server
+    ExecStart=${_webserver}/bin/myhttp-server
     Restart=on-failure
 
     # CapabilityBoundingSet=CAP_NET_BIND_SERVICE
