@@ -47,6 +47,7 @@ rec {
   _cfg-webserver     = super.callPackage ./cfg.webserver     {};
   _cfg-zsh           = super.callPackage ./cfg.zsh           {};
   _sway-win-select   = super.callPackage ./sway-window-select { inherit (self.haskellPackages) mkDerivation aeson base bytestring containers extra fmt optparse-applicative pretty-simple split stdenv typed-process; };
+  _webserver         = super.callPackage ~/sw/my/webserver { inherit (self.haskellPackages) mkDerivation aeson base base64-bytestring blaze-html bytestring containers cryptonite directory filepath happstack-server happstack-server-tls HTTP http-conduit http-types memory process regex-tdfa stdenv text time xss-sanitize; };
 
   myDefaultEnv = with self; buildEnv {
     name = "myDefaultEnv";
@@ -98,6 +99,7 @@ rec {
       _cfg-vim
       _cfg-webserver
       _cfg-zsh
+      _webserver
       (aspellWithDicts (p: [ p.de p.en ] ))
       aescrypt
       emacs

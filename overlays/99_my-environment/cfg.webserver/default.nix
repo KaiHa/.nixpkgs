@@ -6,10 +6,7 @@ let
     Description=My simple webserver
 
     [Service]
-    Environment="PATH=${bash}/bin:${coreutils}/bin:${cabal-install}/bin"
-    WorkingDirectory=/home/kai/webserver/
-    # TODO try to get rid of the nix-shell
-    ExecStart=${nix}/bin/nix-shell --run "cabal new-run myhttp-server" shell.nix
+    ExecStart=myhttp-server
     Restart=on-failure
 
     # CapabilityBoundingSet=CAP_NET_BIND_SERVICE
