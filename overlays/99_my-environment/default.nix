@@ -100,21 +100,11 @@ rec {
       _cfg-zsh
       (aspellWithDicts (p: [ p.de p.en ] ))
       aescrypt
-      binutils
-      cabal-install
-      cabal2nix
-      ghc
-      gitAndTools.git-annex
       emacs
-      mosh
       ncdu
       nix-zsh-completions
-      pkg-config
-      shellcheck
       tmux
-      toilet
       zile
-      zlib
       zsh
       zsh-completions
     ];
