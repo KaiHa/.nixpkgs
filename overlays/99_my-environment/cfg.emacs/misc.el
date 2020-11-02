@@ -103,6 +103,7 @@
  default-input-method "german-postfix"
  dired-du-size-format ","
  dired-omit-files "^\\.?#\\|^\\.[^.]"
+ dired-vc-rename-file t
 
  ediff-merge-split-window-function 'split-window-vertically
  ediff-split-window-function       'split-window-horizontally
