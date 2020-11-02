@@ -159,11 +159,11 @@
 ;; reloading of frames (must happen after setting frame-background-mode)
 (mapc 'frame-set-background-mode (frame-list))
 
-;; ;; Set fonts for special characters, e.g.:
-;; ;;   🎂 🔋 🔌 💾 🔔 🔕
-;; (add-hook 'before-make-frame-hook
-;;           (lambda ()
-;;             (set-fontset-font t '(#x1f382 . #x1f515) (font-spec :family "Symbola"))))
+;; Set font for emojis and symbols, e.g.:
+;;   🎂 🔋 🔌 💾 🔔 🔕
+(add-hook 'before-make-frame-hook
+          (lambda ()
+            (set-fontset-font t '(#x2400 . #x1fbff) (font-spec :family "Noto Color Emoji"))))
 
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (face-spec-set 'default                  '((t (:family "Hack" :foundry "bitstream" :slant normal :weight normal :height 98 :width normal))))
