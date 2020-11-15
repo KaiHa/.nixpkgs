@@ -1,4 +1,4 @@
-{stdenv, bash, coreutils, emacs, glibcLocales, mediainfo, tzdata, weechat, writeText}:
+{stdenv, bash, coreutils, emacs, glibcLocales, graphicsmagick-imagemagick-compat, mediainfo, tzdata, weechat, writeText}:
 
 let
   emacsService = writeText "emacs.service" ''
@@ -17,7 +17,7 @@ let
     Environment=C_INCLUDE_PATH=$HOME/.nix-profile/include/
     
     Type=notify
-    ExecStart=${bash}/bin/bash -c 'source /etc/profile; PATH="$PATH:${mediainfo}/bin:${weechat}/bin" exec ${emacs}/bin/emacs --fg-daemon'
+    ExecStart=${bash}/bin/bash -c 'source /etc/profile; PATH="$PATH:${graphicsmagick-imagemagick-compat}/bin:${mediainfo}/bin:${weechat}/bin" exec ${emacs}/bin/emacs --fg-daemon'
     ExecStop=${emacs}/bin/emacsclient --eval "(kill-emacs)"
     # The location of the SSH auth socket varies by distribution, and some
     # set it from PAM, so don't override by default.
