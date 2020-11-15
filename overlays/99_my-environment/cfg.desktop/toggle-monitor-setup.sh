@@ -2,12 +2,20 @@
 
 set -e
 
-lvdsEnable=${1:-enable}
+if [ -n "${1}" ]
+then
+    lvdsEnable=${1}
+elif grep -q closed /proc/acpi/button/lid/LID/state
+then
+    lvdsEnable=disable
+else
+    lvdsEnable=enable
+fi
 
 if swaymsg -p -t get_outputs | grep -q "^Output DP-1"
 then
     swaymsg output LVDS-1 $lvdsEnable
-    swaymsg output DP-1 enable
+    swaymsg output DP-1 enable bg ~/.config/sway/keep-calm.png center
     swaymsg output LVDS-1 position 0 672
     swaymsg output DP-1   position 1366 0
 else
