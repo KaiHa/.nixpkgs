@@ -3,10 +3,12 @@
 set -e
 
 cmd=${1:?}
-class=${2:?}
+id=${2:?}
 
-if swaymsg -t get_tree | grep -q "\"class\": \"$class\""; then
-    swaymsg "[class=\"$class\"] focus"
+if swaymsg -t get_tree | grep -q "\"class\": \"${id}\""; then
+    swaymsg "[class=\"${id}\"] focus"
+elif swaymsg -t get_tree | grep -q "\"app_id\": \"${id}\""; then
+    swaymsg "[app_id=\"${id}\"] focus"
 else
     swaymsg -- exec $cmd
 fi
