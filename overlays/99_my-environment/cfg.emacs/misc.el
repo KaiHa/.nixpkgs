@@ -45,7 +45,7 @@
 (set-display-table-slot standard-display-table 'wrap       (make-glyph-code ?\\ 'error))
 
 (setq-default indent-tabs-mode nil
-              indicate-buffer-boundaries '((top . left) (t . right))
+              indicate-buffer-boundaries 'left
               indicate-empty-lines t
               notmuch-show-indent-content nil) ;; indentation seems to be slow
 
