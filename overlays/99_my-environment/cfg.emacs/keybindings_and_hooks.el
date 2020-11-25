@@ -96,6 +96,7 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-c L")   'org-insert-link-global)
 (global-set-key (kbd "C-c n")   'line-number-relative-toggle)
 (global-set-key (kbd "C-c o")   'org-open-at-point-global)
+(global-set-key (kbd "C-c p")   'ivy-pass)
 (global-set-key (kbd "C-c s")   'swiper)
 (global-set-key (kbd "C-c .")   'insert-date)
 (global-set-key (kbd "C-c <S-return>") 'browse-url-generic)
