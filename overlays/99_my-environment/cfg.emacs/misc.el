@@ -101,9 +101,13 @@
  browse-url-browser-function 'browse-url-firefox
  browse-url-generic-program "firefox"
  default-input-method "german-postfix"
+
+ dired-create-destination-dirs 'ask
  dired-du-size-format ","
+ dired-listing-switches "-alh"
  dired-omit-files "^\\.?#\\|^\\.[^.]"
  dired-vc-rename-file t
+ wdired-allow-to-change-permissions t
 
  ediff-merge-split-window-function 'split-window-vertically
  ediff-split-window-function       'split-window-horizontally
