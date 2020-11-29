@@ -102,17 +102,13 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-c <S-return>") 'browse-url-generic)
 (global-set-key (kbd "C-c <C-return>") 'browse-url-generic-toggle-program)
 
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-x B")   'bury-buffer)
 (global-set-key (kbd "C-x g")   'magit-status)
 (global-set-key (kbd "C-x t")   'toggle-truncate-lines)
 
 (global-set-key (kbd "M-/")     'hippie-expand)
-(global-set-key (kbd "M-i")     'counsel-imenu)
 (global-set-key (kbd "M-j")     'next-multiframe-window)
 (global-set-key (kbd "M-k")     'previous-multiframe-window)
-(global-set-key (kbd "M-x")     'counsel-M-x)
-
 
 (define-key eww-mode-map         (kbd "I")   #'kai/eww-toggle-images)
 (define-key eww-link-keymap      (kbd "I")   #'kai/eww-toggle-images)
@@ -121,5 +117,3 @@ With a prefix arg N add an offset of N days to the current date."
 
 (define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)
-
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)

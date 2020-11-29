@@ -15,7 +15,6 @@
                              calfw-ical
                              calfw-org
                              company-ghci
-                             counsel
                              csv-mode
                              dictionary
                              dired-du
@@ -31,11 +30,7 @@
                              hl-todo
                              htmlize
                              iedit
-                             ivy
-                             ivy-historian
-                             ivy-hydra
-                             ivy-rich
-                             ivy-rtags
+                             ivy-pass
                              json-mode
                              lsp-haskell
                              lsp-ivy

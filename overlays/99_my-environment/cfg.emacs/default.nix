@@ -48,7 +48,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/init.el.ex               $out/target-home/DOT.config/emacs/init.el.ex
     install -Dm 444 $src/functions.el             $out/target-home/DOT.config/emacs/functions.el
     install -Dm 444 $src/haskell.el               $out/target-home/DOT.config/emacs/haskell.el
-    install -Dm 444 $src/ivy_et_al.el             $out/target-home/DOT.config/emacs/ivy_et_al.el
     install -Dm 444 $src/keybindings_and_hooks.el $out/target-home/DOT.config/emacs/keybindings_and_hooks.el
     install -Dm 444 $src/misc.el                  $out/target-home/DOT.config/emacs/misc.el
     install -Dm 444 $src/modalka.el               $out/target-home/DOT.config/emacs/modalka.el
