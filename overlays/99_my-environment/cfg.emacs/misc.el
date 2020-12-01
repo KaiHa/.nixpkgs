@@ -97,6 +97,7 @@
             (overlay-put ov 'display mystring)))))
 
 (setq
+ bbdb-phone-style nil
  bbdb-vcard-try-merge nil
  browse-url-browser-function 'browse-url-firefox
  browse-url-generic-program "firefox"
