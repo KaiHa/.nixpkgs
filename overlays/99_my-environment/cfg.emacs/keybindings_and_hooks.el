@@ -117,3 +117,5 @@ With a prefix arg N add an offset of N days to the current date."
 
 (define-key minibuffer-local-map (kbd "M-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "M-n") 'next-complete-history-element)
+(define-key minibuffer-local-map (kbd "M-P") 'previous-line-or-history-element)
+(define-key minibuffer-local-map (kbd "M-N") 'next-line-or-history-element)
