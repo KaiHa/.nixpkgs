@@ -17,7 +17,7 @@
 (setq
  org-agenda-files '("~/org/" "~/org/imported/" "~/org/shared/")
  org-agenda-include-diary t
- org-agenda-start-on-weekday 1
+ org-agenda-start-on-weekday 'nil
  org-agenda-sticky t
  org-agenda-time-grid '((today remove-match) (800 1200 1600) " - - -" "")
  org-agenda-window-setup 'other-window
