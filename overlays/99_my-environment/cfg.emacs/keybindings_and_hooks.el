@@ -1,4 +1,5 @@
 (require 'flyspell)
+(require 'gnus-dired)
 (require 'projectile)
 
 ;;;; Definition of functions used below ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -60,6 +61,7 @@ With a prefix arg N add an offset of N days to the current date."
 (require 'eww)
 (add-hook 'c++-mode-hook           'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook             'rtags-start-process-unless-running)
+(add-hook 'dired-mode-hook         'gnus-dired-mode)
 (add-hook 'emacs-startup-hook      'org-agenda-to-appt)
 (add-hook 'midnight-hook           'org-agenda-to-appt)
 (add-hook 'nxml-mode-hook          'hs-minor-mode)
