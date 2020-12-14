@@ -15,9 +15,9 @@ fi
 if swaymsg -p -t get_outputs | grep -q "^Output DP-1"
 then
     swaymsg output LVDS-1 $lvdsEnable
-    swaymsg output DP-1 enable bg ~/.config/sway/keep-calm.png center
     swaymsg output LVDS-1 position 0 672
     swaymsg output DP-1   position 1366 0
+    swaymsg output DP-1 dpms on
 else
     swaymsg output LVDS-1 enable
     swaymsg output DP-1 disable
