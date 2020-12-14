@@ -160,22 +160,24 @@ Call `universal-argument' before for different count."
 (defun kai/org-import-posteo-calendar ()
   "Import an icalendar file."
   (interactive)
-  (let* ((org-caldav-inbox "~/org/imported/posteo.org")
-         (inbox-buffer (find-file-noselect org-caldav-inbox)))
-    (with-current-buffer inbox-buffer
-      (erase-buffer)
-      (insert "#+FILETAGS: :posteo:\n#+CATEGORY: 📆\n\n"))
-    (seq-do (lambda (f)
-              (with-temp-buffer
-                (insert-file-contents f)
-                (kai/rfc2425-unfold-buffer)
-                (goto-char (point-min))
-                (org-caldav-import-ics-buffer-to-org)
-                (with-current-buffer inbox-buffer
-                  (goto-char (point-max))
-                  (insert "  Imported from [[file://" f "][here]].\n"))))
-            (file-expand-wildcards "~/.calendar.posteo/**/*.ics"))
-    (with-current-buffer inbox-buffer (save-buffer))))
+  (if (equal (call-process "vdirsyncer" nil nil nil "sync") 0)
+      (let* ((org-caldav-inbox "~/org/imported/posteo.org")
+             (inbox-buffer (find-file-noselect org-caldav-inbox)))
+        (with-current-buffer inbox-buffer
+          (erase-buffer)
+          (insert "#+FILETAGS: :posteo:\n#+CATEGORY: 📆\n\n"))
+        (seq-do (lambda (f)
+                  (with-temp-buffer
+                    (insert-file-contents f)
+                    (kai/rfc2425-unfold-buffer)
+                    (goto-char (point-min))
+                    (org-caldav-import-ics-buffer-to-org)
+                    (with-current-buffer inbox-buffer
+                      (goto-char (point-max))
+                      (insert "  Imported from [[file://" f "][here]].\n"))))
+                (file-expand-wildcards "~/.calendar.posteo/**/*.ics"))
+        (with-current-buffer inbox-buffer (save-buffer)))
+    (message "Sync of Posteo calendar failed (`vdirsyncer sync' returned exit code ≠ 0)")))
 
 
 (defun kai/org-import-notmuch-calendar ()
@@ -239,4 +241,3 @@ Call `universal-argument' before for different count."
         (message (buffer-string)))))
   ;; This function must return nil! Because it is in the `write-file-functions'.
   nil)
-
