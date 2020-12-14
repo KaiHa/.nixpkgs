@@ -47,7 +47,6 @@
                              org-caldav
                              org-pdfview
                              pdf-tools
-                             rfc-mode
                              rtags
                              rustic
                              undo-tree
