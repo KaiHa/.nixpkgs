@@ -44,7 +44,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 ${emacsService}              "$out/target-home/DOT.config/systemd/user/emacs.service"
     install -Dm 444 ${emacsService}              "$out/target-home/DOT.config/systemd/user/default.target.wants/emacs.service"
     install -Dm 444 $src/calendar.el              $out/target-home/DOT.config/emacs/calendar.el
-    install -Dm 444 $src/elfeed.el                $out/target-home/DOT.config/emacs/elfeed.el
     install -Dm 444 $src/init.el.ex               $out/target-home/DOT.config/emacs/init.el.ex
     install -Dm 444 $src/functions.el             $out/target-home/DOT.config/emacs/functions.el
     install -Dm 444 $src/haskell.el               $out/target-home/DOT.config/emacs/haskell.el
@@ -55,6 +54,5 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/nix-shell.el             $out/target-home/DOT.config/emacs/nix-shell.el
     install -Dm 444 $src/org.el                   $out/target-home/DOT.config/emacs/org.el
     install -Dm 444 $src/packages.el              $out/target-home/DOT.config/emacs/packages.el
-    install -Dm 755 $src/elfeed-web.sh            $out/target-home/bin/elfeed-web.sh
   '';
 }

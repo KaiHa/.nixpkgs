@@ -15,8 +15,6 @@
                              dictionary
                              dired-du
                              editorconfig
-                             elfeed
-                             elfeed-web
                              emms
                              emms-info-mediainfo
                              flycheck-rust

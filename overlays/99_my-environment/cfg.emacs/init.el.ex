@@ -10,7 +10,6 @@
 
 (load-file "~/.config/emacs/calendar.el")
 ;;(load-file "~/.config/emacs/email.el")
-(load-file "~/.config/emacs/elfeed.el")
 (load-file "~/.config/emacs/functions.el")
 (load-file "~/.config/emacs/haskell.el")
 (load-file "~/.config/emacs/keybindings_and_hooks.el")
