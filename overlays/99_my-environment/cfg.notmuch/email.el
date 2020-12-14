@@ -45,6 +45,7 @@
 
  message-forward-as-mime t
  message-forward-show-mml 'best
+ message-kill-buffer-on-exit t
 
  notmuch-archive-tags '("-inbox" "+archive")
  notmuch-hello-sections '(notmuch-hello-insert-header
