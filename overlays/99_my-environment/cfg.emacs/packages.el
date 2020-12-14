@@ -41,7 +41,6 @@
                              magit-annex
                              ;;magit-todos
                              markdown-mode
-                             modalka
                              nix-mode
                              noccur
                              org-caldav

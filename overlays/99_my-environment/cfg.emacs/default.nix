@@ -50,7 +50,6 @@ stdenv.mkDerivation rec {
     install -Dm 444 $src/haskell.el               $out/target-home/DOT.config/emacs/haskell.el
     install -Dm 444 $src/keybindings_and_hooks.el $out/target-home/DOT.config/emacs/keybindings_and_hooks.el
     install -Dm 444 $src/misc.el                  $out/target-home/DOT.config/emacs/misc.el
-    install -Dm 444 $src/modalka.el               $out/target-home/DOT.config/emacs/modalka.el
     install -Dm 444 $src/modes.el                 $out/target-home/DOT.config/emacs/modes.el
     install -Dm 444 $src/nix-list-generations.el  $out/target-home/DOT.config/emacs/nix-list-generations.el
     install -Dm 444 $src/nix-shell.el             $out/target-home/DOT.config/emacs/nix-shell.el
