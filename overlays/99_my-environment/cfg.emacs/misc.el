@@ -11,6 +11,7 @@
 (bbdb-initialize)
 (blink-cursor-mode)
 (column-number-mode t)
+(editorconfig-mode 1)
 (electric-pair-mode)
 (emms-all)
 (emms-default-players)
