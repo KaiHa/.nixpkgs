@@ -1,7 +1,5 @@
-(require 'calfw)
-(require 'calfw-ical)
-(require 'calfw-org)
 (require 's)
+(require 'magit)
 
 (defun kai/encrypted-file-open (fpath)
   "Open FILE and decrypt it."
@@ -221,9 +219,9 @@ Call `universal-argument' before for different count."
                                                  "./shared/"
                                                  f))
                            t))
-              (concatenate 'list
-                           (file-expand-wildcards "/var/lib/syncthing/org-files/*.org")
-                           (file-expand-wildcards "/var/lib/syncthing/nina-kai/*.org"))))))
+              (cl-concatenate 'list
+                              (file-expand-wildcards "/var/lib/syncthing/org-files/*.org")
+                              (file-expand-wildcards "/var/lib/syncthing/nina-kai/*.org"))))))
 
 (defun kai/org-patch-shadow-file ()
   "Patch the shadow file."

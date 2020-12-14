@@ -10,10 +10,6 @@
  package-selected-packages '(bbdb
                              bbdb-vcard
                              bitbake
-                             calfw
-                             calfw-cal
-                             calfw-ical
-                             calfw-org
                              company-ghci
                              csv-mode
                              dictionary
@@ -39,7 +35,6 @@
                              lsp-ui
                              magit
                              magit-annex
-                             ;;magit-todos
                              markdown-mode
                              nix-mode
                              noccur

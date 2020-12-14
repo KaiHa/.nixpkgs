@@ -1,4 +1,3 @@
-(require 'calfw-cal)
 (require 'german-holidays)
 
 (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
