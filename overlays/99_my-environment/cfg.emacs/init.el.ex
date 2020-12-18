@@ -1,6 +1,6 @@
-;; -*-Lisp-*-
+;; -*-emacs-lisp-*-
 ;;
-;; Example emacs configuration. Copy this file to ~/.emacs
+;; Example Emacs configuration. Place this file at ~/.config/emacs/init.el.
 ;;
 
 ;;;; My default settings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
