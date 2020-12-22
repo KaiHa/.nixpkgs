@@ -1,6 +1,5 @@
 (require 'flyspell)
 (require 'gnus-dired)
-(require 'projectile)
 
 ;;;; Definition of functions used below ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
