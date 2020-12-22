@@ -56,8 +56,20 @@ With a prefix arg N add an offset of N days to the current date."
   (interactive)
   (emms-add-url (shr-url-at-point nil)))
 
+(defun kai/set-active-theme ()
+  (with-temp-buffer
+    (insert-file-contents
+     (expand-file-name "~/.config/gtk-3.0/settings.ini"))
+    (goto-char (point-min))
+    (re-search-forward "gtk-application-prefer-dark-theme *= *\\(true\\|false\\)")
+    (let* ((dark (match-string 1)))
+      (if (equal dark "true")
+          (kai/theme-toggle 'dark)
+        (kai/theme-toggle 'light)))))
+
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
+(add-hook 'server-after-make-frame-hook 'kai/set-active-theme)
 (add-hook 'c++-mode-hook           'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook             'rtags-start-process-unless-running)
 (add-hook 'dired-mode-hook         'gnus-dired-mode)
