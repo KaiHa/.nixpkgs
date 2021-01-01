@@ -18,8 +18,10 @@
 (add-to-list 'emms-info-functions 'emms-info-mediainfo)
 (global-hl-todo-mode)
 (global-undo-tree-mode)
+(icomplete-mode)
 (menu-bar-mode t)
 (midnight-mode t)
+(minibuffer-electric-default-mode)
 (pdf-tools-install)
 (random t)
 (savehist-mode)
@@ -78,6 +80,7 @@
                (lambda (rec) (bbdb-snarf-phone-eu rec "^H: \\([0-9 ]*\\)"))
                bbdb-snarf-mail))
 
+(add-to-list 'completion-styles 'flex t)
 
 (defface hs-ov-face
   '((t (:slant italic :height 0.8 :background "#8a5" :box t)))
@@ -143,6 +146,7 @@
  mouse-yank-at-point t
 
  password-cache-expiry 300
+ read-buffer-completion-ignore-case t
  read-file-name-completion-ignore-case t
  show-paren-delay 0.5
  show-paren-style 'mixed
