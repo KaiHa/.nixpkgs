@@ -1,3 +1,4 @@
+(require 'org-msg)
 (require 'org-protocol)
 (eval-after-load 'org '(require 'org-pdftools))
 (org-agenda-to-appt)
@@ -13,6 +14,7 @@
           (string-suffix-p "tasks.org" f)
           (string-suffix-p "projects.org" f)))
        (org-agenda-files)) . (:level . 1))))
+
 
 (setq
  org-agenda-files '("~/org/" "~/org/imported/" "~/org/shared/")
@@ -35,6 +37,8 @@
  org-catch-invisible-edits 'error
  org-default-notes-file "~/org/notes.org"
  org-fontify-done-headline t
+ org-msg-default-alternatives '(html text)
+ org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil"
  org-n-level-faces 1
  org-refile-targets (kai/org-refile-targets)
  org-stuck-projects '("project+LEVEL=1/-DONE" ("TODO" "NEXT") nil "")

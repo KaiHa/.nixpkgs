@@ -37,6 +37,7 @@
                              nix-mode
                              noccur
                              org-caldav
+                             org-msg
                              org-pdfview
                              pdf-tools
                              rtags
