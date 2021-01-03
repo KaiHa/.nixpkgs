@@ -69,7 +69,6 @@ rec {
       mc
       mosh
       ncdu
-      nitrokey-app
       nix-zsh-completions
       notmuch
       offlineimap
