@@ -31,7 +31,7 @@
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\n  Entered on %U\n  %i\n  %a")
         ("t" "Todo" entry (file "~/org/inbox.org")
-         "* TODO %?\n  %i\n  %a"))
+         "* TODO %?\n%(if (> (length \"%i\") 0) \"  - %i\n\")%(if (> (length \"%a\") 0) \"  - %a\")"))
  org-catch-invisible-edits 'error
  org-default-notes-file "~/org/notes.org"
  org-fontify-done-headline t
