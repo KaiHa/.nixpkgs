@@ -11,7 +11,7 @@ rec {
     ]);
 
   mytexlive = super.texlive.combine {
-    inherit (super.texlive) enumitem lastpage scheme-medium fontawesome moderncv xcolor-solarized;
+    inherit (super.texlive) capt-of enumitem lastpage scheme-medium fontawesome moderncv wrapfig xcolor-solarized;
   };
 
   weechat = super.weechat.override {
