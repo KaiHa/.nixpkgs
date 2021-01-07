@@ -170,6 +170,10 @@
 ;; reloading of frames (must happen after setting frame-background-mode)
 (mapc 'frame-set-background-mode (frame-list))
 
+(add-hook 'tex-mode-hook
+          (lambda ()
+            (add-to-list 'tex-compile-commands '("zathura %r.pdf &" "%r.pdf"))))
+
 ;; Set font for emojis and symbols, e.g.:
 ;;   🎂 🔋 🔌 💾 🔔 🔕
 (add-hook 'before-make-frame-hook
