@@ -28,6 +28,7 @@
  org-capture-templates
       '(("a" "Action for clocked in task" entry (clock)
          "* %?%i\n  %U\n  %a")
+        ("b" "Besorgung" checkitem (file+headline "~/org/inbox.org" "Besorgungen") )
         ("e" "Event" entry (file+headline "~/org/events.org" "Events")
          "* %i\n  %^t%?\n  %a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
