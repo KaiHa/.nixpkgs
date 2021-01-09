@@ -93,6 +93,12 @@ With a prefix arg N add an offset of N days to the current date."
         (if (string-prefix-p "https://www.heise.de/" (eww-current-url))
             (if shr-inhibit-images (eww-readable)))))
 
+(add-to-list 'delete-frame-functions
+             (lambda (_frame)
+               (let ((default-directory (expand-file-name "~/org/")))
+                 (magit-stage-1 "-u")
+                 (magit-commit-create (list "-m" (concat "Update of " (format-time-string "%A %F %T")))))))
+
 ;;;; File extension <-> modes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 
