@@ -425,5 +425,11 @@ if [ -f /etc/profile.d/nix.sh ]; then
 fi
 
 if [ "$(tty)" = "/dev/tty1" ]; then
+
+    if [ -f ~/no-sway ]; then
+        echo 'start i3 with "sudo systemctl start display-manager.service"'
+        echo 'start sway with "sway"'
+    else
 	exec sway
+    fi
 fi
