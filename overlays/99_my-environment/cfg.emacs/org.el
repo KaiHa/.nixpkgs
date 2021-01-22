@@ -51,6 +51,7 @@
 
 (org-link-set-parameters "tel")
 
+(face-spec-set 'org-agenda-date-today '((t (:inverse-video t))))
 (face-spec-set 'org-agenda-structure '((t (:foreground "steel blue"))))
 (face-spec-set 'org-headline-done '((t (:foreground "gray" :weight normal))))
 (face-spec-set 'org-level-1 '((t (:weight bold))))
