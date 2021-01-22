@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-GDK_BACKEND=x11 signal-desktop
+LANG=de_DE.UTF-8 GDK_BACKEND=x11 signal-desktop
