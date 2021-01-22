@@ -181,7 +181,7 @@
             (set-fontset-font t '(#x2400 . #x1fbff) (font-spec :family "Noto Color Emoji"))))
 
 ;;;; Faces ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(face-spec-set 'default                  '((t (:family "Hack" :foundry "bitstream" :slant normal :weight normal :height 98 :width normal))))
+(face-spec-set 'default                  '((t (:family "Fira Code" :foundry "bitstream" :slant normal :weight light :height 98 :width normal))))
 (face-spec-set 'mode-line                '((t (:background "#fbb" :foreground "#2e3436" :box (:line-width 2 :style released-button)))))
 (face-spec-set 'mode-line-inactive       '((t (:background "#888a85" :foreground "#2e3436" :box (:line-width 2 :color "#888a85")))))
 (face-spec-set 'line-number-current-line '((t (:foreground "magenta" :weight bold))))
