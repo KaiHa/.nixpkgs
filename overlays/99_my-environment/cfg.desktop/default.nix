@@ -17,6 +17,7 @@ stdenv.mkDerivation rec {
     install -Dm 755 $src/skype.sh                   $out/target-home/bin/skype.sh
     install -Dm 755 $src/toggle-light-dark-theme.sh $out/target-home/bin/toggle-light-dark-theme.sh
     install -Dm 755 $src/toggle-monitor-setup.sh    $out/target-home/bin/toggle-monitor-setup.sh
+    install -Dm 755 $src/i3.config                  $out/target-home/DOT.config/i3/config
     substitute $src/sway.config $out/target-home/DOT.config/sway/config \
                --subst-var-by wob ${wob}/bin/wob
   '';
