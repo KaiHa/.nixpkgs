@@ -36,6 +36,7 @@
                              markdown-mode
                              nix-mode
                              noccur
+                             ob-async
                              org-caldav
                              org-msg
                              org-pdfview

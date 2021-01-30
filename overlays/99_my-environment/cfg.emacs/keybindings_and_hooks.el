@@ -86,7 +86,8 @@ With a prefix arg N add an offset of N days to the current date."
 (add-hook 'org-mode-hook
           (lambda ()
             (make-local-variable 'write-file-functions)
-            (add-to-list 'write-file-functions 'kai/org-patch-shadow-file)))
+            (add-to-list 'write-file-functions 'kai/org-patch-shadow-file)
+            (require 'ob-async)))
 
 (setq eww-after-render-hook
       (lambda ()
