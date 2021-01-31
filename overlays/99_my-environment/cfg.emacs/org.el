@@ -15,6 +15,10 @@
           (string-suffix-p "projects.org" f)))
        (org-agenda-files)) . (:level . 1))))
 
+(defun kai/confirm-needed (lang code)
+  (if (seq-contains '("latex") lang)
+      nil
+    t))
 
 (setq
  org-agenda-files '("~/org/" "~/org/imported/" "~/org/shared/")
@@ -36,6 +40,7 @@
         ("t" "Todo" entry (file "~/org/inbox.org")
          "* TODO %?\n%(if (> (length \"%i\") 0) \"  - %i\n\")%(if (> (length \"%a\") 0) \"  - %a\")"))
  org-catch-invisible-edits 'error
+ org-confirm-babel-evaluate 'kai/confirm-needed
  org-default-notes-file "~/org/notes.org"
  org-fontify-done-headline t
  org-msg-default-alternatives '(html text)
@@ -47,6 +52,7 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages '((emacs-lisp . t)
+                             (latex . t)
                              (shell . t)))
 
 (org-link-set-parameters "tel")
