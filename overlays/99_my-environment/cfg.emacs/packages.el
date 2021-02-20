@@ -43,6 +43,7 @@
                              pdf-tools
                              rtags
                              rustic
+                             sly
                              undo-tree
                              weechat
                              which-key
@@ -51,7 +52,8 @@
 
  package-pinned-packages '((bbdb-vcard      . "melpa")
                            (flycheck        . "melpa")
-                           (german-holidays . "melpa")))
+                           (german-holidays . "melpa")
+                           (sly             . "melpa")))
 
 ;; Use the following commands to install the selected packages:
 ;;

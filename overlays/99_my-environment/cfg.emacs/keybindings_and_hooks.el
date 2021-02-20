@@ -69,6 +69,7 @@ With a prefix arg N add an offset of N days to the current date."
 
 ;;;; Hooks ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'eww)
+(add-hook 'after-init-hook         'global-company-mode)
 (add-hook 'server-after-make-frame-hook 'kai/set-active-theme)
 (add-hook 'c++-mode-hook           'rtags-start-process-unless-running)
 (add-hook 'c-mode-hook             'rtags-start-process-unless-running)
@@ -124,6 +125,7 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-x g")   'magit-status)
 (global-set-key (kbd "C-x t")   'toggle-truncate-lines)
 
+(global-set-key (kbd "C-M-i")   'company-complete-common)
 (global-set-key (kbd "M-/")     'hippie-expand)
 (global-set-key (kbd "M-i")     'imenu)
 (global-set-key (kbd "M-j")     'next-multiframe-window)

@@ -27,7 +27,6 @@
 (savehist-mode)
 (set-scroll-bar-mode nil)
 (show-paren-mode)
-(temp-buffer-resize-mode)
 (tool-bar-mode -1)
 (which-key-mode)
 (windmove-default-keybindings)
@@ -104,6 +103,7 @@
  bbdb-vcard-try-merge nil
  browse-url-browser-function 'browse-url-firefox
  browse-url-generic-program "firefox"
+ company-idle-delay nil
  default-input-method "german-postfix"
 
  dired-create-destination-dirs 'ask
