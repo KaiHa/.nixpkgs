@@ -29,7 +29,6 @@
 (show-paren-mode)
 (tool-bar-mode -1)
 (which-key-mode)
-(windmove-default-keybindings)
 (winner-mode)
 
 (let
