@@ -128,8 +128,10 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-M-i")   'company-complete-common)
 (global-set-key (kbd "M-/")     'hippie-expand)
 (global-set-key (kbd "M-i")     'imenu)
-(global-set-key (kbd "M-j")     'next-multiframe-window)
-(global-set-key (kbd "M-k")     'previous-multiframe-window)
+(global-set-key (kbd "C-s-;")   'windmove-right)
+(global-set-key (kbd "C-s-j")   'windmove-left)
+(global-set-key (kbd "C-s-l")   'windmove-up)
+(global-set-key (kbd "C-s-k")   'windmove-down)
 
 (define-key eww-mode-map         (kbd "I")   #'kai/eww-toggle-images)
 (define-key eww-link-keymap      (kbd "I")   #'kai/eww-toggle-images)
