@@ -10,6 +10,7 @@
  package-selected-packages '(bbdb
                              bbdb-vcard
                              bitbake
+                             bpftrace-mode
                              company-ghci
                              csv-mode
                              dictionary
@@ -31,6 +32,7 @@
                              lsp-mode
                              lsp-treemacs
                              lsp-ui
+                             lua-mode
                              magit
                              magit-annex
                              markdown-mode
