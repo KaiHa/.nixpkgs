@@ -144,6 +144,7 @@
  mml-secure-openpgp-sign-with-sender t
  mouse-yank-at-point t
 
+ org-src-window-setup 'current-window
  password-cache-expiry 300
  read-buffer-completion-ignore-case t
  read-file-name-completion-ignore-case t
