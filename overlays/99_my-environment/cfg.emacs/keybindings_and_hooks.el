@@ -79,7 +79,7 @@ With a prefix arg N add an offset of N days to the current date."
 (add-hook 'nxml-mode-hook          'hs-minor-mode)
 (add-hook 'prog-mode-hook          'hs-minor-mode)
 (add-hook 'text-mode-hook          'auto-fill-mode)
-(add-hook 'text-mode-hook          'flyspell-mode)
+(add-hook 'message-mode-hook       'flyspell-mode)
 (add-hook 'pdf-view-mode-hook
 	  (lambda ()
 	    (define-key pdf-view-mode-map    (kbd "C-s") 'isearch-forward-regexp)))
