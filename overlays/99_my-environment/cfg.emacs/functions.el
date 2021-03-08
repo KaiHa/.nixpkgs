@@ -240,3 +240,11 @@ Call `universal-argument' before for different count."
         (message (buffer-string)))))
   ;; This function must return nil! Because it is in the `write-file-functions'.
   nil)
+
+(defun kai/font-big (size)
+  (interactive "P")
+  (set-frame-font (font-spec :family "Fira Code" :size (if size size 20) :weight 'semi-light)))
+
+(defun kai/font-normal ()
+  (interactive)
+  (set-frame-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)))
