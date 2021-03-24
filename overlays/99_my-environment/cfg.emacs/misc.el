@@ -137,6 +137,7 @@
  lsp-ui-doc-position 'top
 
  magit-diff-refine-hunk t
+ magit-log-section-arguments '("-n256" "--decorate" "--graph")
  mailcap-user-mime-data '(((viewer . pdf-view-mode)
                            (type   . "application/pdf"))
                           ((viewer . image-mode)
@@ -185,7 +186,11 @@
 (face-spec-set 'mode-line                '((t (:background "#fbb" :foreground "#2e3436" :box (:line-width 2 :style released-button)))))
 (face-spec-set 'mode-line-inactive       '((t (:background "#888a85" :foreground "#2e3436" :box (:line-width 2 :color "#888a85")))))
 (face-spec-set 'line-number-current-line '((t (:foreground "magenta" :weight bold))))
-(face-spec-set 'region '((t (:background "sky blue" :weight bold))))
-(face-spec-set 'font-lock-comment-face '((t (:slant italic))))
+(face-spec-set 'region                   '((t (:background "sky blue" :weight bold))))
+(face-spec-set 'font-lock-comment-face   '((t (:slant italic))))
+(face-spec-set 'diff-refine-added            '((t (:inherit diff-refine-changed :background "#bbffbb" :foreground "#11aa11" :weight bold))))
+(face-spec-set 'diff-refine-removed          '((t (:inherit diff-refine-changed :background "#ffcccc" :foreground "#aa2222" :weight bold))))
+(face-spec-set 'magit-diff-added-highlight   '((t (:background "#eeffee" :foreground "#22aa22"))))
+(face-spec-set 'magit-diff-removed-highlight '((t (:background "#ffdddd" :foreground "#aa2222"))))
 
 ;; (load-theme 'tango t)
