@@ -1,9 +1,9 @@
-{stdenv, vdirsyncer}:
+{stdenv, vdirsyncerStable}:
 
 stdenv.mkDerivation rec {
   name = "config-vdirsyncer";
 
-  buildInputs = [ vdirsyncer ];
+  buildInputs = [ vdirsyncerStable ];
 
   phases = [ "installPhase" ];
 
@@ -12,6 +12,6 @@ stdenv.mkDerivation rec {
   installPhase = ''
     install -dm 755 $out/target-home/DOT.config/vdirsyncer
     substitute $src/config $out/target-home/DOT.config/vdirsyncer/config \
-               --subst-var-by vdirsyncer ${vdirsyncer}
+               --subst-var-by vdirsyncer ${vdirsyncerStable}
   '';
 }

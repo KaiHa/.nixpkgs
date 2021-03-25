@@ -128,7 +128,7 @@ rec {
       _cfg-notmuch
       _cfg-vdirsyncer
       _cfg-ssh
-      vdirsyncer
+      vdirsyncerStable
     ];
   };
 

@@ -7,7 +7,7 @@ status_path = "~/.config/vdirsyncer/status/"
 a = "contacts_posteo_local"
 b = "contacts_posteo"
 collections = ["from a", "from b"]
-conflict_resolution = ["command", "emacs", "-diff"]
+conflict_resolution = "b wins"
 
 [storage contacts_posteo_local]
 type = "filesystem"
@@ -24,6 +24,7 @@ password.fetch = ["command", "pass", "www/posteo.de"]
 a = "calendar_posteo_local"
 b = "calendar_posteo"
 collections = ["from a", "from b"]
+conflict_resolution = "b wins"
 
 [storage calendar_posteo_local]
 type = "filesystem"
@@ -40,7 +41,7 @@ password.fetch = ["command", "pass", "www/posteo.de"]
 a = "contacts_hansea_local"
 b = "contacts_hansea"
 collections = ["from a", "from b"]
-conflict_resolution = ["command", "emacs", "-diff"]
+conflict_resolution = "b wins"
 
 [storage contacts_hansea_local]
 type = "filesystem"
