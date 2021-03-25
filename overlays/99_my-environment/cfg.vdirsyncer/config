@@ -35,3 +35,20 @@ type = "caldav"
 url = "https://posteo.de:8443/calendars/kai.harries/"
 username = "kai.harries"
 password.fetch = ["command", "pass", "www/posteo.de"]
+
+[pair hansea_contacts]
+a = "contacts_hansea_local"
+b = "contacts_hansea"
+collections = ["from a", "from b"]
+conflict_resolution = ["command", "emacs", "-diff"]
+
+[storage contacts_hansea_local]
+type = "filesystem"
+path = "~/.contacts.hansea/"
+fileext = ".vcf"
+
+[storage contacts_hansea]
+type = "carddav"
+url = "https://nx17015.your-storageshare.de/"
+username = "Zwirbel"
+password.fetch = ["command", "pass", "www/nx17015.your-storageshare.de/Zwirbel-nix230"]
