@@ -144,7 +144,6 @@ rec {
       libreoffice
       manpages
       pianobooster
-      signal-cli
       signal-desktop
       squashfsTools
     ];
