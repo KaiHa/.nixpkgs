@@ -2,13 +2,6 @@ self: super:
 rec {
   diffoscope = super.diffoscope.override { enableBloat = false; };
 
-  emacs = super.emacsWithPackages (p:
-    [ self.ghostscript
-      self.pinentry-emacs
-      self.poppler_utils
-      p.org-pdftools
-      p.pdf-tools
-    ]);
 
   mytexlive = super.texlive.combine {
     inherit (super.texlive) capt-of enumitem lastpage scheme-medium fontawesome moderncv sectsty wrapfig xcolor-solarized;
@@ -61,7 +54,6 @@ rec {
       aescrypt
       alacritty
       dejavu_fonts
-      emacs
       gitAndTools.git-annex
       gitRepo
       hack-font
