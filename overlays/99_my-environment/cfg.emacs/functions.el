@@ -214,21 +214,21 @@ Call `universal-argument' before for different count."
         (message "kai/org-fetch-shadow-files: you have unstaged changes in %s" default-directory)
       (seq-do (lambda (f)
                 (copy-file f
-                           (s-replace "/var/lib/syncthing/org-files/"
+                           (s-replace "/home/kai/.org-files/"
                                       "./"
                                       (s-replace "/var/lib/syncthing/nina-kai/"
                                                  "./shared/"
                                                  f))
                            t))
               (cl-concatenate 'list
-                              (file-expand-wildcards "/var/lib/syncthing/org-files/*.org")
+                              (file-expand-wildcards "/home/kai/.org-files/*.org")
                               (file-expand-wildcards "/var/lib/syncthing/nina-kai/*.org"))))))
 
 (defun kai/org-patch-shadow-file ()
   "Patch the shadow file."
   (let* ((patch-file (make-temp-file "owh-"))
          (shadow-file (s-replace (expand-file-name "~/org/")
-                                 "/var/lib/syncthing/org-files/"
+                                 "/home/kai/.org-files/"
                                  (s-replace (expand-file-name "~/org/shared/")
                                             "/var/lib/syncthing/nina-kai/"
                                             (buffer-file-name))))
