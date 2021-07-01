@@ -113,7 +113,7 @@ With a prefix arg N add an offset of N days to the current date."
 (global-set-key (kbd "C-c d e") 'ispell-select-dict-en_us)
 (global-set-key (kbd "C-c l")   'org-store-link)
 (global-set-key (kbd "C-c L")   'org-insert-link-global)
-(global-set-key (kbd "C-c n")   'line-number-relative-toggle)
+(global-set-key (kbd "C-c N")   'line-number-relative-toggle)
 (global-set-key (kbd "C-c o")   'org-open-at-point-global)
 (global-set-key (kbd "C-c p")   'ivy-pass)
 (global-set-key (kbd "C-c s")   'swiper)

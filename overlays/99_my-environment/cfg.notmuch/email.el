@@ -17,7 +17,7 @@
 
 
 ;;;; Key bindings
-(global-set-key (kbd "C-x n")   'notmuch)
+(global-set-key (kbd "C-c n")   'notmuch)
 
 (define-key notmuch-hello-mode-map   (kbd "g") 'notmuch-refresh-this-buffer)
 (define-key notmuch-message-mode-map (kbd "<M-tab>") 'notmuch-company)
